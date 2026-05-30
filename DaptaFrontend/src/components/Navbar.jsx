@@ -44,7 +44,6 @@ function Navbar() {
                 {
                     name: "Activities",
                     path: "/activities/all",
-                    // Deep nested items added here
                     subsubmenu: [
                         { name: "Health and Wellbeing", path: "/activities/all/health" },
                         { name: "Women’s Participation, ownership to Land and resources, and Governance", path: "/activities/all/womens-governance" },
@@ -98,7 +97,6 @@ function Navbar() {
                 {
                     name: "Photo Gallery",
                     path: "/gallery/photos",
-                    // Deep nested items accurately extracted from your layout image:
                     subsubmenu: [
                         { name: "Community Interactions", path: "/gallery/photos/community" },
                         { name: "Events", path: "/gallery/photos/events" },
@@ -135,16 +133,16 @@ function Navbar() {
 
     const toggleMobileSubmenu = (index) => {
         setActiveMobileSubmenu(activeMobileSubmenu === index ? null : index);
-        setActiveMobileSubSubmenu(null); // Reset deep layers on outer switch
+        setActiveMobileSubSubmenu(null);
     };
 
-    const toggleMobileSubSubmenu = (subIndex) => {
-        setActiveMobileSubSubmenu(activeMobileSubSubmenu === subIndex ? null : subIndex);
+    const toggleMobileSubSubmenu = (combinedIndex) => {
+        setActiveMobileSubSubmenu(activeMobileSubSubmenu === combinedIndex ? null : combinedIndex);
     };
 
     return (
-        <header className="w-full bg-white shadow-sm border-b border-gray-100 relative z-50">
-            <div className="px-4 py-3 flex items-center justify-between gap-8 ">
+        <header className="w-full bg-white shadow-sm border-b border-gray-100 fixed top-0 z-50">
+            <div className="px-4 py-3 flex items-center justify-between gap-8">
 
                 {/* LOGO SECTION */}
                 <div className="flex items-center gap-3 ml-0 shrink-0">
@@ -214,7 +212,7 @@ function Navbar() {
                                                     {subItem.subsubmenu && <FaChevronRight className="text-[10px] text-gray-400 group-hover/sub:text-sky-600" />}
                                                 </NavLink>
 
-                                                {/* LEVEL 3: Desktop Flyout Subsubmenu (Opens to the right side) */}
+                                                {/* LEVEL 3: Desktop Flyout Subsubmenu */}
                                                 {subItem.subsubmenu && (
                                                     <div className="absolute left-full top-0 ml-0.5 w-72 bg-white border border-gray-100 rounded-lg shadow-xl py-2 opacity-0 scale-95 invisible group-hover/sub:opacity-100 group-hover/sub:scale-100 group-hover/sub:visible transition-all duration-150 origin-top-left z-50">
                                                         {subItem.subsubmenu.map((deepItem, deepIndex) => (
@@ -238,7 +236,6 @@ function Navbar() {
                             </div>
                         ))}
                     </nav>
-
                 </div>
 
                 {/* MOBILE HAMBURGER BUTTON */}
@@ -251,7 +248,6 @@ function Navbar() {
                         {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
                     </button>
                 </div>
-
             </div>
 
             {/* MOBILE DRAWER OVERLAY */}
@@ -260,7 +256,6 @@ function Navbar() {
                     }`}
             >
                 <div className="px-5 py-4 flex flex-col gap-6 max-h-[80vh] overflow-y-auto">
-
                     {/* Mobile Navigation List */}
                     <nav className="flex flex-col gap-1">
                         {menuData.map((item, index) => (
@@ -277,53 +272,55 @@ function Navbar() {
                                         </button>
 
                                         {/* LEVEL 2 Accordion Container */}
-                                        <div className={`overflow-hidden transition-all duration-300 ${activeMobileSubmenu === index ? 'max-h-[600px] opacity-100 mt-1 mb-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+                                        <div className={`overflow-hidden transition-all duration-300 ${activeMobileSubmenu === index ? 'max-h-[1000px] opacity-100 mt-1 mb-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                                             <div className="bg-gray-50 rounded-lg p-2 flex flex-col gap-1">
-                                                {item.submenu.map((subItem, subIndex) => (
-                                                    <div key={subIndex}>
-                                                        {subItem.subsubmenu ? (
-                                                            <div>
-                                                                {/* LEVEL 2 Mobile Toggle Header with Nested Items */}
-                                                                <button
-                                                                    onClick={() => toggleMobileSubmenu(subIndex)} // Unique control string can also be mapped
-                                                                    onClick={(e) => {
-                                                                        e.stopPropagation();
-                                                                        toggleMobileSubSubmenu(subIndex);
-                                                                    }}
-                                                                    className="w-full flex items-center justify-between py-2 px-2 text-sm font-semibold text-gray-600 hover:text-sky-600 focus:outline-none"
-                                                                >
-                                                                    <span>{subItem.name}</span>
-                                                                    <FaChevronDown className={`text-[10px] text-gray-400 transition-transform duration-200 ${activeMobileSubSubmenu === subIndex ? 'rotate-180 text-sky-500' : ''}`} />
-                                                                </button>
+                                                {item.submenu.map((subItem, subIndex) => {
+                                                    const combinedKey = `${index}-${subIndex}`;
+                                                    return (
+                                                        <div key={subIndex}>
+                                                            {subItem.subsubmenu ? (
+                                                                <div>
+                                                                    {/* LEVEL 2 Mobile Toggle Header with Nested Items */}
+                                                                    <button
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            toggleMobileSubSubmenu(combinedKey);
+                                                                        }}
+                                                                        className="w-full flex items-center justify-between py-2 px-2 text-sm font-semibold text-gray-600 hover:text-sky-600 focus:outline-none"
+                                                                    >
+                                                                        <span>{subItem.name}</span>
+                                                                        <FaChevronDown className={`text-[10px] text-gray-400 transition-transform duration-200 ${activeMobileSubSubmenu === combinedKey ? 'rotate-180 text-sky-500' : ''}`} />
+                                                                    </button>
 
-                                                                {/* LEVEL 3 Accordion Container */}
-                                                                <div className={`overflow-hidden transition-all duration-200 ${activeMobileSubSubmenu === subIndex ? 'max-h-60 opacity-100 mt-0.5 mb-1' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-                                                                    <div className="bg-white border border-gray-100 rounded-md p-1 pl-3 flex flex-col gap-0.5">
-                                                                        {subItem.subsubmenu.map((deepItem, deepIndex) => (
-                                                                            <NavLink
-                                                                                key={deepIndex}
-                                                                                to={deepItem.path}
-                                                                                className={mobileNavLinkStyles}
-                                                                                onClick={handleMobileClose}
-                                                                            >
-                                                                                {deepItem.name}
-                                                                            </NavLink>
-                                                                        ))}
+                                                                    {/* LEVEL 3 Accordion Container */}
+                                                                    <div className={`overflow-hidden transition-all duration-200 ${activeMobileSubSubmenu === combinedKey ? 'max-h-[500px] opacity-100 mt-0.5 mb-1' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+                                                                        <div className="bg-white border border-gray-100 rounded-md p-1 pl-3 flex flex-col gap-0.5">
+                                                                            {subItem.subsubmenu.map((deepItem, deepIndex) => (
+                                                                                <NavLink
+                                                                                    key={deepIndex}
+                                                                                    to={deepItem.path}
+                                                                                    className={mobileNavLinkStyles}
+                                                                                    onClick={handleMobileClose}
+                                                                                >
+                                                                                    {deepItem.name}
+                                                                                </NavLink>
+                                                                            ))}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        ) : (
-                                                            /* Standard Second Level Mobile Link */
-                                                            <NavLink
-                                                                to={subItem.path}
-                                                                className="text-sm font-semibold py-2 px-2 transition-colors duration-200 block text-gray-600 hover:text-sky-600"
-                                                                onClick={handleMobileClose}
-                                                            >
-                                                                {subItem.name}
-                                                            </NavLink>
-                                                        )}
-                                                    </div>
-                                                ))}
+                                                            ) : (
+                                                                /* Standard Second Level Mobile Link */
+                                                                <NavLink
+                                                                    to={subItem.path}
+                                                                    className="text-sm font-semibold py-2 px-2 transition-colors duration-200 block text-gray-600 hover:text-sky-600"
+                                                                    onClick={handleMobileClose}
+                                                                >
+                                                                    {subItem.name}
+                                                                </NavLink>
+                                                            )}
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
                                     </div>
@@ -365,7 +362,6 @@ function Navbar() {
                             </NavLink>
                         </div>
                     </div>
-
                 </div>
             </div>
         </header>
