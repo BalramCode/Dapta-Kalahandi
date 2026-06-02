@@ -354,7 +354,7 @@ function Navbar() {
                                 <NavLink to="/youtube" className={socialLinkStyles} onClick={handleMobileClose} aria-label="Youtube"><FaYoutube size={20} /></NavLink>
                             </div>
 
-                            <NavLink to="/donate" onClick={handleMobileClose}>
+                            <NavLink to="/get-involved/donation-info" onClick={handleMobileClose}>
                                 <button className="flex items-center gap-2 bg-sky-500 text-white font-semibold py-2.5 px-6 rounded-full shadow text-sm">
                                     <FaHeart size={14} />
                                     <span>Donate Us</span>

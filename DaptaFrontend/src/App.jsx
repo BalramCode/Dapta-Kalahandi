@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/Layout'; 
+import Layout from './components/Layout';
 import HomeLayout from './components/Home/HomeLayout';
 
 // --- ABOUT IMPORTS ---
@@ -8,7 +8,7 @@ import AboutUs from './components/About/AboutUs';
 import FounderNote from './components/About/FounderNote';
 import GovernmentBody from './components/About/GovernmentBody';
 import LegalDocument from './components/About/LegalDocument';
-import OrganizasionalProfit from './components/About/OrganizasionalProfit'; 
+import OrganizasionalProfit from './components/About/OrganizasionalProfit';
 import Organogram from './components/About/Organogram';
 import StrategyAndRoadmap from './components/About/StrategyAndRoadmap';
 
@@ -61,10 +61,10 @@ function App() {
     <Routes>
       {/* Shared Layout Framework */}
       <Route path="/" element={<Layout />}>
-        
+
         {/* Index Page */}
-        <Route index element={<HomeLayout />} /> 
-        
+        <Route index element={<HomeLayout />} />
+
         {/* ================= ABOUT ROUTES ================= */}
         <Route path="about" element={<AboutLayout />}>
           <Route index element={<Navigate to="about-us" replace />} />
@@ -80,7 +80,7 @@ function App() {
         {/* ================= ACTIVITIES ROUTES ================= */}
         <Route path="activities">
           <Route index element={<Navigate to="all" replace />} />
-          
+
           {/* Level 3 deep nested sub-routes under /activities/all/* */}
           <Route path="all">
             <Route index element={<Navigate to="health" replace />} />
@@ -92,22 +92,28 @@ function App() {
             <Route path="disaster-inclusion" element={<DisasterManagement />} />
             <Route path="networking-capacity" element={<NetworkingAndCapacityBuilding />} />
           </Route>
-          
+
           <Route path="highlights" element={<ExperienceAndHighlights />} />
         </Route>
 
         {/* ================= REPORTS & REFLECTIONS ROUTES ================= */}
         <Route path="reports">
-          <Route index element={<Placeholder title="Reports Overview" />} />
-          
+          {/* Scenario 1: Clicking the parent "/reports" redirects to the active sub-route */}
+          <Route index element={<Navigate to="all/annual" replace />} />
+
           {/* Reports dropdown block (/reports/all/*) */}
           <Route path="all">
+            {/* Scenario 2: Clicking "/reports/all" also falls back straight to annual */}
+            <Route index element={<Navigate to="annual" replace />} />
+
             <Route path="annual" element={<AnnualReport />} />
             <Route path="financial" element={<FinancialReport />} />
           </Route>
 
           {/* Impact dropdown block (/reports/impact/*) */}
           <Route path="impact">
+            <Route index element={<Navigate to="case-studies" replace />} />
+
             <Route path="case-studies" element={<CaseStudies />} />
             <Route path="publications" element={<Publications />} />
             <Route path="learning" element={<Learning />} />
@@ -126,7 +132,7 @@ function App() {
         {/* ================= GALLERY ROUTES ================= */}
         <Route path="gallery">
           <Route index element={<Placeholder title="Gallery Overview" />} />
-          
+
           {/* Photo Gallery Layout Categories (/gallery/photos/*) */}
           <Route path="photos">
             <Route path="community" element={<CommunityInteractions />} />
