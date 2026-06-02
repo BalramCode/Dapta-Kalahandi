@@ -31,7 +31,7 @@ const MissionVisionObjective = () => {
           <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
-      isFeatured: true, // This adds the orange underline visible on the center card
+      isFeatured: false, // This adds the orange underline visible on the center card
     },
     {
       id: 'objective',
@@ -68,7 +68,7 @@ const MissionVisionObjective = () => {
         {cards.map((card) => (
           <div
             key={card.id}
-            className={`bg-white px-6 py-10 flex flex-col items-center text-center shadow-md transition-transform duration-300 hover:-translate-y-1 relative ${
+            className={`bg-white px-6 py-10 flex flex-col items-center hover:border-b-4 border-[#F4A261] text-center shadow-md transition-transform duration-300 hover:-translate-y-1 relative ${
               card.isFeatured ? 'border-b-4 border-[#F4A261]' : ''
             }`}
           >
@@ -83,7 +83,7 @@ const MissionVisionObjective = () => {
             </h3>
 
             {/* Card Description */}
-            <p className="text-[#718096] text-sm leading-relaxed max-w-[250px] mb-6 min-h-[48px]">
+            <p className="text-[#494949] text-sm leading-relaxed max-w-[250px] mb-6 min-h-[48px]">
               {card.text}
             </p>
 

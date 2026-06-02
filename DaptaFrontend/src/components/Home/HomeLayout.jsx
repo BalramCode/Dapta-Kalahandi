@@ -24,7 +24,7 @@ const HomeLayout = () => {
       <ReportsAndReflections />
       <LatestUpdates />
       <AwardsAndRecognitions />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -33,7 +33,7 @@ function Navbar() {
                 { name: "Governing Body", path: "/about/governing-body" },
                 { name: "Organogram", path: "/about/organogram" },
                 { name: "Legal Document", path: "/about/legal-documents" },
-                { name: "Strategy Roadmap", path: "/about/roadmap" },
+                { name: "Strategy And Roadmap", path: "/about/roadmap" },
                 { name: "Founder Notes", path: "/about/founder-notes" },
             ]
         },

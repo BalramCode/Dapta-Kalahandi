@@ -1,16 +1,151 @@
-# React + Vite
+# Dapta Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dapta Frontend is a React single-page application built with Vite. It defines the public website interface for Dapta, including the home page, about pages, activity sections, reports and reflections, gallery pages, get-involved pages, and contact routing.
 
-Currently, two official plugins are available:
+The app uses React Router for page navigation, Tailwind CSS for styling, and shared layout components for the navbar, main content area, and footer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19
+- Vite 8
+- React Router DOM 7
+- Tailwind CSS 4
+- Lucide React and React Icons
+- ESLint
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+Install dependencies:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+Run lint checks:
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```text
+DaptaFrontend/
+|-- public/                         # Static public assets served by Vite
+|-- src/
+|   |-- assets/                     # General bundled assets
+|   |   |-- hero.png
+|   |   |-- react.svg
+|   |   `-- vite.svg
+|   |-- components/
+|   |   |-- About/                  # About section pages and nested layout
+|   |   |   |-- AboutLayout.jsx
+|   |   |   |-- AboutUs.jsx
+|   |   |   |-- FounderNote.jsx
+|   |   |   |-- GovernmentBody.jsx
+|   |   |   |-- LegalDocument.jsx
+|   |   |   |-- OrganizasionalProfit.jsx
+|   |   |   |-- Organogram.jsx
+|   |   |   `-- StrategyAndRoadmap.jsx
+|   |   |-- Activities/             # Activity pages and category pages
+|   |   |   |-- Activities/
+|   |   |   |   |-- DisasterManagement.jsx
+|   |   |   |   |-- EducationAndChildDevelopment.jsx
+|   |   |   |   |-- EnvironmentalSustainability.jsx
+|   |   |   |   |-- HealthAndWellbeing.jsx
+|   |   |   |   |-- NetworkingAndCapacityBuilding.jsx
+|   |   |   |   |-- SustainableManagement.jsx
+|   |   |   |   `-- WomenParticipation.jsx
+|   |   |   `-- ExperienceAndHighlights.jsx
+|   |   |-- Gallery/                # Gallery pages
+|   |   |   |-- PhotoGallery/
+|   |   |   |-- SocialMedia.jsx
+|   |   |   `-- VideoGallery.jsx
+|   |   |-- GetInvolved/            # Donation, partnership, and volunteer pages
+|   |   |-- Home/                   # Home page sections
+|   |   |-- ReportsAndReflections/  # Report and impact insight pages
+|   |   |-- Contact.jsx
+|   |   |-- Footer.jsx
+|   |   |-- Layout.jsx              # Shared page wrapper with navbar, outlet, footer
+|   |   `-- Navbar.jsx
+|   |-- img/                        # Website image assets
+|   |-- App.css
+|   |-- App.jsx                     # Main route configuration
+|   |-- index.css
+|   `-- main.jsx                    # React app entry point
+|-- eslint.config.js                # ESLint configuration
+|-- index.html                      # Vite HTML entry file
+|-- package.json                    # Scripts and dependencies
+|-- package-lock.json
+|-- vite.config.js                  # Vite, React, and Tailwind plugin setup
+`-- README.md
+```
+
+## Main Routes
+
+Routes are configured in `src/App.jsx` and rendered inside the shared `Layout` component.
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Home page |
+| `/about/about-us` | About Dapta |
+| `/about/profile` | Organizational profile |
+| `/about/governing-body` | Governing body |
+| `/about/organogram` | Organogram |
+| `/about/legal-documents` | Legal documents |
+| `/about/roadmap` | Strategy and roadmap |
+| `/about/founder-notes` | Founder note |
+| `/activities/all` | Activities overview |
+| `/activities/highlights` | Experience and highlights |
+| `/reports` | Reports overview |
+| `/reports/all/annual` | Annual report |
+| `/reports/all/financial` | Financial report |
+| `/reports/impact/case-studies` | Case studies |
+| `/reports/impact/publications` | Publications |
+| `/reports/impact/learning` | Learning |
+| `/reports/impact/testimonials` | Testimonials |
+| `/get-involved` | Get involved overview |
+| `/get-involved/volunteer` | Volunteer opportunities |
+| `/get-involved/partnership` | Partnership |
+| `/get-involved/donation-info` | Donation information |
+| `/gallery` | Gallery overview |
+| `/gallery/photos/...` | Photo gallery categories |
+| `/gallery/videos` | Video gallery |
+| `/gallery/social` | Social media |
+| `/contact` | Contact page |
+
+Some routes currently render placeholder content until their final page components are connected.
+
+## Application Flow
+
+1. `src/main.jsx` mounts the React app into `index.html`.
+2. `BrowserRouter` enables client-side routing.
+3. `src/App.jsx` defines the route tree.
+4. `src/components/Layout.jsx` wraps all pages with the shared `Navbar`, dynamic `Outlet`, and `Footer`.
+5. Page-specific components live under `src/components/` by website section.
+
+## Development Notes
+
+- Add new pages inside the relevant section folder under `src/components/`.
+- Register new routes in `src/App.jsx`.
+- Place reusable layout-level UI in `src/components/`.
+- Place image files in `src/img/` or `src/assets/` depending on how they are imported and used.
+- Keep route paths and navbar links in sync when adding or renaming pages.
