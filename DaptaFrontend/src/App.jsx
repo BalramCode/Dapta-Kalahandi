@@ -131,18 +131,20 @@ function App() {
 
         {/* ================= GALLERY ROUTES ================= */}
         <Route path="gallery">
-          <Route index element={<Placeholder title="Gallery Overview" />} />
+          <Route index element={<Navigate to="photos/community" replace/>} />
 
           {/* Photo Gallery Layout Categories (/gallery/photos/*) */}
           <Route path="photos">
+            <Route index element={<Navigate to="community" replace />} />
+
             <Route path="community" element={<CommunityInteractions />} />
             <Route path="events" element={<EventsPhotos />} />
             <Route path="activities" element={<ActivitiesPhotos />} />
-            <Route path="other" element={<OtherPhotos />} />
             <Route path="awards-certificates" element={<AwardsCertificates />} />
             <Route path="club" element={<ClubPhotos />} />
             <Route path="health" element={<HealthPhotos />} />
             <Route path="education" element={<EducationPhotos />} />
+            <Route path="other" element={<OtherPhotos />} />
           </Route>
 
           <Route path="videos" element={<VideoGallery />} />

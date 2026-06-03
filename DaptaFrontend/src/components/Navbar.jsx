@@ -178,7 +178,7 @@ function Navbar() {
                                 <NavLink to="/youtube" className={socialLinkStyles} aria-label="Youtube"><FaYoutube size={18} /></NavLink>
                             </nav>
 
-                            <NavLink to="/donate">
+                            <NavLink to="/get-involved/donation-info">
                                 <button className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow transition-all duration-200 transform hover:-translate-y-0.5 text-sm">
                                     <FaHeart size={14} />
                                     <span>Donate Us</span>
