@@ -15,10 +15,10 @@ const HomeLayout = () => {
   return (
     <>
       <HeroPage />
-      <Advertisement />
       <DaptaGlance />
       <MissionVisionObjective />
       <DaptaMarch />
+      <Advertisement />
       <OperationalArea />
       <OurActivity />
       <ReportsAndReflections />

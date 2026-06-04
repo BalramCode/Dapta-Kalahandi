@@ -1,131 +1,120 @@
 import React, { useState } from 'react';
 import heroImg1 from "../../img/heroimg1.png";
-// Explicitly referencing your file parameter for consistency
+
 const mapAsset = "image_2e78dd.jpg"; 
 
 const OperationalAreas = () => {
-  // Track which district is currently hovered
-  const [activeDistrict, setActiveDistrict] = useState(null);
+  // We keep tracking simple: clicking a district pulls its data into view immediately.
+  // We default to the first district so the screen is never blank or confusing.
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const districts = [
-    'Kalahandi',
-    'Kandhamal',
-    'Nuapada',
-    'Bolangir',
-    'Koraput',
-    'Keonjhar'
+  const districtsData = [
+    { name: 'Kalahandi', projects: '14 Units', families: '4,200 Families', focus: 'Water Harvesting & Rights' },
+    { name: 'Kandhamal', projects: '9 Units', families: '2,800 Families', focus: 'Tribal Agro-forestry' },
+    { name: 'Nuapada', projects: '11 Units', families: '3,100 Families', focus: 'Migrant Labor Support' },
+    { name: 'Bolangir', projects: '16 Units', families: '5,400 Families', focus: 'Socio-economic Lift' },
+    { name: 'Koraput', projects: '12 Units', families: '3,900 Families', focus: 'Maternal Nutrition' },
+    { name: 'Keonjhar', projects: '8 Units', families: '2,100 Families', focus: 'Child Rights & Schooling' }
   ];
 
+  const currentData = districtsData[selectedIndex];
+
   return (
-    <div className="w-full bg-white font-sans overflow-hidden select-none">
+    <div className="w-full min-h-screen bg-[#F9F6F0] font-sans flex flex-col justify-between text-slate-900">
       
-      {/* Top Banner with Tribal Art Pattern Background */}
+      {/* 1. Header Banner - Plain, Bold, High Contrast */}
       <div 
-        className="relative w-full h-[180px] md:h-[220px] flex flex-col items-center justify-center text-center px-4"
+        className="w-full h-60 py-8 md:py-12 text-center px-4 border-b-4 border-[#8E5A3E]"
         style={{
-          backgroundImage: `linear-gradient(rgba(54, 38, 32, 0.88), rgba(54, 38, 32, 0.88)), url(${heroImg1})`,
-          backgroundSize: '100% 100%',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat'
+          backgroundImage: `linear-gradient(rgba(54, 38, 32, 0.90), rgba(54, 38, 32, 0.90)), url(${heroImg1})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
       >
-        {/* Banner Heading Text */}
-        <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-light tracking-wide max-w-2xl leading-snug">
-          An interactive <br className="sm:hidden" />
-          <span className="font-normal">map highlighting </span>
-          <span className="text-[#E76F51] font-normal">operational areas</span>
+        <h2 className="text-white text-2xl md:text-4xl font-bold tracking-wide">
+          Where We Work (Our Operational Areas)
         </h2>
-
-        {/* Floating White Tab ("Where we Work?") */}
-        <div className="absolute bottom-0 left-[10%] md:left-[22%] translate-y-0 bg-white px-8 py-3.5 shadow-sm border-t border-x border-gray-100 rounded-t-sm hidden sm:block">
-          <span className="text-[#1A2E40] text-sm font-bold tracking-wider whitespace-nowrap">
-            Where we Work?
-          </span>
-        </div>
+        <p className="text-amber-200 text-sm md:text-base mt-2 max-w-xl mx-auto font-medium">
+          Click on any district button below to see our work and details.
+        </p>
       </div>
 
-      {/* Under-Banner Accent Line Structure */}
-      <div className="w-full h-1.5 bg-[#8E5A3E] opacity-90"></div>
-
-      {/* Bottom Main Content Block */}
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center min-h-[350px]">
+      {/* 2. Main Work Layout - Responsive & Accessible Grid */}
+      <div className="max-w-6xl mx-auto w-full px-4 py-6 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start flex-1">
         
-        {/* Left Side Column: Interactive Text & List */}
-        <div className="md:col-span-6 flex flex-col items-center text-center md:items-end md:text-right md:pr-12 lg:pr-20">
-          <h3 className="text-xl md:text-2xl font-normal text-[#4A4A4A] mb-5 tracking-wide">
-            Operational Areas
-          </h3>
+        {/* Left Hand: District Choice Buttons */}
+        <div className="lg:col-span-5 space-y-4">
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+            Select Your District:
+          </label>
           
-          <ul className="space-y-3 w-full max-w-[200px] md:max-w-none">
-            {districts.map((district, idx) => {
-              const isSelected = activeDistrict === idx;
+          {/* Big buttons that are easy to press with a thumb or finger */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5">
+            {districtsData.map((district, idx) => {
+              const isSelected = idx === selectedIndex;
               return (
-                <li 
-                  key={idx} 
-                  onMouseEnter={() => setActiveDistrict(idx)}
-                  onMouseLeave={() => setActiveDistrict(null)}
-                  className={`text-[15px] md:text-base tracking-wide transition-all duration-200 cursor-pointer flex items-center justify-center md:justify-end gap-2 group`}
+                <button
+                  key={idx}
+                  onClick={() => setSelectedIndex(idx)}
+                  className={`w-full text-left px-5 py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-150 flex items-center justify-between border-2 outline-none
+                    ${isSelected 
+                      ? 'bg-[#1A2E40] border-[#1A2E40] text-white shadow-md' 
+                      : 'bg-white border-slate-300 text-slate-800 hover:border-slate-400 active:bg-slate-100'}`}
                 >
-                  {/* Subtle left-pointing indicator that fades in on hover */}
-                  <span className={`w-1.5 h-1.5 rounded-full bg-[#E76F51] transition-all duration-300 transform ${
-                    isSelected ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-50 translate-x-2'
-                  }`} />
+                  <span>{district.name}</span>
                   
-                  <span className={`transition-colors duration-200 font-medium ${
-                    isSelected ? 'text-[#E76F51] font-semibold scale-105' : 'text-[#888888] font-light'
-                  }`}>
-                    {district}
+                  {/* Big clear radio-dot indicator */}
+                  <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center
+                    ${isSelected ? 'border-amber-400 bg-amber-400' : 'border-slate-400 bg-white'}`}>
+                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#1A2E40]" />}
                   </span>
-                </li>
+                </button>
               );
             })}
-          </ul>
+          </div>
         </div>
 
-        {/* Right Side Column: Interactive Map Graphic Wrapper */}
-        <div className="md:col-span-6 flex justify-center md:justify-start md:pl-4">
-          <div className="relative max-w-[280px] md:max-w-[320px]">
+        {/* Right Hand: Clear Information Display Card & Map Reference */}
+        <div className="lg:col-span-7 space-y-6">
+          
+          {/* Information Display Panel */}
+          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm">
+            <span className="text-xs font-bold text-[#E76F51] tracking-widest uppercase block mb-1">
+              District Information Box
+            </span>
+            <h3 className="text-2xl md:text-3xl font-black text-slate-800 border-b pb-3 border-slate-100">
+              {currentData.name} Region
+            </h3>
             
-            {/* Dynamic floating badge mimicking a real map popup tooltip */}
-            <div className={`absolute -top-6 left-1/2 -translate-x-1/2 bg-[#1A2E40] text-white text-xs px-3 py-1 rounded-md shadow-md transition-all duration-300 z-20 whitespace-nowrap pointer-events-none ${
-              activeDistrict !== null ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-2 scale-95'
-            }`}>
-              {activeDistrict !== null ? `${districts[activeDistrict]} Region` : ''}
-              {/* Tooltip little arrow tip */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1A2E40]" />
+            {/* Clean Data Points List */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              <div className="bg-[#F9F6F0] p-4 rounded-xl">
+                <span className="text-xs font-semibold text-slate-500 uppercase block">Main Project Focus</span>
+                <span className="text-base md:text-lg font-bold text-slate-800 block mt-0.5">{currentData.focus}</span>
+              </div>
+
+              <div className="bg-[#F9F6F0] p-4 rounded-xl">
+                <span className="text-xs font-semibold text-slate-500 uppercase block">Total Impact Scope</span>
+                <span className="text-base md:text-lg font-bold text-slate-800 block mt-0.5">{currentData.families}</span>
+              </div>
+
+              <div className="bg-[#F9F6F0] p-4 rounded-xl sm:col-span-2">
+                <span className="text-xs font-semibold text-slate-500 uppercase block">Active Working Centres</span>
+                <span className="text-base md:text-lg font-bold text-slate-800 block mt-0.5">{currentData.projects} active across villages</span>
+              </div>
             </div>
-
-            {/* Interactive Image Frame */}
-            <div 
-              className={`relative overflow-hidden transition-all duration-500 rounded-lg bg-white ${
-                activeDistrict !== null 
-                  ? 'drop-shadow-[0_20px_25px_rgba(231,111,81,0.25)] scale-[1.03]' 
-                  : 'drop-shadow-[0_10px_15px_rgba(0,0,0,0.15)]'
-              }`}
-            >
-              {/* Map Illustration Render Layer using the explicit map asset */}
-              <img 
-                src={mapAsset}
-                alt="Operational Region Map Representation" 
-                className={`w-full h-auto object-contain block transition-all duration-500 ${
-                  activeDistrict !== null ? 'brightness-[1.02] contrast-[1.05]' : 'brightness-100'
-                }`}
-              />
-
-              {/* Dynamic Overlay Radial Pulse to fake a highlight coordinate location zone */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-tr from-[#E76F51]/10 to-transparent pointer-events-none transition-opacity duration-300 ${
-                  activeDistrict !== null ? 'opacity-100' : 'opacity-0'
-                }`} 
-              />
-            </div>
-
-            {/* Subtle sub-caption instructing users */}
-            <p className="text-center text-[11px] text-gray-400 mt-3 font-light tracking-wide italic">
-              Hover over the list items to scan working zones
-            </p>
-
           </div>
+
+          {/* Static Map Graphic Display for Reference */}
+          <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm text-center">
+            <span className="text-xs font-medium text-slate-400 block mb-2">Regional Map View</span>
+            <img 
+              src={mapAsset}
+              alt="Operational Region Map Representation" 
+              className="max-h-[260px] mx-auto object-contain block opacity-90"
+            />
+          </div>
+
         </div>
 
       </div>

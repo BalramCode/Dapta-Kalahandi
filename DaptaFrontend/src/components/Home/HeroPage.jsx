@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 
-// 1. Correct the imports to map to your actual asset files
-import heroImg1 from "../../img/heroimg1.png";
-import heroImg2 from "../../img/heroimg2.png";
-import heroImg3 from "../../img/heroimg4.png";
-import heroImg4 from "../../img/heroimg3.png";
-
 function Hero() {
-  const images = [heroImg1, heroImg2, heroImg3, heroImg4];
+  // Swapped local imports for beautiful placeholder images fitting the theme
+  const images = [
+    "https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1200&auto=format&fit=crop", // Serene nature sunlight
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop", // Majestic peaceful mountains
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop", // Calm ocean horizon
+    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1200&auto=format&fit=crop"  // Deep misty woods
+  ];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
