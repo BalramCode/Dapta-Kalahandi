@@ -1,27 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import {
     FaPhoneAlt,
     FaEnvelope,
-    FaFacebookF,
-    FaInstagram,
-    FaTwitter,
-    FaYoutube,
-    FaHeart,
     FaChevronDown,
-    FaChevronRight
+    FaChevronRight,
+    FaFacebookF,
+    FaTwitter,
+    FaInstagram,
+    FaLinkedinIn,
+    FaHeart
 } from 'react-icons/fa';
 import { HiMenu, HiX } from 'react-icons/hi';
 import '../App.css';
 
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
 
-    // State to track mobile accordion states
     const [activeMobileSubmenu, setActiveMobileSubmenu] = useState(null);
     const [activeMobileSubSubmenu, setActiveMobileSubSubmenu] = useState(null);
 
-    // Updated array configuration supporting deep nesting
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const menuData = [
         { name: "Home", path: "/" },
         {
@@ -123,8 +135,6 @@ function Navbar() {
         `text-base font-semibold py-2 transition-colors duration-200 block ${isActive ? 'text-sky-600 pl-2 border-l-4 border-l-sky-600' : 'text-gray-700'
         }`;
 
-    const socialLinkStyles = "text-gray-500 hover:text-sky-600 transition-colors duration-200";
-
     const handleMobileClose = () => {
         setIsOpen(false);
         setActiveMobileSubmenu(null);
@@ -136,59 +146,75 @@ function Navbar() {
         setActiveMobileSubSubmenu(null);
     };
 
-    const toggleMobileSubSubmenu = (combinedIndex) => {
+    const toggleMobileSubmenuDirect = (combinedIndex) => {
         setActiveMobileSubSubmenu(activeMobileSubSubmenu === combinedIndex ? null : combinedIndex);
     };
 
     return (
-        <header className="w-full bg-white shadow-sm border-b border-gray-100 fixed top-0 z-50">
-            <div className="px-4 py-3 flex items-center justify-between gap-8">
+        <header className={`w-full bg-white shadow-sm border-b border-gray-100 fixed top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-1' : 'py-0'}`}>
+            <div className={`px-4 flex items-center justify-between gap-4 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-3'}`}>
 
                 {/* LOGO SECTION */}
                 <div className="flex items-center gap-3 ml-0 shrink-0">
                     <img
-                        className="h-16 w-16 md:h-20 md:w-20 border border-gray-200 rounded-full object-cover shadow-sm"
+                        className={`border border-gray-200 rounded-full object-cover shadow-sm transition-all duration-300 ${
+                            isScrolled ? 'h-12 w-12' : 'h-16 w-16 md:h-20 md:w-20'
+                        }`}
                         src="logo.png"
                         alt="daptalogo"
                     />
-                    <p className="text-2xl md:text-3xl font-extrabold tracking-wider text-gray-800">DAPTA</p>
+                    <p className={`font-extrabold tracking-wider text-gray-800 transition-all duration-300 ${
+                        isScrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'
+                    }`}>
+                        DAPTA
+                    </p>
                 </div>
 
-                {/* DESKTOP RIGHT CONTENT STACK */}
-                <div className="hidden lg:flex flex-1 flex-col gap-4">
-
-                    {/* TOP BAR CONTACTS, SOCIALS & DONATE */}
-                    <div className="flex flex-wrap items-center justify-between border-b border-gray-50 pb-2 gap-4">
-                        <div className="flex items-center gap-6 text-sm text-gray-600">
-                            <a href="tel:+918260647549" className="flex items-center gap-2 hover:text-sky-600 transition-colors">
+                {/* DESKTOP RIGHT CONTENT CONTAINER */}
+                <div className={`hidden lg:flex flex-1 transition-all duration-300 ${isScrolled ? 'flex-row items-center justify-between pl-4' : 'flex-col gap-4'}`}>
+                    
+                    {/* TOP CONTACT & SOCIAL BAR */}
+                    <div className={`transition-all duration-300 ${
+                        isScrolled 
+                            ? 'flex items-center gap-4 xl:gap-6 border-b-0 pb-0 order-2 ml-auto' 
+                            : 'flex w-full justify-between border-b border-gray-50 pb-2'
+                    }`}>
+                        {/* Left Side: Contact details */}
+                        <div className={`flex items-center text-gray-600 ${isScrolled ? 'gap-4 xl:gap-6 text-xs xl:text-sm' : 'gap-6 text-sm'}`}>
+                            <a href="tel:+918260647549" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
                                 <FaPhoneAlt className="text-sky-500 text-xs" />
-                                <span>+91 8260647549</span>
+                                <span className="font-semibold">+91 8260647549</span>
                             </a>
-                            <a href="mailto:dapta@gmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors">
+                            <a href="mailto:dapta@gmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
                                 <FaEnvelope className="text-sky-500 text-sm" />
-                                <span>dapta@gmail.com</span>
+                                <span className="font-semibold">dapta@gmail.com</span>
                             </a>
                         </div>
 
-                        <div className="flex items-center gap-6">
-                            <nav className="flex items-center gap-4">
-                                <NavLink to="/facebook" className={socialLinkStyles} aria-label="Facebook"><FaFacebookF size={16} /></NavLink>
-                                <NavLink to="/instagram" className={socialLinkStyles} aria-label="Instagram"><FaInstagram size={18} /></NavLink>
-                                <NavLink to="/twitter" className={socialLinkStyles} aria-label="Twitter"><FaTwitter size={18} /></NavLink>
-                                <NavLink to="/youtube" className={socialLinkStyles} aria-label="Youtube"><FaYoutube size={18} /></NavLink>
-                            </nav>
-
-                            <NavLink to="/get-involved/donation-info">
-                                <button className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-2 px-5 rounded-full shadow-sm hover:shadow transition-all duration-200 transform hover:-translate-y-0.5 text-sm">
-                                    <FaHeart size={14} />
-                                    <span>Donate Us</span>
-                                </button>
+                        {/* Right Side: Social Media & Donate Button (Removes smoothly on scroll) */}
+                        <div className={`flex items-center gap-4 transition-all duration-300 origin-right ${
+                            isScrolled ? 'max-w-0 opacity-0 overflow-hidden pointer-events-none scale-x-0' : 'max-w-xl opacity-100'
+                        }`}>
+                            <div className="flex items-center gap-4 text-gray-500 border-r border-gray-200 pr-4">
+                                <a href="#" className="hover:text-sky-600 transition-colors"><FaFacebookF size={18} /></a>
+                                <a href="#" className="hover:text-sky-600 transition-colors"><FaTwitter size={18} /></a>
+                                <a href="#" className="hover:text-sky-600 transition-colors"><FaInstagram size={18} /></a>
+                                <a href="#" className="hover:text-sky-600 transition-colors"><FaLinkedinIn size={18} /></a>
+                            </div>
+                            <NavLink 
+                                to="/donate" 
+                                className="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 transition-all transform hover:scale-105 shrink-0"
+                            >
+                                <FaHeart size={10} />
+                                <span>Donate Us</span>
                             </NavLink>
                         </div>
                     </div>
 
-                    {/* DESKTOP NAV BAR CONTAINER */}
-                    <nav className="flex items-center justify-between w-full lg:max-w-5xl relative">
+                    {/* NAV BAR LINKS CONTAINER */}
+                    <nav className={`flex items-center transition-all duration-300 ${
+                        isScrolled ? 'justify-start  gap-x-5 xl:gap-x-7 order-1' : 'justify-between w-full relative'
+                    }`}>
                         {menuData.map((item, index) => (
                             <div key={index} className="relative group py-2">
                                 <NavLink to={item.path} className={navLinkStyles} end={item.path === "/"}>
@@ -196,7 +222,7 @@ function Navbar() {
                                     {item.submenu && <FaChevronDown className="text-[10px] text-gray-400 group-hover:text-sky-500 transition-transform duration-200 group-hover:rotate-180" />}
                                 </NavLink>
 
-                                {/* LEVEL 2: Desktop Dropdown Submenu */}
+                                {/* LEVEL 2 Dropdown */}
                                 {item.submenu && (
                                     <div className="absolute left-0 mt-2 w-64 bg-white border border-gray-100 rounded-lg shadow-xl py-2 opacity-0 scale-95 invisible group-hover:opacity-100 group-hover:scale-100 group-hover:visible transition-all duration-200 origin-top-left z-50">
                                         {item.submenu.map((subItem, subIndex) => (
@@ -209,10 +235,10 @@ function Navbar() {
                                                     }
                                                 >
                                                     <span>{subItem.name}</span>
-                                                    {subItem.subsubmenu && <FaChevronRight className="text-[10px] text-gray-400 group-hover/sub:text-sky-600" />}
+                                                    {subItem.submenu && <FaChevronRight className="text-[10px] text-gray-400 group-hover/sub:text-sky-600" />}
                                                 </NavLink>
 
-                                                {/* LEVEL 3: Desktop Flyout Subsubmenu */}
+                                                {/* LEVEL 3 Flyout */}
                                                 {subItem.subsubmenu && (
                                                     <div className="absolute left-full top-0 ml-0.5 w-72 bg-white border border-gray-100 rounded-lg shadow-xl py-2 opacity-0 scale-95 invisible group-hover/sub:opacity-100 group-hover/sub:scale-100 group-hover/sub:visible transition-all duration-150 origin-top-left z-50">
                                                         {subItem.subsubmenu.map((deepItem, deepIndex) => (
@@ -236,6 +262,7 @@ function Navbar() {
                             </div>
                         ))}
                     </nav>
+
                 </div>
 
                 {/* MOBILE HAMBURGER BUTTON */}
@@ -256,13 +283,11 @@ function Navbar() {
                     }`}
             >
                 <div className="px-5 py-4 flex flex-col gap-6 max-h-[80vh] overflow-y-auto">
-                    {/* Mobile Navigation List */}
                     <nav className="flex flex-col gap-1">
                         {menuData.map((item, index) => (
                             <div key={index} className="border-b border-gray-50 last:border-0 py-1">
                                 {item.submenu ? (
                                     <div>
-                                        {/* LEVEL 1 Mobile Toggle Header */}
                                         <button
                                             onClick={() => toggleMobileSubmenu(index)}
                                             className="w-full flex items-center justify-between py-2 text-lg font-semibold text-gray-700 hover:text-sky-600 focus:outline-none"
@@ -271,7 +296,6 @@ function Navbar() {
                                             <FaChevronDown className={`text-xs text-gray-400 transition-transform duration-200 ${activeMobileSubmenu === index ? 'rotate-180 text-sky-500' : ''}`} />
                                         </button>
 
-                                        {/* LEVEL 2 Accordion Container */}
                                         <div className={`overflow-hidden transition-all duration-300 ${activeMobileSubmenu === index ? 'max-h-[1000px] opacity-100 mt-1 mb-2' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                                             <div className="bg-gray-50 rounded-lg p-2 flex flex-col gap-1">
                                                 {item.submenu.map((subItem, subIndex) => {
@@ -280,11 +304,10 @@ function Navbar() {
                                                         <div key={subIndex}>
                                                             {subItem.subsubmenu ? (
                                                                 <div>
-                                                                    {/* LEVEL 2 Mobile Toggle Header with Nested Items */}
                                                                     <button
                                                                         onClick={(e) => {
                                                                             e.stopPropagation();
-                                                                            toggleMobileSubSubmenu(combinedKey);
+                                                                            toggleMobileSubmenuDirect(combinedKey);
                                                                         }}
                                                                         className="w-full flex items-center justify-between py-2 px-2 text-sm font-semibold text-gray-600 hover:text-sky-600 focus:outline-none"
                                                                     >
@@ -292,7 +315,6 @@ function Navbar() {
                                                                         <FaChevronDown className={`text-[10px] text-gray-400 transition-transform duration-200 ${activeMobileSubSubmenu === combinedKey ? 'rotate-180 text-sky-500' : ''}`} />
                                                                     </button>
 
-                                                                    {/* LEVEL 3 Accordion Container */}
                                                                     <div className={`overflow-hidden transition-all duration-200 ${activeMobileSubSubmenu === combinedKey ? 'max-h-[500px] opacity-100 mt-0.5 mb-1' : 'max-h-0 opacity-0 pointer-events-none'}`}>
                                                                         <div className="bg-white border border-gray-100 rounded-md p-1 pl-3 flex flex-col gap-0.5">
                                                                             {subItem.subsubmenu.map((deepItem, deepIndex) => (
@@ -309,7 +331,6 @@ function Navbar() {
                                                                     </div>
                                                                 </div>
                                                             ) : (
-                                                                /* Standard Second Level Mobile Link */
                                                                 <NavLink
                                                                     to={subItem.path}
                                                                     className="text-sm font-semibold py-2 px-2 transition-colors duration-200 block text-gray-600 hover:text-sky-600"
@@ -333,33 +354,17 @@ function Navbar() {
                         ))}
                     </nav>
 
-                    {/* CONTACT INFO FOOTER FOR MOBILE */}
+                    {/* MOBILE CONTACT INFO FOOTER */}
                     <div className="flex flex-col gap-4 pt-4 border-t border-gray-100">
                         <div className="flex flex-col gap-3 text-sm text-gray-600">
                             <a href="tel:+918260647549" className="flex items-center gap-3 py-1">
                                 <FaPhoneAlt className="text-sky-500" />
-                                <span className="font-medium text-gray-700">+91 8260647549</span>
+                                <span className="font-semibold text-gray-700">+91 8260647549</span>
                             </a>
                             <a href="mailto:dapta@gmail.com" className="flex items-center gap-3 py-1">
                                 <FaEnvelope className="text-sky-500" />
-                                <span className="font-medium text-gray-700">dapta@gmail.com</span>
+                                <span className="font-semibold text-gray-700">dapta@gmail.com</span>
                             </a>
-                        </div>
-
-                        <div className="flex items-center justify-between gap-4 mt-2">
-                            <div className="flex items-center gap-4">
-                                <NavLink to="/facebook" className={socialLinkStyles} onClick={handleMobileClose} aria-label="Facebook"><FaFacebookF size={18} /></NavLink>
-                                <NavLink to="/instagram" className={socialLinkStyles} onClick={handleMobileClose} aria-label="Instagram"><FaInstagram size={20} /></NavLink>
-                                <NavLink to="/twitter" className={socialLinkStyles} onClick={handleMobileClose} aria-label="Twitter"><FaTwitter size={20} /></NavLink>
-                                <NavLink to="/youtube" className={socialLinkStyles} onClick={handleMobileClose} aria-label="Youtube"><FaYoutube size={20} /></NavLink>
-                            </div>
-
-                            <NavLink to="/get-involved/donation-info" onClick={handleMobileClose}>
-                                <button className="flex items-center gap-2 bg-sky-500 text-white font-semibold py-2.5 px-6 rounded-full shadow text-sm">
-                                    <FaHeart size={14} />
-                                    <span>Donate Us</span>
-                                </button>
-                            </NavLink>
                         </div>
                     </div>
                 </div>
