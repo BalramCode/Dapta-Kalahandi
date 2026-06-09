@@ -21,6 +21,7 @@ import EnvironmentalSustainability from './components/Activities/Activities/Envi
 import DisasterManagement from './components/Activities/Activities/DisasterManagement';
 import NetworkingAndCapacityBuilding from './components/Activities/Activities/NetworkingAndCapacityBuilding';
 import ExperienceAndHighlights from './components/Activities/ExperienceAndHighlights';
+import DaptaRelief from './components/Activities/Activities/CovidRelief';
 
 // --- REPORTS & REFLECTIONS IMPORTS ---
 import AnnualReport from './components/ReportsAndReflections/Report/AnnaulReport';
@@ -87,6 +88,7 @@ function App() {
             <Route path="health" element={<HealthAndWellbeing />} />
             <Route path="womens-governance" element={<WomenParticipation />} />
             <Route path="education" element={<EducationAndChildDevelopment />} />
+            <Route path="covid-relief" element={<DaptaRelief />} />
             <Route path="sustainable-livelihoods" element={<SustainableManagement />} />
             <Route path="environmental-climate" element={<EnvironmentalSustainability />} />
             <Route path="disaster-inclusion" element={<DisasterManagement />} />
@@ -97,20 +99,17 @@ function App() {
         </Route>
 
         {/* ================= REPORTS & REFLECTIONS ROUTES ================= */}
-        <Route path="reports">
-          {/* Scenario 1: Clicking the parent "/reports" redirects to the active sub-route */}
-          <Route index element={<Navigate to="all/annual" replace />} />
+        
+        {/* <Route path="reports">
+          <Route index element={<Navigate to="annual" replace />} />
 
-          {/* Reports dropdown block (/reports/all/*) */}
           <Route path="all">
-            {/* Scenario 2: Clicking "/reports/all" also falls back straight to annual */}
             <Route index element={<Navigate to="annual" replace />} />
 
             <Route path="annual" element={<AnnualReport />} />
             <Route path="financial" element={<FinancialReport />} />
           </Route>
 
-          {/* Impact dropdown block (/reports/impact/*) */}
           <Route path="impact">
             <Route index element={<Navigate to="case-studies" replace />} />
 
@@ -119,6 +118,14 @@ function App() {
             <Route path="learning" element={<Learning />} />
             <Route path="testimonials" element={<Testimonials />} />
           </Route>
+        </Route> */}
+
+
+        <Route path="reports">
+          <Route index element={<Navigate to="annual" replace />} />
+
+          <Route path="annual" element={<AnnualReport />} />
+          <Route path="financial" element={<FinancialReport />} />
         </Route>
 
         {/* ================= GET INVOLVED ROUTES ================= */}
@@ -131,7 +138,7 @@ function App() {
 
         {/* ================= GALLERY ROUTES ================= */}
         <Route path="gallery">
-          <Route index element={<Navigate to="photos/community" replace/>} />
+          <Route index element={<Navigate to="photos/community" replace />} />
 
           {/* Photo Gallery Layout Categories (/gallery/photos/*) */}
           <Route path="photos">

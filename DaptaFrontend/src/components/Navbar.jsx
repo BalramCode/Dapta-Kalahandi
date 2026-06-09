@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
     FaPhoneAlt,
     FaEnvelope,
@@ -41,9 +41,9 @@ function Navbar() {
             path: "/about",
             submenu: [
                 { name: "About Us", path: "/about/about-us" },
-                { name: "Organizational Profile", path: "/about/profile" },
-                { name: "Governing Body", path: "/about/governing-body" },
-                { name: "Organogram", path: "/about/organogram" },
+                // { name: "Organizational Profile", path: "/about/profile" },
+                // { name: "Governing Body", path: "/about/governing-body" },
+                // { name: "Organogram", path: "/about/organogram" },
                 { name: "Legal Document", path: "/about/legal-documents" },
                 { name: "Strategy And Roadmap", path: "/about/roadmap" },
                 { name: "Founder Notes", path: "/about/founder-notes" },
@@ -61,47 +61,62 @@ function Navbar() {
                         { name: "Women’s Participation, ownership to Land and resources, and Governance", path: "/activities/all/womens-governance" },
                         { name: "Education and Child Development", path: "/activities/all/education" },
                         { name: "Sustainable Livelihoods and Natural Resource Management", path: "/activities/all/sustainable-livelihoods" },
-                        { name: "Environmental Sustainability and Climate Resilience", path: "/activities/all/environmental-climate" },
-                        { name: "Disaster Management and Social Inclusion", path: "/activities/all/disaster-inclusion" },
-                        { name: "Networking and Capacity Building", path: "/activities/all/networking-capacity" },
+                        { name: "Covid Relief", path: "/activities/all/covid-relief" },
+                        // { name: "Environmental Sustainability and Climate Resilience", path: "/activities/all/environmental-climate" },
+                        // { name: "Disaster Management and Social Inclusion", path: "/activities/all/disaster-inclusion" },
+                        // { name: "Networking and Capacity Building", path: "/activities/all/networking-capacity" },
                     ]
                 },
                 { name: "Experience & Highlights", path: "/activities/highlights" },
             ]
         },
+        // {
+        //     name: "Reports & Reflections",
+        //     path: "/reports",
+        //     submenu: [
+        //         {
+        //             name: "Reports",
+        //             path: "/reports/all",
+        //             subsubmenu: [
+        //                 { name: "Annual Report", path: "/reports/all/annual" },
+        //                 { name: "Financial Report", path: "/reports/all/financial" },
+        //             ]
+        //         },
+        //         {
+        //             name: "Impact, Insights, Learnings",
+        //             path: "/reports/impact",
+        //             subsubmenu: [
+        //                 { name: "Case Studies", path: "/reports/impact/case-studies" },
+        //                 { name: "Publications", path: "/reports/impact/publications" },
+        //                 { name: "Learning", path: "/reports/impact/learning" },
+        //                 { name: "Testimonials", path: "/reports/impact/testimonials" },
+        //             ]
+        //         },
+        //     ]
+        // },
         {
-            name: "Reports & Reflections",
+            name: "Reports",
             path: "/reports",
             submenu: [
                 {
-                    name: "Reports",
-                    path: "/reports/all",
-                    subsubmenu: [
-                        { name: "Annual Report", path: "/reports/all/annual" },
-                        { name: "Financial Report", path: "/reports/all/financial" },
-                    ]
+                    name: "Annual Report",
+                    path: "/reports/annual",
                 },
                 {
-                    name: "Impact, Insights, Learnings",
-                    path: "/reports/impact",
-                    subsubmenu: [
-                        { name: "Case Studies", path: "/reports/impact/case-studies" },
-                        { name: "Publications", path: "/reports/impact/publications" },
-                        { name: "Learning", path: "/reports/impact/learning" },
-                        { name: "Testimonials", path: "/reports/impact/testimonials" },
-                    ]
+                    name: "Financial Report",
+                    path: "/reports/financial",
                 },
             ]
         },
-        {
-            name: "Get Involved",
-            path: "/get-involved",
-            submenu: [
-                { name: "Volunteer Opportunities", path: "/get-involved/volunteer" },
-                { name: "Partnership", path: "/get-involved/partnership" },
-                { name: "Donation Information", path: "/get-involved/donation-info" },
-            ]
-        },
+        // {
+        //     name: "Get Involved",
+        //     path: "/get-involved",
+        //     submenu: [
+        //         { name: "Volunteer Opportunities", path: "/get-involved/volunteer" },
+        //         { name: "Partnership", path: "/get-involved/partnership" },
+        //         { name: "Donation Information", path: "/get-involved/donation-info" },
+        //     ]
+        // },
         {
             name: "Gallery",
             path: "/gallery",
@@ -155,35 +170,33 @@ function Navbar() {
             <div className={`px-4 flex items-center justify-between gap-4 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-3'}`}>
 
                 {/* LOGO SECTION */}
-                <div className="flex items-center gap-3 ml-0 shrink-0">
+                <Link to="/" className="flex items-center gap-3 ml-0 shrink-0 cursor-pointer">
                     <img
-                        className={`border border-gray-200 rounded-full object-cover shadow-sm transition-all duration-300 ${
-                            isScrolled ? 'h-12 w-12' : 'h-16 w-16 md:h-20 md:w-20'
-                        }`}
+                        className={`border border-gray-200 rounded-full object-cover shadow-sm transition-all duration-300 ${isScrolled ? 'h-12 w-12' : 'h-16 w-16 md:h-20 md:w-20'
+                            }`}
                         src="logo.png"
+                        src="https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018440/daptaLogo1_pyyjio.jpg"
                         alt="daptalogo"
                     />
-                    <p className={`font-extrabold tracking-wider text-gray-800 transition-all duration-300 ${
-                        isScrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'
-                    }`}>
+                    <p className={`font-extrabold tracking-wider text-gray-800 transition-all duration-300 ${isScrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'
+                        }`}>
                         DAPTA
                     </p>
-                </div>
+                </Link>
 
                 {/* DESKTOP RIGHT CONTENT CONTAINER */}
                 <div className={`hidden lg:flex flex-1 transition-all duration-300 ${isScrolled ? 'flex-row items-center justify-between pl-4' : 'flex-col gap-4'}`}>
-                    
+
                     {/* TOP CONTACT & SOCIAL BAR */}
-                    <div className={`transition-all duration-300 ${
-                        isScrolled 
-                            ? 'flex items-center gap-4 xl:gap-6 border-b-0 pb-0 order-2 ml-auto' 
-                            : 'flex w-full justify-between border-b border-gray-50 pb-2'
-                    }`}>
+                    <div className={`transition-all duration-300 ${isScrolled
+                        ? 'flex items-center gap-4 xl:gap-6 border-b-0 pb-0 order-2 ml-auto'
+                        : 'flex w-full justify-between border-b border-gray-50 pb-2'
+                        }`}>
                         {/* Left Side: Contact details */}
                         <div className={`flex items-center text-gray-600 ${isScrolled ? 'gap-4 xl:gap-6 text-xs xl:text-sm' : 'gap-6 text-sm'}`}>
-                            <a href="tel:+918260647549" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
+                            <a href="tel:+919437029124" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
                                 <FaPhoneAlt className="text-sky-500 text-xs" />
-                                <span className="font-semibold">+91 8260647549</span>
+                                <span className="font-semibold">+91 9437029124</span>
                             </a>
                             <a href="mailto:dapta@gmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
                                 <FaEnvelope className="text-sky-500 text-sm" />
@@ -192,17 +205,16 @@ function Navbar() {
                         </div>
 
                         {/* Right Side: Social Media & Donate Button (Removes smoothly on scroll) */}
-                        <div className={`flex items-center gap-4 transition-all duration-300 origin-right ${
-                            isScrolled ? 'max-w-0 opacity-0 overflow-hidden pointer-events-none scale-x-0' : 'max-w-xl opacity-100'
-                        }`}>
+                        <div className={`flex items-center gap-4 transition-all duration-300 origin-right ${isScrolled ? 'max-w-0 opacity-0 overflow-hidden pointer-events-none scale-x-0' : 'max-w-xl opacity-100'
+                            }`}>
                             <div className="flex items-center gap-4 text-gray-500 border-r border-gray-200 pr-4">
                                 <a href="#" className="hover:text-sky-600 transition-colors"><FaFacebookF size={18} /></a>
                                 <a href="#" className="hover:text-sky-600 transition-colors"><FaTwitter size={18} /></a>
                                 <a href="#" className="hover:text-sky-600 transition-colors"><FaInstagram size={18} /></a>
                                 <a href="#" className="hover:text-sky-600 transition-colors"><FaLinkedinIn size={18} /></a>
                             </div>
-                            <NavLink 
-                                to="/donate" 
+                            <NavLink
+                                to="/get-involved/donation-info"
                                 className="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 transition-all transform hover:scale-105 shrink-0"
                             >
                                 <FaHeart size={10} />
@@ -212,9 +224,8 @@ function Navbar() {
                     </div>
 
                     {/* NAV BAR LINKS CONTAINER */}
-                    <nav className={`flex items-center transition-all duration-300 ${
-                        isScrolled ? 'justify-start  gap-x-5 xl:gap-x-7 order-1' : 'justify-between w-full relative'
-                    }`}>
+                    <nav className={`flex items-center transition-all duration-300 ${isScrolled ? 'justify-start  gap-x-5 xl:gap-x-7 order-1' : 'justify-between w-full relative'
+                        }`}>
                         {menuData.map((item, index) => (
                             <div key={index} className="relative group py-2">
                                 <NavLink to={item.path} className={navLinkStyles} end={item.path === "/"}>

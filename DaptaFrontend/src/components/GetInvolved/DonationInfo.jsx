@@ -8,8 +8,8 @@ const DonationInfo = () => {
     bankName: "State Bank of India",
     branch: "Bhawanipatna",
     branchCode: "6725",
-    address: "At/Po - M. Rampur, Dist. - Kalahandi",
-    pin: "766102",
+    address: "At/Po - Bhawanipatna, Dist. - Kalahandi",
+    pin: "766001",
     stateCountry: "Odisha, India"
   };
 

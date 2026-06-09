@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function DaptaGlance() {
+function DaptaCovid() {
   // Interactive state to highlight milestones/pillars
   const [activeTab, setActiveTab] = useState(0);
 
@@ -12,11 +12,11 @@ function DaptaGlance() {
   ];
 
   // Placeholder Unsplash image mapping to a community training/social theme
-  const heroImgFallback = "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop";
+  const heroImgFallback = "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018410/gallery9_e4r5n8.png?q=80&w=1200&auto=format&fit=crop";
 
   return (
     <section className="relative w-full min-h-[650px] lg:h-[100vh] bg-[#FAF9F5] overflow-hidden font-sans flex items-center justify-center border-b-[6px] border-[#1E293B]">
-      
+
       {/* Decorative background watermark (Large faded 'S' curve accent) */}
       <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 w-[30%] aspect-square opacity-[0.03] pointer-events-none hidden lg:block text-slate-900">
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full">
@@ -29,9 +29,9 @@ function DaptaGlance() {
 
         {/* Left Side: Content Block */}
         <div className="lg:col-span-6 flex flex-col items-start text-left justify-center space-y-6">
-          
+
           {/* Header Stamp */}
-          <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
+          {/* <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
             <span className="text-[#E76F51] animate-spin-slow">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="3" />
@@ -39,67 +39,52 @@ function DaptaGlance() {
               </svg>
             </span>
             <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Established 1992</span>
-          </div>
+          </div> */}
 
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-800 leading-tight">
-            Dapta At A <span className="text-[#2A9D8F]">Glance</span>
+            DAPTA'S RESPONSE TO <span className="text-[#2A9D8F]">COVID-19 PANDEMIC</span>
           </h2>
 
-          <p className="text-slate-600 text-base md:text-[17px] leading-relaxed max-w-xl font-light">
-            Dapta is a Non-Governmental, Non-political, and Non-profit making voluntary organisation working across the Kalahandi District. Our vision centers around generating a participatory society using local ecosystems so every individual can thrive with full dignity.
-          </p>
-
-          {/* Interactive Micro-Tabs for Core Missions */}
-          <div className="w-full space-y-3 pt-2 max-w-xl">
-            {pillars.map((pillar, idx) => (
-              <div 
-                key={idx}
-                onMouseEnter={() => setActiveTab(idx)}
-                className={`p-3.5 rounded-xl border transition-all duration-300 cursor-pointer select-none
-                  ${activeTab === idx 
-                    ? 'bg-white border-[#2A9D8F]/30 shadow-md translate-x-2' 
-                    : 'bg-transparent border-transparent hover:bg-white/40'}`}
-              >
-                <h4 className={`font-semibold text-sm transition-colors duration-200 ${activeTab === idx ? 'text-[#2A9D8F]' : 'text-slate-700'}`}>
-                  {pillar.title}
-                </h4>
-                {activeTab === idx && (
-                  <p className="text-xs text-slate-500 mt-1 leading-normal animate-fade-in">
-                    {pillar.desc}
-                  </p>
-                )}
-              </div>
-            ))}
+          <div className="text-slate-600 text-base md:text-[17px] leading-relaxed max-w-xl font-light">
+            <p className="mb-4 font-normal text-slate-800">
+              Dapta is a Non-Governmental, Non-political, and Non-profit making voluntary organisation working across the Kalahandi District. Our vision centers around generating a participatory society using local ecosystems so every individual can thrive with full dignity.
+            </p>
+            <ul className="list-disc pl-5 space-y-3 marker:text-slate-400">
+              <li>
+                <strong>Dry Ration Distribution:</strong> Provided to 3,500 families, including 3,408 families across 124 villages of the Lanjigarh Block and 92 vulnerable families from Bhawanipatna (including 19 individuals from the transgender community).
+              </li>
+              <li>
+                <strong>Mask Distribution:</strong> Delivered 17,335 double-layered cotton cloth masks to 3,500 families across 124 villages in the Lanjigarh block, as well as 33 vulnerable families in Bhawanipatna.
+              </li>
+              <li>
+                <strong>Hygiene Supplies:</strong> Distributed 17,000 pieces of soap to the 3,500 families mentioned above.
+              </li>
+              <li>
+                <strong>Awareness Campaigns:</strong> Conducted hand hygiene education and practical demonstrations across 124 villages in the Lanjigarh Block.
+              </li>
+            </ul>
           </div>
 
-          {/* Dynamic Action Link */}
-          <div className="pt-4">
-            <Link
-              to="/about"
-              className="group flex items-center gap-2 bg-[#2A9D8F] text-white font-medium px-6 py-3 rounded-xl hover:bg-[#1d6f65] shadow-lg shadow-emerald-800/10 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <span>Explore Our History</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
+
+       
         </div>
 
         {/* Center Aesthetic Borders (Only seen on desktop) */}
         <div className="hidden lg:flex lg:col-span-1 justify-center items-center h-48 relative">
           <div className="absolute right-4 top-0 bottom-0 w-[2px] bg-slate-200" />
-          <div 
-            className="absolute right-[14px] w-1 bg-[#2A9D8F] transition-all duration-500 rounded-full" 
-            style={{ 
-              top: `${activeTab * 33}%`, 
-              height: '33%' 
-            }} 
+          <div
+            className="absolute right-[14px] w-1 bg-[#2A9D8F] transition-all duration-500 rounded-full"
+            style={{
+              top: `${activeTab * 33}%`,
+              height: '33%'
+            }}
           />
         </div>
 
         {/* Right Side: Showcase Frame */}
         <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
           <div className="relative w-full max-w-md lg:max-w-full group">
-            
+
             {/* Ambient Background Glow Effect tracking state changes */}
             <div className="absolute -inset-2 bg-gradient-to-r from-[#2A9D8F] to-[#F4A261] rounded-2xl opacity-10 blur-xl transition-all duration-500 group-hover:opacity-20 group-hover:scale-105 pointer-events-none" />
 
@@ -111,7 +96,7 @@ function DaptaGlance() {
                   alt="Dapta Biochar Training Program"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
-                
+
                 {/* Visual Glassmorphism overlay card */}
                 <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl border border-white/20 shadow-lg">
                   <span className="text-[10px] font-bold tracking-widest text-[#E76F51] uppercase block mb-1">On-the-ground</span>
@@ -140,4 +125,4 @@ function DaptaGlance() {
   );
 }
 
-export default DaptaGlance;
+export default DaptaCovid;

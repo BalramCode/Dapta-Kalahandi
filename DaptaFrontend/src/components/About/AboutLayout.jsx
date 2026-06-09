@@ -2,7 +2,7 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import heroImg1 from "../../img/heroimg1.png";
-
+const hero = "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781017399/heroImg3_u9woac.jpg"
 const AboutLayout = () => {
   const location = useLocation();
 
@@ -31,7 +31,7 @@ const AboutLayout = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-40 bg-fixed"
           style={{ 
-            backgroundImage: `url(${heroImg1})` 
+            backgroundImage: `url(${hero})` 
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/20" />
