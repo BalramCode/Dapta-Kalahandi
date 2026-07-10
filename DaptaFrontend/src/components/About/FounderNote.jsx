@@ -92,4 +92,4 @@ const FounderNote = () => {
   );
 };
 
-export default FounderNote;
+export default FounderNote; 

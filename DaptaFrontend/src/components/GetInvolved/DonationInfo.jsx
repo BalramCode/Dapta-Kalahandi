@@ -4,7 +4,7 @@ const DonationInfo = () => {
   const [copiedField, setCopiedField] = useState(null);
 
   const bankDetails = {
-    accountName: "SEBA JAGAT",
+    accountName: "Dapta",
     bankName: "State Bank of India",
     branch: "Bhawanipatna",
     branchCode: "6725",

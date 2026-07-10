@@ -128,11 +128,8 @@ function Navbar() {
                         { name: "Community Interactions", path: "/gallery/photos/community" },
                         { name: "Events", path: "/gallery/photos/events" },
                         { name: "Activities", path: "/gallery/photos/activities" },
-                        { name: "Other", path: "/gallery/photos/other" },
                         { name: "Awards & Certificates", path: "/gallery/photos/awards-certificates" },
                         { name: "Club Photos", path: "/gallery/photos/club" },
-                        { name: "Health", path: "/gallery/photos/health" },
-                        { name: "Education", path: "/gallery/photos/education" },
                     ]
                 },
                 { name: "Video Gallery", path: "/gallery/videos" },

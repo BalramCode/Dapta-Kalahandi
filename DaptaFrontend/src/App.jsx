@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomeLayout from './components/Home/HomeLayout';
-
+import CertificateVerification from './components/CertificateVerification';
 // --- ABOUT IMPORTS ---
 import AboutLayout from './components/About/AboutLayout';
 import AboutUs from './components/About/AboutUs';
@@ -40,11 +40,8 @@ import DonationInfo from './components/GetInvolved/DonationInfo';
 import CommunityInteractions from './components/Gallery/PhotoGallery/CommunityInterections';
 import EventsPhotos from './components/Gallery/PhotoGallery/Events';
 import ActivitiesPhotos from './components/Gallery/PhotoGallery/Activities';
-import OtherPhotos from './components/Gallery/PhotoGallery/Other';
 import AwardsCertificates from './components/Gallery/PhotoGallery/AwardAndCertifications';
 import ClubPhotos from './components/Gallery/PhotoGallery/ClubPhotos';
-import HealthPhotos from './components/Gallery/PhotoGallery/Health';
-import EducationPhotos from './components/Gallery/PhotoGallery/Education';
 import VideoGallery from './components/Gallery/VideoGallery';
 import SocialMedia from './components/Gallery/SocialMedia';
 
@@ -99,7 +96,7 @@ function App() {
         </Route>
 
         {/* ================= REPORTS & REFLECTIONS ROUTES ================= */}
-        
+
         {/* <Route path="reports">
           <Route index element={<Navigate to="annual" replace />} />
 
@@ -149,9 +146,6 @@ function App() {
             <Route path="activities" element={<ActivitiesPhotos />} />
             <Route path="awards-certificates" element={<AwardsCertificates />} />
             <Route path="club" element={<ClubPhotos />} />
-            <Route path="health" element={<HealthPhotos />} />
-            <Route path="education" element={<EducationPhotos />} />
-            <Route path="other" element={<OtherPhotos />} />
           </Route>
 
           <Route path="videos" element={<VideoGallery />} />
@@ -160,7 +154,10 @@ function App() {
 
         {/* ================= CONTACT ROUTE ================= */}
         <Route path="contact" element={<Contact />} />
-
+        <Route
+          path="verify/:token"
+          element={<CertificateVerification />}
+        />
       </Route>
     </Routes>
   );
