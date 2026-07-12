@@ -128,12 +128,17 @@ const DonationInfo = () => {
                 to attach alongside your direct deposit tracking ledger.
               </p>
 
+              {/* TODO: Place the official DAPTA donation form PDF in the /public/documents/ directory and update the href below */}
               <a 
-                href="/documents/seba-jagat-donation-form.pdf" 
-                download="Seba-Jagat-Donation-Form.pdf"
-                className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-600 text-white font-bold text-sm tracking-wide shadow-md shadow-amber-600/10 hover:bg-amber-700 hover:shadow-lg transition-all duration-150 group"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  alert("The official DAPTA Donation Form is currently unavailable. Please check back later or contact our administrative desk.");
+                }}
+                download="DAPTA-Donation-Form.pdf"
+                className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-600 text-white font-bold text-sm tracking-wide shadow-md shadow-amber-600/10 hover:bg-amber-700 hover:shadow-lg transition-all duration-150 group opacity-75"
               >
-                <span>Download Donation Form</span>
+                <span>Download DAPTA Donation Form</span>
                 <svg className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>

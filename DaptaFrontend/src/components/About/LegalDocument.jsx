@@ -3,41 +3,41 @@ import React from 'react';
 
 const LegalDocument = () => {
   const certificates = [
-    { 
-      title: "Registration Certificate", 
-      url: "/ReportPDF/registration.jpg", 
+    {
+      title: "Registration Certificate",
+      url: "/ReportPDF/registration.jpg",
       type: "Image",
-      description: "Official statutory NGO registration framework documentation." 
+      description: "Official statutory NGO registration framework documentation."
     },
-    { 
-      title: "12A Registration", 
-      url: "/ReportPDF/12ACertificate.pdf", 
+    {
+      title: "12A Registration",
+      url: "/ReportPDF/12ACertificate.pdf",
       type: "PDF",
-      description: "Income Tax Department tax exemption clearance registry entry." 
+      description: "Income Tax Department tax exemption clearance registry entry."
     },
-    { 
-      title: "80G Certificate", 
-      url: "/ReportPDF/80G Certificate.pdf", 
+    {
+      title: "80G Certificate",
+      url: "/ReportPDF/80G Certificate.pdf",
       type: "PDF",
-      description: "Donor tax deduction approval structure registry." 
+      description: "Donor tax deduction approval structure registry."
     },
-    { 
-      title: "CSR Certificate", 
-      url: "/ReportPDF/CSR-1-Certificate.pdf", 
+    {
+      title: "CSR Certificate",
+      url: "/ReportPDF/CSR-1-Certificate.pdf",
       type: "PDF",
-      description: "Ministry of Corporate Affairs corporate social responsibility alignment." 
+      description: "Ministry of Corporate Affairs corporate social responsibility alignment."
     },
-    { 
-      title: "Permanent Account Number (PAN)", 
-      url: "/ReportPDF/pancard.jpg", 
+    {
+      title: "Permanent Account Number (PAN)",
+      url: "/ReportPDF/pancard.jpg",
       type: "Image",
-      description: "Government-issued identification card validation infrastructure." 
+      description: "Government-issued identification card validation infrastructure."
     },
   ];
 
   return (
     <div className="w-full bg-gray-50/50 rounded-3xl border border-gray-200/60 p-6 sm:p-8 lg:p-10 transition-all duration-300">
-      
+
       {/* Decorative Module Header */}
       <div className="max-w-2xl mb-10">
         <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/50">
@@ -46,7 +46,7 @@ const LegalDocument = () => {
         <h2 className="text-3xl font-black text-gray-900 tracking-tight mt-3 mb-2">
           Legal Documents & Governance
         </h2>
-        <p className="text-gray-500 text-sm leading-relaxed">
+        <p className="text-gray-700 text-sm leading-relaxed">
           Access public transparency records, verified statutory government registrations, compliance certificates, and operational audits.
         </p>
       </div>
@@ -55,10 +55,10 @@ const LegalDocument = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
         {certificates.map((doc, idx) => {
           const isPdf = doc.type === "PDF";
-          
+
           return (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className="group relative bg-white border border-gray-200/80 rounded-2xl p-5 shadow-xs hover:shadow-xl hover:shadow-gray-200/40 hover:-translate-y-1.5 hover:border-sky-500/50 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden"
             >
               {/* Subtle upper background radial glow on hover */}
@@ -67,9 +67,8 @@ const LegalDocument = () => {
               <div>
                 {/* Header Row: Document Type Tag & Badge Indicator */}
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 ${
-                    isPdf ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'
-                  }`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 duration-300 ${isPdf ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'
+                    }`}>
                     {isPdf ? (
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
@@ -81,9 +80,8 @@ const LegalDocument = () => {
                     )}
                   </div>
 
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                    isPdf ? 'bg-rose-100/60 text-rose-700' : 'bg-amber-100/60 text-amber-700'
-                  }`}>
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${isPdf ? 'bg-rose-100/60 text-rose-700' : 'bg-amber-100/60 text-amber-700'
+                    }`}>
                     {doc.type}
                   </span>
                 </div>
@@ -92,7 +90,7 @@ const LegalDocument = () => {
                 <h3 className="text-base font-bold text-gray-900 group-hover:text-sky-600 transition-colors duration-200 tracking-tight">
                   {doc.title}
                 </h3>
-                <p className="text-xs text-gray-400 mt-1.5 leading-relaxed font-medium">
+                <p className="text-xs text-gray-800 mt-1.5 leading-relaxed font-medium">
                   {doc.description}
                 </p>
               </div>
@@ -102,9 +100,9 @@ const LegalDocument = () => {
                 <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wide group-hover:text-sky-500/80 transition-colors">
                   Open Document
                 </span>
-                <a 
-                  href={doc.url} 
-                  target="_blank" 
+                <a
+                  href={doc.url}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300 shadow-xs"
                   aria-label={`View ${doc.title}`}

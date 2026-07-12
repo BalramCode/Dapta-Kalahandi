@@ -129,14 +129,18 @@ function HealthAndWellbeing() {
               </div>
 
               {/* Data Insights Footer Summary Block */}
-              <div className={`p-5 ${item.bgLight} border-t border-gray-100/60 mt-auto space-y-2.5`}>
+              <div className={`p-6 ${item.bgLight} border-t border-gray-100/60 mt-auto space-y-4`}>
                 <div className="flex items-center justify-between text-xs font-medium text-gray-500">
-                  <span>Program Scope:</span>
-                  <span className={`font-semibold ${item.textAccent}`}>{item.timeline}</span>
+                  <span className="uppercase tracking-widest font-bold">Program Scope</span>
+                  <span className={`font-bold uppercase tracking-wider ${item.textAccent}`}>{item.timeline}</span>
                 </div>
-                <div className={`p-2.5 rounded-xl ${item.badgeBg} text-xs font-semibold flex items-start space-x-2`}>
-                  <span className="mt-0.5">📊</span>
-                  <span className="leading-tight">{item.impact}</span>
+                <div className="flex flex-col">
+                  <div className={`text-4xl font-black ${item.badgeBg.replace('bg-', 'text-').split(' ')[1] || 'text-gray-900'} tracking-tighter mb-1 animate-fade-in-up hover:scale-105 transition-transform duration-300 origin-left flex items-center space-x-2`}>
+                    <span>{item.impact.split(' ')[0]}</span>
+                  </div>
+                  <span className={`text-sm font-bold uppercase tracking-wide ${item.badgeBg.replace('bg-', 'text-').split(' ')[1] || 'text-gray-800'}`}>
+                    {item.impact.split(' ').slice(1).join(' ')}
+                  </span>
                 </div>
               </div>
 

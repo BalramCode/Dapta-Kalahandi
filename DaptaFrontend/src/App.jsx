@@ -6,6 +6,8 @@ import CertificateVerification from './components/CertificateVerification';
 import AboutLayout from './components/About/AboutLayout';
 import AboutUs from './components/About/AboutUs';
 import FounderNote from './components/About/FounderNote';
+import SecretaryNote from './components/About/SecretaryNote';
+import FormerSecretaryNote from './components/About/FormerSecretaryNote';
 import GovernmentBody from './components/About/GovernmentBody';
 import LegalDocument from './components/About/LegalDocument';
 import OrganizasionalProfit from './components/About/OrganizasionalProfit';
@@ -48,6 +50,8 @@ import SocialMedia from './components/Gallery/SocialMedia';
 // --- CONTACT IMPORT ---
 import Contact from './components/Contact';
 
+import ScrollToTop from './components/ScrollToTop';
+
 const Placeholder = ({ title }) => (
   <div className="p-8 pt-24">
     <h2>{title} Page Coming Soon</h2>
@@ -56,9 +60,11 @@ const Placeholder = ({ title }) => (
 
 function App() {
   return (
-    <Routes>
-      {/* Shared Layout Framework */}
-      <Route path="/" element={<Layout />}>
+    <>
+      <ScrollToTop />
+      <Routes>
+        {/* Shared Layout Framework */}
+        <Route path="/" element={<Layout />}>
 
         {/* Index Page */}
         <Route index element={<HomeLayout />} />
@@ -72,7 +78,9 @@ function App() {
           <Route path="organogram" element={<Organogram />} />
           <Route path="legal-documents" element={<LegalDocument />} />
           <Route path="roadmap" element={<StrategyAndRoadmap />} />
-          <Route path="founder-notes" element={<FounderNote />} />
+          <Route path="founder-note" element={<FounderNote />} />
+          <Route path="secretary-note" element={<SecretaryNote />} />
+          <Route path="former-secretary-note" element={<FormerSecretaryNote />} />
         </Route>
 
         {/* ================= ACTIVITIES ROUTES ================= */}
@@ -160,6 +168,7 @@ function App() {
         />
       </Route>
     </Routes>
+    </>
   );
 }
 

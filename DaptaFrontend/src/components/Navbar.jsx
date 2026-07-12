@@ -46,7 +46,9 @@ function Navbar() {
                 // { name: "Organogram", path: "/about/organogram" },
                 { name: "Legal Document", path: "/about/legal-documents" },
                 { name: "Strategy And Roadmap", path: "/about/roadmap" },
-                { name: "Founder Notes", path: "/about/founder-notes" },
+                { name: "Founder Note", path: "/about/founder-note" },
+                { name: "Secretary Note", path: "/about/secretary-note" },
+                { name: "Former Secretary Note", path: "/about/former-secretary-note" },
             ]
         },
         {
@@ -365,9 +367,9 @@ function Navbar() {
                     {/* MOBILE CONTACT INFO FOOTER */}
                     <div className="flex flex-col gap-4 pt-4 border-t border-gray-100">
                         <div className="flex flex-col gap-3 text-sm text-gray-600">
-                            <a href="tel:+918260647549" className="flex items-center gap-3 py-1">
+                            <a href="tel:+919437029124" className="flex items-center gap-3 py-1">
                                 <FaPhoneAlt className="text-sky-500" />
-                                <span className="font-semibold text-gray-700">+91 8260647549</span>
+                                <span className="font-semibold text-gray-700">+91 9437029124</span>
                             </a>
                             <a href="mailto:dapta@gmail.com" className="flex items-center gap-3 py-1">
                                 <FaEnvelope className="text-sky-500" />

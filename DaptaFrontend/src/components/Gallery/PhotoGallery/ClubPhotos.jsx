@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+import Lightbox from '../Lightbox.jsx';
 const ClubPhotos = () => {
   // Update these array items with your custom local or production image URLs
+  const [activePhoto, setActivePhoto] = useState(null);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setActivePhoto(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const galleryPhotos = [
     {
       id: 1,
@@ -170,6 +180,9 @@ const ClubPhotos = () => {
             </div>
           ))}
         </div>
+        {activePhoto && (
+          <Lightbox photo={activePhoto} onClose={() => setActivePhoto(null)} />
+        )}
 
       </div>
     </div>

@@ -4,6 +4,24 @@ const FinancialReport = () => {
   // Audit Reports List
   const auditReports = [
     {
+      year: "2024-25",
+      label: "Financial Report 2024-25",
+      size: "PDF",
+      url: "/ReportPDF/Consolidated Audit Report 2024-2025.pdf",
+    },
+    {
+      year: "2023-24",
+      label: "Financial Report 2023-24",
+      size: "PDF",
+      url: "/ReportPDF/Consolidated Audit Report 2023-2024.pdf",
+    },
+    {
+      year: "2022-23",
+      label: "Financial Report 2022-23",
+      size: "PDF",
+      url: "/ReportPDF/Consolidated Audit Report 2022-2023.pdf",
+    },
+    {
       year: "2021-22",
       label: "Financial Report 2021-22",
       size: "PDF",

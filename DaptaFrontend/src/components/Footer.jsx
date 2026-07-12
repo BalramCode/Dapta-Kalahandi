@@ -6,22 +6,22 @@ const Footer = () => {
   const visitorCount = ["0", "4", "0", "7", "2"];
 
   return (
-    <footer 
+    <footer
       className="relative text-white bg-cover bg-center font-sans pt-16 pb-6 px-6 md:px-12 lg:px-20 overflow-hidden"
-      style={{ 
-        backgroundImage: `linear-gradient(rgba(18, 24, 12, 0.85), rgba(18, 24, 12, 0.9)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=1200')` 
+      style={{
+        backgroundImage: `linear-gradient(rgba(18, 24, 12, 0.85), rgba(18, 24, 12, 0.9)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=1200')`
       }}
     >
       {/* Upper Content Section */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        
+
         {/* Column 1: About */}
         <div>
           <h3 className="text-lg font-bold mb-6 tracking-wide relative after:content-[''] after:block after:w-8 after:h-[2px] after:bg-[#FF6A00] after:mt-2">
             About
           </h3>
           <p className="text-gray-300 text-[14px] leading-relaxed text-justify pr-4">
-            DaptaKalhandi is a Non-Governmental, Non-political, Non-profit making Voluntary Organisation, has been working in Kalahandi District since 1992. The main aim of the Organisation is to establish a just, sustainable and participatory society by utilizing local available resources and people's...
+            Dapta Kalahandi is a Non-Governmental, Non-political, Non-profit making Voluntary Organisation, has been working in Kalahandi District since 1992. The main aim of the Organisation is to establish a just, sustainable and participatory society by utilizing local available resources and people's...
           </p>
         </div>
 
@@ -56,11 +56,11 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-[#FF6A00] shrink-0" fill="#FF6A00" />
-              <a href="tel:+919437070326" className="hover:underline">+91-8260647549</a>
+              <a href="tel:+919437070326" className="hover:underline">+91 9437029124</a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-[#FF6A00] shrink-0" />
-              <a href="mailto:sebajagat@gmail.com" className="hover:underline">dapta@gmail.com</a>
+              <a href="mailto:dapta@gmail.com" className="hover:underline">dapta@gmail.com</a>
             </li>
             <li className="flex items-start gap-3">
               <Globe className="w-4 h-4 text-[#FF6A00] shrink-0 mt-0.5" />
@@ -77,9 +77,9 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-6 tracking-wide">Location</h3>
           <div className="relative rounded-xl overflow-hidden border border-gray-700 shadow-lg max-w-[280px]">
             <div className="relative h-44 bg-[#E5E3DF] overflow-hidden">
-              <img 
-                src="https://maps.googleapis.com/maps/api/staticmap?center=Madanpur+Rampur,Kalahandi,Odisha&zoom=13&size=300x200&sensor=false&key=" 
-                alt="Madanpur Rampur Map" 
+              <img
+                src="https://maps.googleapis.com/maps/api/staticmap?center=Madanpur+Rampur,Kalahandi,Odisha&zoom=13&size=300x200&sensor=false&key="
+                alt="Madanpur Rampur Map"
                 className="w-full h-full object-cover opacity-80 mix-blend-multiply"
                 onError={(e) => {
                   e.target.src = "https://via.placeholder.com/280x180/e5e3df/999999?text=Madanpur+Rampur+Map";
@@ -103,7 +103,7 @@ const Footer = () => {
 
       {/* Bottom Sub-Footer Section */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] text-gray-400">
-        
+
         {/* Left: Copyright */}
         <div className="flex items-center gap-1 text-center md:text-left">
           <span className="text-lg leading-none">⚙</span>
@@ -114,7 +114,7 @@ const Footer = () => {
 
         {/* Right: Social Handles & Visitor Counter */}
         <div className="flex flex-wrap items-center gap-4">
-          
+
           {/* Social Icons Layout using Font Awesome classes */}
           <div className="flex items-center gap-1.5">
             <a href="#" className="w-7 h-7 bg-[#00ACEE] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
@@ -136,8 +136,8 @@ const Footer = () => {
             <span className="text-gray-300">Visitors:</span>
             <div className="flex gap-0.5">
               {visitorCount.map((digit, index) => (
-                <span 
-                  key={index} 
+                <span
+                  key={index}
                   className="bg-[#00334E] text-[#00FFE0] font-mono font-bold px-1.5 py-0.5 rounded-sm text-[14px] tracking-wide border border-[#005577]"
                 >
                   {digit}

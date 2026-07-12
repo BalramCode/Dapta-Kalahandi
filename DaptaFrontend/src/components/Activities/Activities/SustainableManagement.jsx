@@ -119,17 +119,22 @@ const SustainableManagement = () => {
             </div>
 
             {/* Program Impact Dashboard Footer Widget */}
-            <div className={`p-5 ${item.bgLight} border-t border-gray-100/80 mt-auto flex flex-col space-y-1.5`}>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+            <div className={`p-6 ${item.bgLight} border-t border-gray-100/80 mt-auto flex flex-col space-y-2`}>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">
                 Resource & Livelihood Metrics
               </span>
-              <div className="flex items-center justify-between gap-2">
-                <div className={`px-3 py-1.5 rounded-lg ${item.badgeColor} font-extrabold text-xs sm:text-sm tracking-wide shadow-2xs whitespace-nowrap`}>
-                  {item.metric}
+              <div className="flex flex-col">
+                <div className={`text-4xl font-black ${item.badgeColor.replace('bg-', 'text-').split(' ')[1] || 'text-gray-900'} tracking-tighter mb-1 animate-fade-in-up hover:scale-105 transition-transform duration-300 origin-left`}>
+                  {item.metric.split(' ')[0]}
                 </div>
-                <span className="text-xs font-semibold text-gray-500 tracking-tight text-right leading-tight">
-                  {item.metricSub}
-                </span>
+                <div className="flex items-center justify-between">
+                  <span className={`text-sm font-bold uppercase tracking-wide ${item.badgeColor.replace('bg-', 'text-').split(' ')[1] || 'text-gray-800'}`}>
+                    {item.metric.split(' ').slice(1).join(' ')}
+                  </span>
+                  <span className="text-xs font-semibold text-gray-500 tracking-tight text-right leading-tight">
+                    {item.metricSub}
+                  </span>
+                </div>
               </div>
             </div>
 

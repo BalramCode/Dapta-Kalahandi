@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Lightbox from '../Lightbox.jsx';
+
 
 const CommunityInterections = () => {
   // Controlled modal asset tracking state
@@ -124,49 +126,13 @@ const CommunityInterections = () => {
 
       </div>
 
-      {/* FULL-SCREEN IMMERSIVE PREVIEW INTERACTIVE MODAL */}
-      {activePhoto && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-950/80 backdrop-blur-sm animate-fade-in animate-duration-200"
-          onClick={() => setActivePhoto(null)}
-        >
-          {/* Modal Card wrapper - stops click event bubbling from shutting overlay framework */}
-          <div 
-            className="relative max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col transform transition-all duration-300 scale-100"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Quick Action Close Navigation Button */}
-            <button 
-              onClick={() => setActivePhoto(null)}
-              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-colors border border-white/10 cursor-pointer outline-none"
-              aria-label="Close image preview"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {/* Immersive Preview Layout Container */}
-            <div className="w-full bg-gray-900/40 flex items-center justify-center max-h-[70vh] overflow-hidden">
-              <img 
-                src={activePhoto.imgUrl.replace('w=400', 'w=1200')} // Dynamically fetch a higher resolution from Cloudinary for large viewing
-                alt={activePhoto.heading}
-                className="max-w-full max-h-[70vh] object-contain select-none"
-              />
-            </div>
-
-            {/* Bottom Caption Segment Panel */}
-            <div className="p-4 bg-white border-t border-gray-100 flex items-center justify-between">
-              <h2 className="text-sm font-bold text-gray-900 tracking-tight">
-                {activePhoto.heading}
-              </h2>
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest bg-gray-50 px-2.5 py-1 rounded-md border border-gray-200/50">
-                Media Frame Asset
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+        {/* Lightbox preview */}
+        {activePhoto && (
+          <Lightbox
+            photo={activePhoto}
+            onClose={() => setActivePhoto(null)}
+          />
+        )}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import React from 'react';
 import HeroPage from './HeroPage'; // 👈 FIX THIS LINE to point to your actual Hero file!
 import Advertisement from './Advertisement';
-import DaptaCovid from './DaptaCovid';
+
 import DaptaMarch from './DaptaMarch';
 import LatestUpdates from './LatestUpdates';
 import MissionVisionObjective from './MissionVisionObjective';
@@ -16,8 +16,8 @@ const HomeLayout = () => {
   return (
     <>
       <HeroPage />
-      <DaptaCovid />
       <MissionVisionObjective />
+      {/* <OurActivity /> */}
       <DaptaMarch />
       <Advertisement />
       {/* <OperationalArea /> */}

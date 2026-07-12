@@ -16,6 +16,9 @@ const ExperienceAndHighlights = () => {
         { label: "Political & Legal Empowerment", text: "Fostering structural empowerment pathways for excluded communities to participate directly in democratic governance." },
         { label: "Multi-Level Lobbying", text: "Sustained policy advocacy and institutional lobbying across local, regional, and national administrative levels to protect vulnerable demographics." }
       ],
+      stats: [
+        { value: "3", label: "Govt. Levels Engaged" }
+      ],
       sponsorship: "Supported by: Our Own Initiative"
     },
     {
@@ -32,6 +35,9 @@ const ExperienceAndHighlights = () => {
         { label: "Academic Mainstreaming", text: "Ensuring secure, fluid transitions and enrollment into public formal schools after completing Class V." },
         { label: "Advocacy Enforcement", text: "Running public enrollment campaigns, primary education tracking, and comprehensive child rights protections." }
       ],
+      stats: [
+        { value: "100%", label: "Mainstreaming Goal" }
+      ],
       sponsorship: "Supported by: NCLP, Govt. of India & Own Initiative"
     },
     {
@@ -46,6 +52,10 @@ const ExperienceAndHighlights = () => {
         { label: "Land & Water Management", text: "Deployed target restoration layouts within Kanarla village, directly benefiting 35 ancestral households of the Kutia Kondh Community." },
         { label: "Watershed Production Networks", text: "Implemented extensive watershed projects across 14 tribal villages, transforming and restoring over 1,200 hectares of critical agricultural catchment area." },
         { label: "Women's Vegetable Co-operatives", text: "Promoted 2 distinct women's co-operatives powering 400 active women vegetable farmers. Strengthened business development blueprints and locked in market linkages across 10 villages." }
+      ],
+      stats: [
+        { value: "1,200", label: "Hectares Restored" },
+        { value: "400", label: "Women Farmers" }
       ],
       sponsorship: "Supported by: Regional Ecosystem Grants & Internal Cooperative Structuring"
     },
@@ -63,6 +73,10 @@ const ExperienceAndHighlights = () => {
         { label: "Livelihood & Protective Output", text: "Mobilized 2 local women's SHGs to manufacture cotton masks at scale under a 100% procurement guarantee. Distributed 17,335 double-layered cotton masks and 17,000 bars of protective soap paired with hand-hygiene demonstrations." },
         { label: "Panchayat Governance Integration", text: "Built 5 block-wise WhatsApp groups for women PRI members across Kalahandi (Bhawanipatna, Junagarh, Karlamunda, Koksara, Lanjigarh)—delivering safe health guidelines directly to 43 Sarpanch, 45 Naib Sarpanch, and 471 ward members." },
         { label: "High-Risk Child Tracking", text: "Deployed resources through DAPTA run CHILDLINE Kalahandi to support 106 vulnerable children and families from rag-picking and brick-kiln environments." }
+      ],
+      stats: [
+        { value: "3,500+", label: "Families Reached" },
+        { value: "17,335", label: "Masks Distributed" }
       ],
       sponsorship: "Deepest Gratitude to: District & Block Administrations (BDO Sri Jeetendra Mishra), APPI, and SMILE Foundation India"
     }
@@ -153,6 +167,23 @@ const ExperienceAndHighlights = () => {
                       ))}
                     </ul>
                   </div>
+
+                  {/* High-Impact Visual Statistics (Newly Added) */}
+                  {exp.stats && (
+                    <div className="pt-5 border-t border-gray-100/60 mt-4">
+                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">Key Impact Metrics</h4>
+                      <div className="flex flex-wrap gap-x-8 gap-y-4">
+                        {exp.stats.map((s, idx) => (
+                          <div key={idx} className="flex flex-col animate-fade-in-up origin-left" style={{ animationDelay: `${idx * 150}ms` }}>
+                            <span className={`text-4xl font-black bg-clip-text text-transparent bg-gradient-to-br ${exp.accentClass} tracking-tighter hover:scale-110 transition-transform duration-300 w-max`}>
+                              {s.value}
+                            </span>
+                            <span className="text-xs font-bold uppercase tracking-wider text-gray-600 mt-1">{s.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                 </div>
 
