@@ -197,9 +197,9 @@ function Navbar() {
                                 <FaPhoneAlt className="text-sky-500 text-xs" />
                                 <span className="font-semibold">+91 9437029124</span>
                             </a>
-                            <a href="mailto:dapta@gmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
+                            <a href="mailto:daptaorissa@gmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
                                 <FaEnvelope className="text-sky-500 text-sm" />
-                                <span className="font-semibold">dapta@gmail.com</span>
+                                <span className="font-semibold">daptaorissa@gmail.com</span>
                             </a>
                         </div>
 
@@ -207,10 +207,15 @@ function Navbar() {
                         <div className={`flex items-center gap-4 transition-all duration-300 origin-right ${isScrolled ? 'max-w-0 opacity-0 overflow-hidden pointer-events-none scale-x-0' : 'max-w-xl opacity-100'
                             }`}>
                             <div className="flex items-center gap-4 text-gray-500 border-r border-gray-200 pr-4">
-                                <a href="#" className="hover:text-sky-600 transition-colors"><FaFacebookF size={18} /></a>
-                                <a href="#" className="hover:text-sky-600 transition-colors"><FaTwitter size={18} /></a>
-                                <a href="#" className="hover:text-sky-600 transition-colors"><FaInstagram size={18} /></a>
-                                <a href="#" className="hover:text-sky-600 transition-colors"><FaLinkedinIn size={18} /></a>
+                                <a href="https://share.google/aiHKpr2QwgwnE2eNj" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">
+                                    <FaFacebookF size={18} />
+                                </a>
+                                <a href="https://share.google/pm11wT5noJkHgcxhj" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">
+                                    <FaInstagram size={18} />
+                                </a>
+                                <a href="https://share.google/uQ68rTrbLPoVm7ZMo" target="_blank" rel="noopener noreferrer" className="hover:text-sky-600 transition-colors">
+                                    <FaLinkedinIn size={18} />
+                                </a>
                             </div>
                             <NavLink
                                 to="/get-involved/donation-info"
@@ -371,9 +376,9 @@ function Navbar() {
                                 <FaPhoneAlt className="text-sky-500" />
                                 <span className="font-semibold text-gray-700">+91 9437029124</span>
                             </a>
-                            <a href="mailto:dapta@gmail.com" className="flex items-center gap-3 py-1">
+                            <a href="mailto:daptaorissa@gmail.com" className="flex items-center gap-3 py-1">
                                 <FaEnvelope className="text-sky-500" />
-                                <span className="font-semibold text-gray-700">dapta@gmail.com</span>
+                                <span className="font-semibold text-gray-700">daptaorissa@gmail.com</span>
                             </a>
                         </div>
                     </div>

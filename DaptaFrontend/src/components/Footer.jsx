@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   // Visitor counter digits
@@ -29,11 +30,20 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-bold mb-6 tracking-wide">Quick Links</h3>
           <ul className="space-y-3 text-[14px] text-gray-300">
-            {['Home', 'About Us', 'Activities', 'Reports & Reflections', 'Get Involved', 'Gallery', 'Contact Us', 'Donate Us'].map((link) => (
-              <li key={link}>
-                <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-[#FF6A00] transition-colors duration-200 block">
-                  {link}
-                </a>
+            {[
+              { name: 'Home', path: '/' },
+              { name: 'About Us', path: '/about' },
+              { name: 'Activities', path: '/activities' },
+              { name: 'Reports & Reflections', path: '/reports' },
+              { name: 'Get Involved', path: '/get-involved' },
+              { name: 'Gallery', path: '/gallery' },
+              { name: 'Contact Us', path: '/contact' },
+              { name: 'Donate Us', path: '/get-involved/donation-info' }
+            ].map((link) => (
+              <li key={link.name}>
+                <Link to={link.path} className="hover:text-[#FF6A00] transition-colors duration-200 block">
+                  {link.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -60,7 +70,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-[#FF6A00] shrink-0" />
-              <a href="mailto:dapta@gmail.com" className="hover:underline">dapta@gmail.com</a>
+              <a href="mailto:daptaorissa@gmail.com" className="hover:underline">daptaorissa@gmail.com</a>
             </li>
             <li className="flex items-start gap-3">
               <Globe className="w-4 h-4 text-[#FF6A00] shrink-0 mt-0.5" />
@@ -78,17 +88,17 @@ const Footer = () => {
           <div className="relative rounded-xl overflow-hidden border border-gray-700 shadow-lg max-w-[280px]">
             <div className="relative h-44 bg-[#E5E3DF] overflow-hidden">
               <img
-                src="https://maps.googleapis.com/maps/api/staticmap?center=Madanpur+Rampur,Kalahandi,Odisha&zoom=13&size=300x200&sensor=false&key="
+                src="https://maps.googleapis.com/maps/api/staticmap?center=Bhawanipatna,Kalahandi,Odisha&zoom=13&size=300x200&sensor=false&key="
                 alt="Madanpur Rampur Map"
                 className="w-full h-full object-cover opacity-80 mix-blend-multiply"
                 onError={(e) => {
                   e.target.src = "https://via.placeholder.com/280x180/e5e3df/999999?text=Madanpur+Rampur+Map";
                 }}
               />
-              <div className="absolute top-2 left-2 bg-white text-blue-600 text-[11px] font-semibold px-2 py-1 rounded shadow flex items-center gap-1 cursor-pointer">
+              <a href="https://www.google.com/maps/place/DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening)/@19.9081741,83.1731122,17z/data=!4m14!1m7!3m6!1s0x3a24eb419e7bf3e1:0x2228b18396fdb3fb!2sLal+Bahadur+Shastri+Stadium,+Bhawanipatna!8m2!3d19.9081741!4d83.1756871!16s%2Fg%2F11fsnwbqbk!3m5!1s0x3a24e95608b5ac89:0x6251a8b52a097d4d!8m2!3d19.908188!4d83.1734391!16s%2Fg%2F11h8fgv662?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="absolute top-2 left-2 bg-white text-blue-600 text-[11px] font-semibold px-2 py-1 rounded shadow flex items-center gap-1 cursor-pointer hover:bg-gray-50 transition-colors">
                 <span>Open in Maps</span>
                 <span className="text-[9px]">↗</span>
-              </div>
+              </a>
               <div className="absolute bottom-1 right-1 bg-white/90 text-[9px] text-gray-600 px-1 rounded scale-90">
                 Google
               </div>
@@ -117,18 +127,18 @@ const Footer = () => {
 
           {/* Social Icons Layout using Font Awesome classes */}
           <div className="flex items-center gap-1.5">
-            <a href="#" className="w-7 h-7 bg-[#00ACEE] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
+            <Link to="/gallery/social" className="w-7 h-7 bg-[#00ACEE] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
               <i className="fa fa-twitter text-[14px]"></i>
-            </a>
-            <a href="#" className="w-7 h-7 bg-[#3B5998] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
+            </Link>
+            <Link to="/gallery/social" className="w-7 h-7 bg-[#3B5998] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
               <i className="fa fa-facebook text-[14px]"></i>
-            </a>
-            <a href="#" className="w-7 h-7 bg-[#FF4500] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
+            </Link>
+            <Link to="/gallery/social" className="w-7 h-7 bg-[#FF4500] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
               <i className="fa fa-youtube-play text-[14px]"></i>
-            </a>
-            <a href="#" className="w-7 h-7 bg-[#3F729B] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
+            </Link>
+            <Link to="/gallery/social" className="w-7 h-7 bg-[#3F729B] flex items-center justify-center text-white rounded hover:opacity-90 transition-opacity">
               <i className="fa fa-instagram text-[14px]"></i>
-            </a>
+            </Link>
           </div>
 
           {/* Visitor Grid Box Elements */}

@@ -8,6 +8,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [mapError, setMapError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -249,25 +250,49 @@ const Contact = () => {
 
             {/* INTERACTIVE GOOGLE MAP CONTAINER */}
             <div className="bg-white rounded-2xl border border-gray-200/80 p-2 shadow-xs overflow-hidden group">
-              <div className="rounded-xl overflow-hidden h-64 w-full relative isolation bg-gray-100">
-                <iframe
-                  title="DAPTA Office Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3741.5204480112444!2d83.17131109999999!3d19.9083056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU0JzI5LjkiTiA4M8KwMTAnMjQuNiJF!5e0!3m2!1sen!2sin!4v1717975200000!5m2!1sen!2sin"
-                  className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-300 ease-in-out"
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div className="rounded-xl overflow-hidden h-64 w-full relative isolation bg-gray-100 flex items-center justify-center">
+                
+                {/* Fallback UI positioned behind the iframe (or replaces it if mapError is true) */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0 bg-gray-50">
+                  {mapError && (
+                    <svg className="w-10 h-10 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  )}
+                  <h4 className="text-sm font-bold text-gray-700 mb-1">DAPTA Office Location</h4>
+                  <p className="text-xs text-gray-500 mb-4">Near Old Cinema Hall, Bhawanipatna, Kalahandi, Odisha – 766001, India</p>
+                  <a
+                    href="https://www.google.com/maps/place/DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening)/@19.9081741,83.1731122,17z/data=!4m14!1m7!3m6!1s0x3a24eb419e7bf3e1:0x2228b18396fdb3fb!2sLal+Bahadur+Shastri+Stadium,+Bhawanipatna!8m2!3d19.9081741!4d83.1756871!16s%2Fg%2F11fsnwbqbk!3m5!1s0x3a24e95608b5ac89:0x6251a8b52a097d4d!8m2!3d19.908188!4d83.1734391!16s%2Fg%2F11h8fgv662?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-sky-600 text-white font-bold text-xs tracking-wide shadow-md hover:bg-sky-700 transition-all relative z-20"
+                  >
+                    Open Google Maps
+                  </a>
+                </div>
+
+                {!mapError && (
+                  <iframe
+                    title="DAPTA Office Location Map"
+                    src="https://maps.google.com/maps?q=DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening),+Bhawanipatna&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-300 ease-in-out absolute inset-0 z-10"
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    onError={() => setMapError(true)}
+                  ></iframe>
+                )}
+
               </div>
               <div className="p-2 pt-3 flex items-center justify-between text-[11px] text-gray-400 font-medium">
                 <span>📍 Live Navigation Node</span>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=19.9083056,83.1713111"
+                  href="https://www.google.com/maps/place/DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening)/@19.9081741,83.1731122,17z/data=!4m14!1m7!3m6!1s0x3a24eb419e7bf3e1:0x2228b18396fdb3fb!2sLal+Bahadur+Shastri+Stadium,+Bhawanipatna!8m2!3d19.9081741!4d83.1756871!16s%2Fg%2F11fsnwbqbk!3m5!1s0x3a24e95608b5ac89:0x6251a8b52a097d4d!8m2!3d19.908188!4d83.1734391!16s%2Fg%2F11h8fgv662?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sky-600 hover:underline font-bold"
+                  className="text-sky-600 hover:underline font-bold flex items-center gap-1"
                 >
-                  Open Map view
+                  Open Google Maps <span>↗</span>
                 </a>
               </div>
             </div>

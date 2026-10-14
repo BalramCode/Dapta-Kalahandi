@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div className="w-full max-w-4xl mx-auto space-y-12 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
 
       {/* Hero Intro Section */}
-      <div className="bg-white p-8 md:p-12 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
+      <div className="bg-white p-2 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
         {/* Decorative corner accent */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-bl-[100px] -z-10" />
 
