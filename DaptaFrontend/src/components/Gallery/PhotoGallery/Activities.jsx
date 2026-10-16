@@ -78,9 +78,10 @@ const Activities = () => {
       themeColor: "purple",
       description: "Recognizing the need for strong local governance, DAPTA conducted a capacity-building training programme aimed at strengthening leadership skills and improving community participation. The interactive sessions were tailored to empower youth and emerging local leaders with practical tools for teamwork, effective communication, and strategic decision-making. By strengthening community-level institutions, the training laid a solid foundation for more sustainable development and self-reliant grassroots leadership.",
       images: [
+        "https://res.cloudinary.com/ddptxvwrj/image/upload/v1792142746/4fd4581d-589d-4a40-b01c-875378013ea4.png",
         "https://res.cloudinary.com/ddptxvwrj/image/upload/v1783928588/IMG-20260711-WA0023_feo1n0.jpg",
         "https://res.cloudinary.com/ddptxvwrj/image/upload/v1783928589/IMG-20260711-WA0019_hyfxdy.jpg",
-        "https://res.cloudinary.com/ddptxvwrj/image/upload/v1783928589/IMG-20260711-WA0022_mjo8it.jpg",
+        "https://res.cloudinary.com/ddptxvwrj/image/upload/v1792142742/d4097290-1e34-46bb-acdd-7e6df786bdf4.png",
         "https://res.cloudinary.com/ddptxvwrj/image/upload/v1783928589/IMG-20260711-WA0020_auwvky.jpg"
       ]
     },

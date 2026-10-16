@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import { Quote } from 'lucide-react';
 
-const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs, collapsibleParagraphs }) => {
+const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs, collapsibleParagraphs, imageShape = "square" }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const isSquare = imageShape === "square";
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
@@ -14,13 +16,13 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
           {/* Decorative Background Glow */}
           <div className="absolute inset-0 bg-gradient-to-b from-sky-50/50 to-transparent rounded-3xl -z-10 pointer-events-none" />
           
-          {/* Circular Image Container */}
-          <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full p-2 bg-gradient-to-tr from-sky-400 to-emerald-400 shadow-xl group overflow-hidden">
-            <div className="absolute inset-0 bg-black/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
+          {/* Square Image Container (1:1 format) */}
+          <div className={`relative w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 aspect-square p-1.5 bg-gradient-to-tr from-sky-400 to-emerald-400 shadow-xl group overflow-hidden ${isSquare ? '' : 'rounded-full'}`}>
+            <div className={`absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none ${isSquare ? '' : 'rounded-full'}`} />
             <img
               src={image || `https://via.placeholder.com/300/e0f2fe/0369a1?text=${encodeURIComponent(designation)}`}
               alt={name}
-              className="w-full h-full object-cover rounded-full transform transition-transform duration-700 group-hover:scale-110 bg-white"
+              className={`w-full h-full object-cover object-top transform transition-transform duration-700 group-hover:scale-105 bg-white ${isSquare ? '' : 'rounded-full'}`}
               onError={(e) => {
                 e.target.src = `https://via.placeholder.com/300/e0f2fe/0369a1?text=${encodeURIComponent(designation)}`;
               }}

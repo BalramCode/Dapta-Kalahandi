@@ -50,6 +50,10 @@ import SocialMedia from './components/Gallery/SocialMedia';
 // --- CONTACT IMPORT ---
 import Contact from './components/Contact';
 
+// --- LEGAL IMPORTS ---
+import PrivacyPolicy from './components/Legal/PrivacyPolicy';
+import TermsAndConditions from './components/Legal/TermsAndConditions';
+
 import ScrollToTop from './components/ScrollToTop';
 
 const Placeholder = ({ title }) => (
@@ -66,46 +70,46 @@ function App() {
         {/* Shared Layout Framework */}
         <Route path="/" element={<Layout />}>
 
-        {/* Index Page */}
-        <Route index element={<HomeLayout />} />
+          {/* Index Page */}
+          <Route index element={<HomeLayout />} />
 
-        {/* ================= ABOUT ROUTES ================= */}
-        <Route path="about" element={<AboutLayout />}>
-          <Route index element={<Navigate to="about-us" replace />} />
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path="profile" element={<OrganizasionalProfit />} />
-          <Route path="governing-body" element={<GovernmentBody />} />
-          <Route path="organogram" element={<Organogram />} />
-          <Route path="legal-documents" element={<LegalDocument />} />
-          <Route path="roadmap" element={<StrategyAndRoadmap />} />
-          <Route path="founder-note" element={<FounderNote />} />
-          <Route path="secretary-note" element={<SecretaryNote />} />
-          <Route path="former-secretary-note" element={<FormerSecretaryNote />} />
-        </Route>
-
-        {/* ================= ACTIVITIES ROUTES ================= */}
-        <Route path="activities">
-          <Route index element={<Navigate to="all" replace />} />
-
-          {/* Level 3 deep nested sub-routes under /activities/all/* */}
-          <Route path="all">
-            <Route index element={<Navigate to="health" replace />} />
-            <Route path="health" element={<HealthAndWellbeing />} />
-            <Route path="womens-governance" element={<WomenParticipation />} />
-            <Route path="education" element={<EducationAndChildDevelopment />} />
-            <Route path="covid-relief" element={<DaptaRelief />} />
-            <Route path="sustainable-livelihoods" element={<SustainableManagement />} />
-            <Route path="environmental-climate" element={<EnvironmentalSustainability />} />
-            <Route path="disaster-inclusion" element={<DisasterManagement />} />
-            <Route path="networking-capacity" element={<NetworkingAndCapacityBuilding />} />
+          {/* ================= ABOUT ROUTES ================= */}
+          <Route path="about" element={<AboutLayout />}>
+            <Route index element={<Navigate to="about-us" replace />} />
+            <Route path="about-us" element={<AboutUs />} />
+            <Route path="profile" element={<OrganizasionalProfit />} />
+            <Route path="governing-body" element={<GovernmentBody />} />
+            <Route path="organogram" element={<Organogram />} />
+            <Route path="legal-documents" element={<LegalDocument />} />
+            <Route path="roadmap" element={<StrategyAndRoadmap />} />
+            <Route path="founder-note" element={<FounderNote />} />
+            <Route path="secretary-note" element={<SecretaryNote />} />
+            <Route path="former-secretary-note" element={<FormerSecretaryNote />} />
           </Route>
 
-          <Route path="highlights" element={<ExperienceAndHighlights />} />
-        </Route>
+          {/* ================= ACTIVITIES ROUTES ================= */}
+          <Route path="activities">
+            <Route index element={<Navigate to="all" replace />} />
 
-        {/* ================= REPORTS & REFLECTIONS ROUTES ================= */}
+            {/* Level 3 deep nested sub-routes under /activities/all/* */}
+            <Route path="all">
+              <Route index element={<Navigate to="health" replace />} />
+              <Route path="health" element={<HealthAndWellbeing />} />
+              <Route path="womens-governance" element={<WomenParticipation />} />
+              <Route path="education" element={<EducationAndChildDevelopment />} />
+              <Route path="covid-relief" element={<DaptaRelief />} />
+              <Route path="sustainable-livelihoods" element={<SustainableManagement />} />
+              <Route path="environmental-climate" element={<EnvironmentalSustainability />} />
+              <Route path="disaster-inclusion" element={<DisasterManagement />} />
+              <Route path="networking-capacity" element={<NetworkingAndCapacityBuilding />} />
+            </Route>
 
-        {/* <Route path="reports">
+            <Route path="highlights" element={<ExperienceAndHighlights />} />
+          </Route>
+
+          {/* ================= REPORTS & REFLECTIONS ROUTES ================= */}
+
+          {/* <Route path="reports">
           <Route index element={<Navigate to="annual" replace />} />
 
           <Route path="all">
@@ -126,48 +130,54 @@ function App() {
         </Route> */}
 
 
-        <Route path="reports">
-          <Route index element={<Navigate to="annual" replace />} />
+          <Route path="reports">
+            <Route index element={<Navigate to="annual" replace />} />
 
-          <Route path="annual" element={<AnnualReport />} />
-          <Route path="financial" element={<FinancialReport />} />
-        </Route>
-
-        {/* ================= GET INVOLVED ROUTES ================= */}
-        <Route path="get-involved">
-          <Route index element={<Placeholder title="Get Involved Overview" />} />
-          <Route path="volunteer" element={<VolunteerOpportunities />} />
-          <Route path="partnership" element={<Partnership />} />
-          <Route path="donation-info" element={<DonationInfo />} />
-        </Route>
-
-        {/* ================= GALLERY ROUTES ================= */}
-        <Route path="gallery">
-          <Route index element={<Navigate to="photos/community" replace />} />
-
-          {/* Photo Gallery Layout Categories (/gallery/photos/*) */}
-          <Route path="photos">
-            <Route index element={<Navigate to="community" replace />} />
-
-            <Route path="community" element={<CommunityInteractions />} />
-            <Route path="events" element={<EventsPhotos />} />
-            <Route path="activities" element={<ActivitiesPhotos />} />
-            <Route path="awards-certificates" element={<AwardsCertificates />} />
-            <Route path="club" element={<ClubPhotos />} />
+            <Route path="annual" element={<AnnualReport />} />
+            <Route path="financial" element={<FinancialReport />} />
           </Route>
 
-          <Route path="videos" element={<VideoGallery />} />
-          <Route path="social" element={<SocialMedia />} />
-        </Route>
+          {/* ================= GET INVOLVED ROUTES ================= */}
+          <Route path="get-involved">
+            <Route index element={<Placeholder title="Get Involved Overview" />} />
+            <Route path="volunteer" element={<VolunteerOpportunities />} />
+            <Route path="partnership" element={<Partnership />} />
+            <Route path="donation-info" element={<DonationInfo />} />
+          </Route>
 
-        {/* ================= CONTACT ROUTE ================= */}
-        <Route path="contact" element={<Contact />} />
-        <Route
-          path="verify/:token"
-          element={<CertificateVerification />}
-        />
-      </Route>
-    </Routes>
+          {/* ================= GALLERY ROUTES ================= */}
+          <Route path="gallery">
+            <Route index element={<Navigate to="photos/community" replace />} />
+
+            {/* Photo Gallery Layout Categories (/gallery/photos/*) */}
+            <Route path="photos">
+              <Route index element={<Navigate to="community" replace />} />
+
+              <Route path="community" element={<CommunityInteractions />} />
+              <Route path="events" element={<EventsPhotos />} />
+              <Route path="activities" element={<ActivitiesPhotos />} />
+              <Route path="awards-certificates" element={<AwardsCertificates />} />
+              <Route path="club" element={<ClubPhotos />} />
+            </Route>
+
+            <Route path="videos" element={<VideoGallery />} />
+            <Route path="social" element={<SocialMedia />} />
+          </Route>
+
+          {/* ================= CONTACT ROUTE ================= */}
+          <Route path="contact" element={<Contact />} />
+          <Route
+            path="verify/:token"
+            element={<CertificateVerification />}
+          />
+
+          {/* ================= LEGAL & POLICY ROUTES ================= */}
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="privacy" element={<Navigate to="/privacy-policy" replace />} />
+          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="terms" element={<Navigate to="/terms-and-conditions" replace />} />
+        </Route>
+      </Routes>
     </>
   );
 }

@@ -18,7 +18,8 @@ const FounderNote = () => {
       title="Founder Note"
       name="Raju Sharma"
       designation="Founder"
-      image="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"
+      image="https://res.cloudinary.com/ddptxvwrj/image/upload/v1792144154/59d3623b-08d4-4ef1-846d-8dc8ba1bb880.png"
+      imageShape="square"
       alwaysVisibleParagraphs={alwaysVisible}
       collapsibleParagraphs={collapsible}
     />

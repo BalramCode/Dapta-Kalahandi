@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,15 +8,18 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [mapError, setMapError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!privacyConsent) return;
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
+      setPrivacyConsent(false);
     }, 3000);
   };
 
@@ -92,6 +96,31 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                {/* Privacy Consent Checkbox (DPDP Act 2023 Compliant) */}
+                <div className="pt-1 pb-1">
+                  <label className="flex items-start gap-2.5 cursor-pointer text-xs text-gray-600 select-none">
+                    <input
+                      type="checkbox"
+                      required
+                      name="privacyConsent"
+                      checked={privacyConsent}
+                      onChange={(e) => setPrivacyConsent(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 rounded text-sky-600 focus:ring-sky-500 border-gray-300 cursor-pointer"
+                    />
+                    <span className="leading-relaxed">
+                      I have read and agree to DAPTA&apos;s{' '}
+                      <Link to="/privacy-policy" target="_blank" className="text-sky-600 font-semibold underline hover:text-sky-700">
+                        Privacy Policy
+                      </Link>{' '}
+                      and{' '}
+                      <Link to="/terms-and-conditions" target="_blank" className="text-sky-600 font-semibold underline hover:text-sky-700">
+                        Terms &amp; Conditions
+                      </Link>
+                      , and I consent to the processing of my contact details solely for responding to this inquiry under the Digital Personal Data Protection Act, 2023.
+                    </span>
+                  </label>
+                </div>
+
                 <button
                   type="submit"
                   className="w-full inline-flex items-center justify-center px-5 py-3 rounded-xl bg-sky-600 text-white font-bold text-sm tracking-wide shadow-md shadow-sky-600/10 hover:bg-sky-700 transition-all cursor-pointer"
@@ -132,7 +161,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block">Email For Inquiry</span>
-                  <a href="mailto:sapta@rediffmail.com" className="text-sm font-bold text-gray-800 hover:text-emerald-600 transition-colors mt-0.5 inline-block">
+                  <a href="mailto:dapta@rediffmail.com" className="text-sm font-bold text-gray-800 hover:text-emerald-600 transition-colors mt-0.5 inline-block">
                     dapta@rediffmail.com
                   </a>
                 </div>
@@ -162,46 +191,36 @@ const Contact = () => {
               <div className="pt-4 border-t border-gray-100">
                 <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-3">Connect With Us</span>
                 <div className="flex items-center gap-3">
-                  
+
+                  {/* LinkedIn */}
+                  <a
+                    href="https://www.linkedin.com/company/development-agency-for-poor-and-tribal-awakening-dapta/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
+                    className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-700 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200"
+                  >
+                    <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                  </a>
+
                   {/* Facebook */}
-                  <a 
-                    href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook Page"
+                  <a
+                    href="https://www.facebook.com/dapta.kalahandi.75/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Page"
                     className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50 transition-all duration-200"
                   >
                     <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                      <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                      <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
                     </svg>
                   </a>
 
                   {/* Instagram */}
-                  <a 
-                    href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"
+                  <a
+                    href="https://www.instagram.com/daptakalahandi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"
                     className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-pink-600 hover:border-pink-200 hover:bg-pink-50 transition-all duration-200"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 fill-none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                  </a>
-
-                  {/* YouTube */}
-                  <a 
-                    href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"
-                    className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-red-600 hover:border-red-200 hover:bg-red-50 transition-all duration-200"
-                  >
-                    <svg className="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
-                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                  </a>
-
-                  {/* X / Twitter */}
-                  <a 
-                    href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter X Profile"
-                    className="w-9 h-9 rounded-xl border border-gray-200 flex items-center justify-center text-gray-500 hover:text-black hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
-                  >
-                    <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                     </svg>
                   </a>
 
@@ -221,7 +240,7 @@ const Contact = () => {
                   Registered Head Office
                 </h4>
                 <p className="text-xs sm:text-sm text-gray-600 font-medium mt-2 leading-relaxed">
-                  Near Old Cinema Hall, Bhawanipatna, Kalahandi District, Odisha, India — Pin: 766001
+                  Near Love Dale School, Mandar Bagicha Para, Bhawanipatna, Kalahandi District, Odisha, India — Pin: 766001
                 </p>
               </div>
 
@@ -251,7 +270,7 @@ const Contact = () => {
             {/* INTERACTIVE GOOGLE MAP CONTAINER */}
             <div className="bg-white rounded-2xl border border-gray-200/80 p-2 shadow-xs overflow-hidden group">
               <div className="rounded-xl overflow-hidden h-64 w-full relative isolation bg-gray-100 flex items-center justify-center">
-                
+
                 {/* Fallback UI positioned behind the iframe (or replaces it if mapError is true) */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0 bg-gray-50">
                   {mapError && (
@@ -260,9 +279,9 @@ const Contact = () => {
                     </svg>
                   )}
                   <h4 className="text-sm font-bold text-gray-700 mb-1">DAPTA Office Location</h4>
-                  <p className="text-xs text-gray-500 mb-4">Near Old Cinema Hall, Bhawanipatna, Kalahandi, Odisha – 766001, India</p>
+                  <p className="text-xs text-gray-500 mb-4">Near Love Dale School, Mandar Bagicha Para, Bhawanipatna, Odisha 766001</p>
                   <a
-                    href="https://www.google.com/maps/place/DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening)/@19.9081741,83.1731122,17z/data=!4m14!1m7!3m6!1s0x3a24eb419e7bf3e1:0x2228b18396fdb3fb!2sLal+Bahadur+Shastri+Stadium,+Bhawanipatna!8m2!3d19.9081741!4d83.1756871!16s%2Fg%2F11fsnwbqbk!3m5!1s0x3a24e95608b5ac89:0x6251a8b52a097d4d!8m2!3d19.908188!4d83.1734391!16s%2Fg%2F11h8fgv662?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D"
+                    href="https://www.google.com/maps/search/?api=1&query=W55F%2B79G%2C+near+Love+Dale+School%2C+Mandar+Bagicha+Para%2C+Bhawanipatna%2C+Odisha+766001"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-sky-600 text-white font-bold text-xs tracking-wide shadow-md hover:bg-sky-700 transition-all relative z-20"
@@ -274,7 +293,7 @@ const Contact = () => {
                 {!mapError && (
                   <iframe
                     title="DAPTA Office Location Map"
-                    src="https://maps.google.com/maps?q=DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening),+Bhawanipatna&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=W55F%2B79G,+near+Love+Dale+School,+Mandar+Bagicha+Para,+Bhawanipatna,+Odisha+766001&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-300 ease-in-out absolute inset-0 z-10"
                     allowFullScreen=""
                     loading="lazy"
@@ -287,7 +306,7 @@ const Contact = () => {
               <div className="p-2 pt-3 flex items-center justify-between text-[11px] text-gray-400 font-medium">
                 <span>📍 Live Navigation Node</span>
                 <a
-                  href="https://www.google.com/maps/place/DAPTA,+(Development+Agency+for+Poor+and+Tribal+Awakening)/@19.9081741,83.1731122,17z/data=!4m14!1m7!3m6!1s0x3a24eb419e7bf3e1:0x2228b18396fdb3fb!2sLal+Bahadur+Shastri+Stadium,+Bhawanipatna!8m2!3d19.9081741!4d83.1756871!16s%2Fg%2F11fsnwbqbk!3m5!1s0x3a24e95608b5ac89:0x6251a8b52a097d4d!8m2!3d19.908188!4d83.1734391!16s%2Fg%2F11h8fgv662?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/search/?api=1&query=W55F%2B79G%2C+near+Love+Dale+School%2C+Mandar+Bagicha+Para%2C+Bhawanipatna%2C+Odisha+766001"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sky-600 hover:underline font-bold flex items-center gap-1"

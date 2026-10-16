@@ -48,7 +48,7 @@ function Navbar() {
                 { name: "Strategy And Roadmap", path: "/about/roadmap" },
                 { name: "Founder Note", path: "/about/founder-note" },
                 { name: "Secretary Note", path: "/about/secretary-note" },
-                { name: "Former Secretary Note", path: "/about/former-secretary-note" },
+                // { name: "Former Secretary Note", path: "/about/former-secretary-note" },
             ]
         },
         {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import donationFormPdf from '../../assets/DAPTA DONATION FORM.pdf';
 
 const DonationInfo = () => {
   const [copiedField, setCopiedField] = useState(null);
@@ -22,7 +23,7 @@ const DonationInfo = () => {
   return (
     <div className="bg-gray-50 min-h-screen pt-24 pb-16">
       <div className="max-w-6xl my-15 mx-auto px-4">
-        
+
         {/* Module Header */}
         <div className="text-center md:text-left border-b border-gray-200 pb-8 mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
@@ -32,16 +33,16 @@ const DonationInfo = () => {
             Donation Information
           </h1>
           <p className="text-gray-600 text-sm md:text-base max-w-2xl leading-relaxed">
-            Your contributions directly fund our grassroot development programs, agricultural interventions, 
+            Your contributions directly fund our grassroot development programs, agricultural interventions,
             and tribal livelihood security frameworks throughout Kalahandi.
           </p>
         </div>
 
         <div className="grid md:grid-cols-12 gap-8 items-start">
-          
+
           {/* LEFT PANEL: Bank Account Passbook View (8 Cols) */}
           <div className="md:col-span-7 bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
-            
+
             {/* Passbook Header Banner */}
             <div className="bg-gradient-to-r from-sky-700 to-sky-800 p-5 text-white flex items-center justify-between">
               <div>
@@ -57,14 +58,14 @@ const DonationInfo = () => {
 
             {/* Passbook Details Table Matrix */}
             <div className="p-6 space-y-4">
-              
+
               {/* Account Holder Name */}
               <div className="pb-3.5 border-b border-gray-100 flex justify-between items-start gap-4">
                 <div>
                   <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Account Holder Name</span>
                   <p className="text-base font-bold text-gray-800 mt-0.5">{bankDetails.accountName}</p>
                 </div>
-                <button 
+                <button
                   onClick={() => handleCopy(bankDetails.accountName, 'name')}
                   className="text-xs font-medium text-sky-600 hover:text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md transition-colors"
                 >
@@ -90,7 +91,7 @@ const DonationInfo = () => {
                   <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Branch Code</span>
                   <p className="text-sm font-mono font-bold text-gray-800 mt-0.5">{bankDetails.branchCode}</p>
                 </div>
-                <button 
+                <button
                   onClick={() => handleCopy(bankDetails.branchCode, 'code')}
                   className="text-xs font-medium text-sky-600 hover:text-sky-700 bg-sky-50 px-2.5 py-1 rounded-md transition-colors"
                 >
@@ -113,7 +114,7 @@ const DonationInfo = () => {
 
           {/* RIGHT PANEL: Form Download Block (5 Cols) */}
           <div className="md:col-span-5 space-y-6">
-            
+
             {/* Download Card */}
             <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-2xl border border-amber-200/70 p-6 shadow-inner">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-700 mb-4">
@@ -121,28 +122,37 @@ const DonationInfo = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              
+
               <h3 className="text-lg font-bold text-gray-900 tracking-tight">Offline Donation Form</h3>
               <p className="text-gray-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
-                Prefer maintaining paper logs or sending a physical check? Download our formal declaration logsheet 
+                Prefer maintaining paper logs or sending a physical check? Download our formal declaration logsheet
                 to attach alongside your direct deposit tracking ledger.
               </p>
 
-              {/* TODO: Place the official DAPTA donation form PDF in the /public/documents/ directory and update the href below */}
-              <a 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("The official DAPTA Donation Form is currently unavailable. Please check back later or contact our administrative desk.");
-                }}
-                download="DAPTA-Donation-Form.pdf"
-                className="mt-5 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-amber-600 text-white font-bold text-sm tracking-wide shadow-md shadow-amber-600/10 hover:bg-amber-700 hover:shadow-lg transition-all duration-150 group opacity-75"
-              >
-                <span>Download DAPTA Donation Form</span>
-                <svg className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-              </a>
+              <div className="mt-5 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={donationFormPdf}
+                  download="DAPTA-Donation-Form.pdf"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-amber-600 text-white font-bold text-sm tracking-wide shadow-md shadow-amber-600/10 hover:bg-amber-700 hover:shadow-lg transition-all duration-150 group cursor-pointer"
+                >
+                  <span>Download Form</span>
+                  <svg className="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                </a>
+
+                <a
+                  href={donationFormPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-white border border-amber-300 text-amber-800 font-bold text-sm hover:bg-amber-50 transition-colors shadow-xs cursor-pointer"
+                >
+                  <span>Open Form</span>
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             {/* Regulatory Transparency Note */}
@@ -154,7 +164,7 @@ const DonationInfo = () => {
                 Transparency Assurance
               </div>
               <p className="leading-relaxed">
-                All domestic payments receive official institutional donation receipts. Kindly share confirmation cards 
+                All domestic payments receive official institutional donation receipts. Kindly share confirmation cards
                 or transfer reference vouchers via our administrative desk to monitor allocation logs.
               </p>
             </div>
