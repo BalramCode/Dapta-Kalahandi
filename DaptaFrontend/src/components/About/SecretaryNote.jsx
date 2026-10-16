@@ -24,7 +24,7 @@ const SecretaryNote = () => {
       title="Secretary Note"
       name="Aadarsh Sharma"
       designation="Secretary, DAPTA"
-      image=""
+      image="https://res.cloudinary.com/ddptxvwrj/image/upload/v1792148535/150f5f84-8399-4a5e-a50f-74dc755c669a.png"
       alwaysVisibleParagraphs={alwaysVisible}
       collapsibleParagraphs={collapsible}
     />

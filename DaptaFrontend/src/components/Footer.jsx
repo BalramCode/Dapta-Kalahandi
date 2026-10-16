@@ -71,7 +71,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-[#FF6A00] shrink-0" />
-              <a href="mailto:daptaorissa@gmail.com" className="hover:underline">daptaorissa@gmail.com</a>
+              <a href="mailto:dapta@rediffmail.com" className="hover:underline">dapta@rediffmail.com</a>
             </li>
             <li className="flex items-start gap-3">
               <Globe className="w-4 h-4 text-[#FF6A00] shrink-0 mt-0.5" />

@@ -36,7 +36,7 @@ function CovidRelief() {
                     <span className="text-xs font-bold uppercase tracking-widest text-rose-600 bg-rose-50 px-3 py-1 rounded-full">Crisis Response Archive</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
-                    COVID-19 Emergency Relief Operations
+                    COVID-19 Emerg€ency Relief Operations
                 </h2>
                 <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     Visualizing the structural hardships during lockdown, DAPTA mobilized immediate funding and local production pipelines to secure health, food accessibility, and dignity for vulnerable households.

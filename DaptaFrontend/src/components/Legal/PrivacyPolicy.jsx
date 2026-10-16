@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
         {/* Page Header Banner */}
         <div className="bg-white rounded-3xl border border-gray-200/80 p-8 sm:p-12 shadow-sm mb-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-sky-100/60 via-emerald-50/40 to-transparent rounded-bl-full pointer-events-none -z-0" />
-          
+
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-bold uppercase tracking-widest mb-4">
               <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
@@ -321,7 +321,7 @@ const PrivacyPolicy = () => {
                   <div className="flex items-center gap-2.5">
                     <Mail className="w-4 h-4 text-sky-700 flex-shrink-0" />
                     <div className="flex flex-wrap gap-2">
-                      <a href="mailto:daptaorissa@gmail.com" className="text-sky-700 hover:underline font-medium">daptaorissa@gmail.com</a>
+                      <a href="mailto:dapta@rediffmail.com" className="text-sky-700 hover:underline font-medium">dapta@rediffmail.com</a>
                       <span>/</span>
                       <a href="mailto:dapta@rediffmail.com" className="text-sky-700 hover:underline font-medium">dapta@rediffmail.com</a>
                     </div>

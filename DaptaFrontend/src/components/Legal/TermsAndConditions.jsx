@@ -27,7 +27,7 @@ const TermsAndConditions = () => {
         {/* Page Header Banner */}
         <div className="bg-white rounded-3xl border border-gray-200/80 p-8 sm:p-12 shadow-sm mb-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-amber-100/60 via-sky-50/40 to-transparent rounded-bl-full pointer-events-none -z-0" />
-          
+
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-widest mb-4">
               <Scale className="w-3.5 h-3.5 text-amber-600" />
@@ -116,7 +116,7 @@ const TermsAndConditions = () => {
               <p>
                 Our digital portal is dedicated to promoting tribal empowerment, poverty alleviation, rural water and sanitation infrastructure, sustainable livelihood generation, and community welfare in Kalahandi and across Odisha. Users must utilize our digital materials strictly for lawful, educational, research, philanthropic, and non-commercial informational purposes.
               </p>
-              
+
               <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-2.5">
                 <h4 className="font-bold text-gray-900 text-sm flex items-center gap-2">
                   <ShieldAlert className="w-4 h-4 text-rose-500" />
@@ -202,7 +202,7 @@ const TermsAndConditions = () => {
                   <HeartPulse className="w-5 h-5 text-amber-700 flex-shrink-0" />
                   <span>Important Medical & Health Information Notice</span>
                 </div>
-                
+
                 <p className="text-amber-900/90 text-sm sm:text-base leading-relaxed">
                   <strong>DAPTA conducts community health awareness, mother &amp; child nutrition initiatives, COVID relief distributions, and rural sanitation workshops in Kalahandi District. Information published on this website regarding health, nutrition, or hygiene is provided strictly for educational and community awareness purposes.</strong>
                 </p>
@@ -288,7 +288,7 @@ const TermsAndConditions = () => {
                   <div className="flex items-center gap-2.5">
                     <Mail className="w-4 h-4 text-amber-600 flex-shrink-0" />
                     <div className="flex flex-wrap gap-2">
-                      <a href="mailto:daptaorissa@gmail.com" className="text-sky-700 hover:underline font-medium">daptaorissa@gmail.com</a>
+                      <a href="mailto:dapta@rediffmail.com" className="text-sky-700 hover:underline font-medium">dapta@rediffmail.com</a>
                       <span>/</span>
                       <a href="mailto:dapta@rediffmail.com" className="text-sky-700 hover:underline font-medium">dapta@rediffmail.com</a>
                     </div>
