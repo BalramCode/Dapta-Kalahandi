@@ -166,7 +166,7 @@ function Navbar() {
 
     return (
         <header className={`w-full bg-white shadow-sm border-b border-gray-100 fixed top-0 z-50 transition-all duration-300 ${isScrolled ? 'py-1' : 'py-0'}`}>
-            <div className={`px-4 flex items-center justify-between gap-4 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-3'}`}>
+            <div className={`px-4 flex items-center justify-between gap-4 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-1'}`}>
 
                 {/* LOGO SECTION */}
                 <Link to="/" className="flex items-center gap-3 ml-0 shrink-0 cursor-pointer">
@@ -197,9 +197,9 @@ function Navbar() {
                                 <FaPhoneAlt className="text-sky-500 text-xs" />
                                 <span className="font-semibold">+91 9437029124</span>
                             </a>
-                            <a href="mailto:daptaorissa@gmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
+                            <a href="mailto:dapta@rediffmail.com" className="flex items-center gap-2 hover:text-sky-600 transition-colors shrink-0">
                                 <FaEnvelope className="text-sky-500 text-sm" />
-                                <span className="font-semibold">daptaorissa@gmail.com</span>
+                                <span className="font-semibold">dapta@rediffmail.com</span>
                             </a>
                         </div>
 
@@ -280,11 +280,18 @@ function Navbar() {
 
                 </div>
 
-                {/* MOBILE HAMBURGER BUTTON */}
-                <div className="flex lg:hidden items-center">
+                {/* MOBILE HAMBURGER BUTTON & DONATE BUTTON */}
+                <div className="flex lg:hidden items-center gap-2.5">
+                    {/* <NavLink
+                        to="/get-involved/donation-info"
+                        className="bg-rose-500 hover:bg-rose-600 active:bg-rose-700 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 transition-all transform active:scale-95 shrink-0"
+                    >
+                        <FaHeart size={10} />
+                        <span>Donate Us</span>
+                    </NavLink> */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-gray-700 hover:text-sky-600 focus:outline-none p-2"
+                        className="text-gray-700 hover:text-sky-600 focus:outline-none p-1.5 rounded-lg hover:bg-gray-100 transition-colors"
                         aria-label="Toggle Menu"
                     >
                         {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
@@ -297,7 +304,19 @@ function Navbar() {
                 className={`lg:hidden w-full bg-white border-t border-gray-100 shadow-xl absolute top-full left-0 transition-all duration-300 ease-in-out transform ${isOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 -translate-y-4 invisible pointer-events-none"
                     }`}
             >
-                <div className="px-5 py-4 flex flex-col gap-6 max-h-[80vh] overflow-y-auto">
+                <div className="px-5 py-4 flex flex-col gap-5 max-h-[80vh] overflow-y-auto">
+                    {/* MOBILE DONATE BUTTON */}
+                    <div className="pt-1">
+                        <NavLink
+                            to="/get-involved/donation-info"
+                            onClick={handleMobileClose}
+                            className="w-full bg-rose-500 hover:bg-rose-600 active:bg-rose-700 text-white text-sm font-bold py-2.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all transform active:scale-95"
+                        >
+                            <FaHeart size={14} className="text-white" />
+                            <span>Donate Us</span>
+                        </NavLink>
+                    </div>
+
                     <nav className="flex flex-col gap-1">
                         {menuData.map((item, index) => (
                             <div key={index} className="border-b border-gray-50 last:border-0 py-1">
@@ -372,13 +391,26 @@ function Navbar() {
                     {/* MOBILE CONTACT INFO FOOTER */}
                     <div className="flex flex-col gap-4 pt-4 border-t border-gray-100">
                         <div className="flex flex-col gap-3 text-sm text-gray-600">
-                            <a href="tel:+919437029124" className="flex items-center gap-3 py-1">
+                            <a href="tel:+919437029124" className="flex items-center gap-3 py-1 hover:text-sky-600 transition-colors">
                                 <FaPhoneAlt className="text-sky-500" />
                                 <span className="font-semibold text-gray-700">+91 9437029124</span>
                             </a>
-                            <a href="mailto:daptaorissa@gmail.com" className="flex items-center gap-3 py-1">
+                            <a href="mailto:dapta@rediffmail.com" className="flex items-center gap-3 py-1 hover:text-sky-600 transition-colors">
                                 <FaEnvelope className="text-sky-500" />
-                                <span className="font-semibold text-gray-700">daptaorissa@gmail.com</span>
+                                <span className="font-semibold text-gray-700">dapta@rediffmail.com</span>
+                            </a>
+                        </div>
+
+                        {/* MOBILE SOCIAL ICONS */}
+                        <div className="flex items-center gap-3 text-gray-500 pt-3 border-t border-gray-100">
+                            <a href="https://share.google/aiHKpr2QwgwnE2eNj" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 hover:bg-sky-50 hover:text-sky-600 rounded-full transition-colors" aria-label="Facebook">
+                                <FaFacebookF size={16} />
+                            </a>
+                            <a href="https://share.google/pm11wT5noJkHgcxhj" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 hover:bg-sky-50 hover:text-sky-600 rounded-full transition-colors" aria-label="Instagram">
+                                <FaInstagram size={16} />
+                            </a>
+                            <a href="https://share.google/uQ68rTrbLPoVm7ZMo" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 hover:bg-sky-50 hover:text-sky-600 rounded-full transition-colors" aria-label="LinkedIn">
+                                <FaLinkedinIn size={16} />
                             </a>
                         </div>
                     </div>

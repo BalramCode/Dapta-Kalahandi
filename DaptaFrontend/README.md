@@ -1,91 +1,184 @@
 # Dapta Frontend
 
-Dapta Frontend is a React single-page application built with Vite. It defines the public website interface for Dapta, including the home page, about pages, activity sections, reports and reflections, gallery pages, get-involved pages, and contact routing.
+Dapta Frontend is a React single-page application (SPA) built with Vite. It defines the public website interface for Dapta, including the home page, about pages, activity sections, reports and reflections, gallery pages, get-involved pages, and contact routing.
 
 The app uses React Router for page navigation, Tailwind CSS for styling, and shared layout components for the navbar, main content area, and footer.
 
+---
+
 ## Tech Stack
 
-- React 19
-- Vite 8
-- React Router DOM 7
-- Tailwind CSS 4
-- Lucide React and React Icons
-- ESLint
+- **React 19**
+- **Vite 8**
+- **React Router DOM 7**
+- **Tailwind CSS 4**
+- **Lucide React & React Icons**
+- **ESLint**
 
-## Getting Started
+---
 
-Install dependencies:
+## Getting Started Locally
 
+### 1. Install dependencies
 ```bash
 npm install
 ```
 
-Start the development server:
-
+### 2. Start the development server
 ```bash
 npm run dev
 ```
 
-Build for production:
-
+### 3. Build for production
 ```bash
 npm run build
 ```
 
-Preview the production build:
-
+### 4. Preview production build locally
 ```bash
 npm run preview
 ```
 
-Run lint checks:
-
+### 5. Run lint checks
 ```bash
 npm run lint
 ```
+
+---
+
+## Deploying to Netlify
+
+This project is fully pre-configured for Netlify with [`netlify.toml`](./netlify.toml) and [`public/_redirects`](./public/_redirects) to prevent 404 errors on page refresh/direct route navigation.
+
+Here are the 3 ways you can deploy this project to Netlify:
+
+### Method 1: Git-based Continuous Deployment (Recommended)
+
+This automatically builds and deploys your site whenever you push changes to GitHub / GitLab / Bitbucket.
+
+1. **Push your code to GitHub / GitLab**:
+   ```bash
+   git add .
+   git commit -m "Deploy Dapta frontend to Netlify"
+   git push origin main
+   ```
+
+2. **Log in to Netlify**:
+   - Go to [Netlify](https://app.netlify.com/) and sign in.
+
+3. **Import Existing Project**:
+   - Click **"Add new site"** > **"Import an existing project"**.
+   - Select your Git provider (e.g., **GitHub**) and authorize Netlify.
+   - Choose your `DaptaFrontend` repository.
+
+4. **Confirm Build Settings**:
+   Netlify will automatically detect the settings from `netlify.toml`:
+   - **Base directory**: *(leave blank or `/`)*
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist`
+
+5. **Deploy Site**:
+   - Click **"Deploy Dapta"**.
+   - Within 1–2 minutes, your site will be live at a custom `*.netlify.app` URL!
+
+---
+
+### Method 2: Netlify Drop (Manual Drag & Drop — Quickest)
+
+If you don't want to connect Git yet, you can directly upload your production build:
+
+1. **Build the production bundle locally**:
+   ```bash
+   npm run build
+   ```
+   This generates the production-ready files inside the `dist/` folder.
+
+2. **Open Netlify Drop**:
+   - Go to [app.netlify.com/drop](https://app.netlify.com/drop).
+
+3. **Upload the `dist` folder**:
+   - Drag and drop your **`dist`** folder (located inside `DaptaFrontend/dist`) into the upload zone.
+   - Your site will deploy instantly!
+
+---
+
+### Method 3: Netlify CLI
+
+You can also deploy directly from your terminal using the Netlify CLI:
+
+1. **Install Netlify CLI globally**:
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. **Log in to your Netlify account**:
+   ```bash
+   netlify login
+   ```
+
+3. **Build the project**:
+   ```bash
+   npm run build
+   ```
+
+4. **Deploy to production**:
+   ```bash
+   netlify deploy --prod --dir=dist
+   ```
+
+---
+
+## Netlify Routing & 404 Prevention
+
+Because this application uses React Router (SPA client-side routing), direct URL visits or page refreshes (e.g. `/about/about-us` or `/contact`) need to be rewritten to `/index.html` with an HTTP `200` status.
+
+This repository handles this in two ways:
+1. **`netlify.toml`** at the project root:
+   ```toml
+   [build]
+     command = "npm run build"
+     publish = "dist"
+
+   [[redirects]]
+     from = "/*"
+     to = "/index.html"
+     status = 200
+   ```
+2. **`public/_redirects`**:
+   ```text
+   /*    /index.html   200
+   ```
+   Vite copies this file directly into `dist/` on build, ensuring SPA redirects work even with manual folder deployments.
+
+---
 
 ## Project Structure
 
 ```text
 DaptaFrontend/
+|-- netlify.toml                    # Netlify build and redirect configuration
 |-- public/                         # Static public assets served by Vite
+|   |-- _redirects                  # Netlify SPA redirect rules (copied to dist)
+|   |-- Images/
+|   |-- ReportPDF/
+|   |-- certificates/
+|   |-- documents/
+|   |-- icons.svg
+|   `-- logo.png
 |-- src/
 |   |-- assets/                     # General bundled assets
-|   |   |-- hero.png
-|   |   |-- react.svg
-|   |   `-- vite.svg
 |   |-- components/
 |   |   |-- About/                  # About section pages and nested layout
-|   |   |   |-- AboutLayout.jsx
-|   |   |   |-- AboutUs.jsx
-|   |   |   |-- FounderNote.jsx
-|   |   |   |-- GovernmentBody.jsx
-|   |   |   |-- LegalDocument.jsx
-|   |   |   |-- OrganizasionalProfit.jsx
-|   |   |   |-- Organogram.jsx
-|   |   |   `-- StrategyAndRoadmap.jsx
-|   |   |-- Activities/             # Activity pages and category pages
-|   |   |   |-- Activities/
-|   |   |   |   |-- DisasterManagement.jsx
-|   |   |   |   |-- EducationAndChildDevelopment.jsx
-|   |   |   |   |-- EnvironmentalSustainability.jsx
-|   |   |   |   |-- HealthAndWellbeing.jsx
-|   |   |   |   |-- NetworkingAndCapacityBuilding.jsx
-|   |   |   |   |-- SustainableManagement.jsx
-|   |   |   |   `-- WomenParticipation.jsx
-|   |   |   `-- ExperienceAndHighlights.jsx
-|   |   |-- Gallery/                # Gallery pages
-|   |   |   |-- PhotoGallery/
-|   |   |   |-- SocialMedia.jsx
-|   |   |   `-- VideoGallery.jsx
-|   |   |-- GetInvolved/            # Donation, partnership, and volunteer pages
+|   |   |-- Activities/             # Activity and highlight pages
+|   |   |-- Gallery/                # Photo and video gallery pages
+|   |   |-- GetInvolved/            # Donation, partnership, volunteer pages
 |   |   |-- Home/                   # Home page sections
-|   |   |-- ReportsAndReflections/  # Report and impact insight pages
-|   |   |-- Contact.jsx
-|   |   |-- Footer.jsx
-|   |   |-- Layout.jsx              # Shared page wrapper with navbar, outlet, footer
-|   |   `-- Navbar.jsx
+|   |   |-- Legal/                  # Privacy policy and terms
+|   |   |-- ReportsAndReflections/  # Reports, reflections, publications
+|   |   |-- Contact.jsx             # Contact page
+|   |   |-- Footer.jsx              # Footer component
+|   |   |-- Layout.jsx              # Shared page wrapper with Navbar, Outlet, Footer
+|   |   `-- Navbar.jsx              # Responsive navigation bar
 |   |-- img/                        # Website image assets
 |   |-- App.css
 |   |-- App.jsx                     # Main route configuration
@@ -98,6 +191,8 @@ DaptaFrontend/
 |-- vite.config.js                  # Vite, React, and Tailwind plugin setup
 `-- README.md
 ```
+
+---
 
 ## Main Routes
 
@@ -131,8 +226,10 @@ Routes are configured in `src/App.jsx` and rendered inside the shared `Layout` c
 | `/gallery/videos` | Video gallery |
 | `/gallery/social` | Social media |
 | `/contact` | Contact page |
+| `/privacy-policy` | Privacy Policy |
+| `/terms-and-conditions` | Terms & Conditions |
 
-Some routes currently render placeholder content until their final page components are connected.
+---
 
 ## Application Flow
 
@@ -142,10 +239,12 @@ Some routes currently render placeholder content until their final page componen
 4. `src/components/Layout.jsx` wraps all pages with the shared `Navbar`, dynamic `Outlet`, and `Footer`.
 5. Page-specific components live under `src/components/` by website section.
 
+---
+
 ## Development Notes
 
 - Add new pages inside the relevant section folder under `src/components/`.
 - Register new routes in `src/App.jsx`.
 - Place reusable layout-level UI in `src/components/`.
-- Place image files in `src/img/` or `src/assets/` depending on how they are imported and used.
+- Place static assets in `public/` or imported assets in `src/assets/`.
 - Keep route paths and navbar links in sync when adding or renaming pages.

@@ -11,7 +11,7 @@ const OrganizasionalProfit = () => {
     },
     { label: "Contact Person", value: "TODO: Verify Contact Person" },
     { label: "Contact No.", value: "+91 9437029124" },
-    { label: "Email Id", value: "dapta@rediffmail.com / dapta@rediffmail.com" },
+    { label: "Email Id", value: "dapta@rediffmail.com" },
     { label: "Website", value: "www.dapta.org / www.dapta.org.in" },
     { label: "Society Regd. No. & Date", value: "TODO: Verify Society Regd. No. & Date" },
     { label: "DARPAN Unique Id & Regd. Date", value: "TODO: Verify DARPAN Unique Id" },
