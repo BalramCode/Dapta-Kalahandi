@@ -50,7 +50,7 @@ function HealthAndWellbeing() {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto my-12 md:my-20 px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-gradient-to-b from-gray-50/50 via-white to-gray-50/50 rounded-3xl border border-gray-100 shadow-sm">
+    <section className="max-w-7xl mx-auto my-6 sm:my-12 md:my-20 px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 bg-gradient-to-b from-gray-50/50 via-white to-gray-50/50 rounded-2xl sm:rounded-3xl border border-gray-100 shadow-sm">
       
       {/* SECTION HEADER */}
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">

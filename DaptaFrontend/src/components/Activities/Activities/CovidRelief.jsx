@@ -27,7 +27,7 @@ function CovidRelief() {
     ];
 
     return (
-        <section className="max-w-7xl mx-auto my-12 md:my-20 px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-white rounded-3xl border border-gray-100 shadow-xl">
+        <section className="max-w-7xl mx-auto my-6 sm:my-12 md:my-20 px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 bg-white rounded-2xl sm:rounded-3xl border border-gray-100 shadow-xl">
 
             {/* HEADER SECTION */}
             <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">

@@ -2,8 +2,8 @@ import React from 'react'
 
 const NetworkingAndCapacityBuilding = () => {
   return (
-    <section className="max-w-7xl my-20  mx-auto px-4 py-12 md:py-16">
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+    <section className="max-w-7xl my-6 sm:my-12 md:my-20 mx-auto px-3.5 sm:px-6 lg:px-8 py-6 sm:py-12 md:py-16">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center bg-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-sm border border-gray-100">
 
         {/* LEFT SIDE: Heading & Body */}
         <div className="flex-1 space-y-4">

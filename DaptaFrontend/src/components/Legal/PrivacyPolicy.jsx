@@ -20,11 +20,11 @@ const PrivacyPolicy = () => {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16 font-sans">
-      <div className="max-w-6xl my-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 font-sans">
+      <div className="max-w-6xl my-6 sm:my-10 mx-auto px-3.5 sm:px-6 lg:px-8">
 
         {/* Page Header Banner */}
-        <div className="bg-white rounded-3xl border border-gray-200/80 p-8 sm:p-12 shadow-sm mb-10 relative overflow-hidden">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-gray-200/80 p-4 sm:p-8 md:p-12 shadow-sm mb-6 sm:mb-10 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-sky-100/60 via-emerald-50/40 to-transparent rounded-bl-full pointer-events-none -z-0" />
 
           <div className="relative z-10 max-w-3xl">
@@ -85,7 +85,7 @@ const PrivacyPolicy = () => {
           </aside>
 
           {/* Legal Document Sections */}
-          <main className="lg:col-span-8 bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-10 shadow-sm space-y-10 text-gray-700 leading-relaxed text-sm sm:text-base">
+          <main className="lg:col-span-8 bg-white rounded-xl sm:rounded-2xl border border-gray-200/80 p-4 sm:p-8 md:p-10 shadow-sm space-y-8 sm:space-y-10 text-gray-700 leading-relaxed text-xs sm:text-base">
 
             {/* 1. Introduction & Scope */}
             <section id="introduction" className="scroll-mt-28 space-y-3">

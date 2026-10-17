@@ -89,11 +89,11 @@ const FinancialReport = () => {
 
   // Helper component to render the document list rows cleanly
   const DocumentGrid = ({ items, downloadPrefix }) => (
-    <div className="grid sm:grid-cols-2 gap-4">
+    <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
       {items.map((item, index) => (
         <div
           key={index}
-          className="bg-white p-5 rounded-xl border border-gray-100 shadow-xs flex items-center justify-between hover:shadow-md hover:border-emerald-200 transition-all duration-200 group"
+          className="bg-white p-3.5 sm:p-5 rounded-xl border border-gray-100 shadow-xs flex items-center justify-between hover:shadow-md hover:border-emerald-200 transition-all duration-200 group"
         >
           <div className="flex items-center gap-4">
             {/* Emerald/Green theme to denote financial tracking/audits */}
@@ -151,11 +151,11 @@ const FinancialReport = () => {
   );
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl my-12 mx-auto px-4">
+    <div className="bg-gray-50 min-h-screen pt-16 sm:pt-24 pb-12 sm:pb-16">
+      <div className="max-w-6xl my-6 sm:my-12 mx-auto px-3.5 sm:px-6 lg:px-8">
 
         {/* DAPTA Header & Subheading */}
-        <div className="text-center md:text-left border-b border-gray-200 pb-8 mb-10">
+        <div className="text-center md:text-left border-b border-gray-200 pb-6 sm:pb-8 mb-6 sm:mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
             DAPTA Documentation
           </span>

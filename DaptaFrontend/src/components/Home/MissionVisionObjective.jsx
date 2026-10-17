@@ -56,7 +56,7 @@ import { Link } from 'react-router-dom';const MissionVisionObjective = () => {
 
   return (
     <div
-      className="relative w-full bg-[#EBF1F5] py-20 md:py-28 flex flex-col items-center justify-center overflow-hidden font-sans border-b-[6px] border-slate-900 transition-all duration-700 ease-in-out"
+      className="relative w-full bg-[#EBF1F5] py-12 sm:py-20 md:py-28 flex flex-col items-center justify-center overflow-hidden font-sans border-b-[6px] border-slate-900 transition-all duration-700 ease-in-out"
       style={{
         boxShadow: activeTab ? `inset 0 0 120px ${currentTab.glowClass}` : 'none'
       }}
@@ -66,27 +66,27 @@ import { Link } from 'react-router-dom';const MissionVisionObjective = () => {
         <div className="w-full h-full rounded-full border-4 border-dashed border-slate-700 animate-[spin_40s_linear_infinite]" />
       </div>
 
-      <div className="max-w-6xl w-full mx-auto px-6 z-10 space-y-16 md:space-y-24">
+      <div className="max-w-6xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 z-10 space-y-10 sm:space-y-16 md:space-y-24">
 
         {/* SECTION 1: CORE FOUNDATIONS (TAB SYSTEM) */}
-        <div className="space-y-10">
-          <div className="text-center space-y-3">
-            <p className="text-xs font-bold tracking-[0.25em] uppercase text-slate-500">Organizational Blueprint</p>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-800">
+        <div className="space-y-6 sm:space-y-10">
+          <div className="text-center space-y-2 sm:space-y-3">
+            <p className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase text-slate-500">Organizational Blueprint</p>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-slate-800">
               What Drives Our Purpose
             </h2>
             <div className="w-16 h-[3px] mx-auto rounded-full transition-colors duration-500" style={{ backgroundColor: currentTab.accentColor }} />
           </div>
 
           {/* Interactive Navigation Triggers */}
-          <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto">
             {tabs.map((tab) => {
               const isSelected = tab.id === activeTab;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-5 py-2.5 rounded-full font-semibold text-sm tracking-wide shadow-sm transition-all duration-300 border ${isSelected
+                  className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm tracking-wide shadow-sm transition-all duration-300 border ${isSelected
                     ? 'text-white border-transparent'
                     : 'bg-white/80 text-slate-600 border-slate-200 hover:bg-white hover:text-slate-800'
                     }`}
@@ -101,34 +101,34 @@ import { Link } from 'react-router-dom';const MissionVisionObjective = () => {
           </div>
 
           {/* Core Text Terminal Showcase */}
-          <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto border-t-8 transition-all duration-500 relative overflow-hidden"
+          <div className="bg-white p-4 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl shadow-xl max-w-4xl mx-auto border-t-6 sm:border-t-8 transition-all duration-500 relative overflow-hidden"
             style={{ borderTopColor: currentTab.accentColor }}>
             <div className="absolute -right-6 -bottom-6 w-24 h-24 rounded-full opacity-5" style={{ backgroundColor: currentTab.accentColor }} />
-            <h3 className="text-2xl font-bold text-slate-800 mb-4 transition-colors duration-300">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3 sm:mb-4 transition-colors duration-300">
               {currentTab.title}
             </h3>
-            <p className="text-slate-900 text-base md:text-lg leading-relaxed font-light transition-all duration-300">
+            <p className="text-slate-900 text-sm sm:text-base md:text-lg leading-relaxed font-light transition-all duration-300">
               {currentTab.text}
             </p>
           </div>
         </div>
 
         {/* SECTION 2: ACTION AREAS WITH RESPONSIVE IMAGES */}
-        <div className="space-y-12">
-          <div className="text-center space-y-3">
-            <p className="text-xs font-bold tracking-[0.25em] uppercase text-slate-500">On-The-Ground Strategy</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800">
+        <div className="space-y-8 sm:space-y-12">
+          <div className="text-center space-y-2 sm:space-y-3">
+            <p className="text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase text-slate-500">On-The-Ground Strategy</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-800">
               Our Action Areas
             </h2>
             <div className="w-16 h-[3px] mx-auto bg-slate-400 rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
             {actionAreas.map((area, index) => (
               <Link 
                 to={area.link} 
                 key={index} 
-                className="block bg-white/90 backdrop-blur-sm rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+                className="block bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-md overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
               >
                 {/* Visual Media Block */}
                 <div className="h-44 w-full overflow-hidden relative bg-slate-200">
@@ -142,16 +142,16 @@ import { Link } from 'react-router-dom';const MissionVisionObjective = () => {
                 </div>
 
                 {/* Content Block */}
-                <div className="p-6 flex flex-col flex-grow space-y-3">
+                <div className="p-4 sm:p-6 flex flex-col flex-grow space-y-2.5 sm:space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="flex items-center justify-center bg-slate-100 text-slate-700 text-xs font-bold w-6 h-6 rounded-full shrink-0 group-hover:bg-slate-800 group-hover:text-white transition-colors duration-300">
                       {index + 1}
                     </span>
-                    <h4 className="font-bold text-slate-800 text-lg tracking-tight group-hover:text-sky-600 transition-colors duration-300">
+                    <h4 className="font-bold text-slate-800 text-base sm:text-lg tracking-tight group-hover:text-sky-600 transition-colors duration-300">
                       {area.title}
                     </h4>
                   </div>
-                  <p className="text-slate-900 text-sm md:text-base leading-relaxed font-light flex-grow">
+                  <p className="text-slate-900 text-xs sm:text-sm md:text-base leading-relaxed font-light flex-grow">
                     {area.desc}
                   </p>
                 </div>

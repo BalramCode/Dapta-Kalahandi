@@ -36,30 +36,30 @@ const LegalDocument = () => {
   ];
 
   return (
-    <div className="w-full bg-gray-50/50 rounded-3xl border border-gray-200/60 p-6 sm:p-8 lg:p-10 transition-all duration-300">
+    <div className="w-full bg-gray-50/50 rounded-2xl sm:rounded-3xl border border-gray-200/60 p-3.5 sm:p-6 lg:p-10 transition-all duration-300">
 
       {/* Decorative Module Header */}
-      <div className="max-w-2xl mb-10">
+      <div className="max-w-2xl mb-6 sm:mb-10">
         <span className="text-[10px] font-extrabold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/50">
           Transparency Registry
         </span>
-        <h2 className="text-3xl font-black text-gray-900 tracking-tight mt-3 mb-2">
+        <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mt-3 mb-2">
           Legal Documents & Governance
         </h2>
-        <p className="text-gray-700 text-sm leading-relaxed">
+        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
           Access public transparency records, verified statutory government registrations, compliance certificates, and operational audits.
         </p>
       </div>
 
       {/* Bento Layout Interactive Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 relative z-10">
         {certificates.map((doc, idx) => {
           const isPdf = doc.type === "PDF";
 
           return (
             <div
               key={idx}
-              className="group relative bg-white border border-gray-200/80 rounded-2xl p-5 shadow-xs hover:shadow-xl hover:shadow-gray-200/40 hover:-translate-y-1.5 hover:border-sky-500/50 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden"
+              className="group relative bg-white border border-gray-200/80 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-xl hover:shadow-gray-200/40 hover:-translate-y-1.5 hover:border-sky-500/50 transition-all duration-300 ease-out flex flex-col justify-between overflow-hidden"
             >
               {/* Subtle upper background radial glow on hover */}
               <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />

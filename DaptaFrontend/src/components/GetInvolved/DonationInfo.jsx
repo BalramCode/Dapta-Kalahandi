@@ -21,43 +21,43 @@ const DonationInfo = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl my-15 mx-auto px-4">
+    <div className="bg-gray-50 min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <div className="max-w-6xl my-6 sm:my-12 mx-auto px-3.5 sm:px-6 lg:px-8">
 
         {/* Module Header */}
-        <div className="text-center md:text-left border-b border-gray-200 pb-8 mb-10">
+        <div className="text-center md:text-left border-b border-gray-200 pb-6 sm:pb-8 mb-6 sm:mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
             Support Our Work
           </span>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 mb-2 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 mb-2 tracking-tight">
             Donation Information
           </h1>
-          <p className="text-gray-600 text-sm md:text-base max-w-2xl leading-relaxed">
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed">
             Your contributions directly fund our grassroot development programs, agricultural interventions,
             and tribal livelihood security frameworks throughout Kalahandi.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-8 items-start">
+        <div className="grid md:grid-cols-12 gap-6 sm:gap-8 items-start">
 
           {/* LEFT PANEL: Bank Account Passbook View (8 Cols) */}
-          <div className="md:col-span-7 bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
+          <div className="md:col-span-7 bg-white rounded-xl sm:rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden">
 
             {/* Passbook Header Banner */}
-            <div className="bg-gradient-to-r from-sky-700 to-sky-800 p-5 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-sky-700 to-sky-800 p-4 sm:p-5 text-white flex items-center justify-between">
               <div>
-                <h2 className="text-lg font-bold tracking-wide">Direct Bank Transfer</h2>
+                <h2 className="text-base sm:text-lg font-bold tracking-wide">Direct Bank Transfer</h2>
                 <p className="text-xs text-sky-100/80 mt-0.5">Support institution via localized remittance</p>
               </div>
               <div className="p-2 rounded-xl bg-white/10 shrink-0">
-                <svg className="w-6 h-6 text-sky-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-sky-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
             </div>
 
             {/* Passbook Details Table Matrix */}
-            <div className="p-6 space-y-4">
+            <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
 
               {/* Account Holder Name */}
               <div className="pb-3.5 border-b border-gray-100 flex justify-between items-start gap-4">
@@ -116,7 +116,7 @@ const DonationInfo = () => {
           <div className="md:col-span-5 space-y-6">
 
             {/* Download Card */}
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-2xl border border-amber-200/70 p-6 shadow-inner">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-xl sm:rounded-2xl border border-amber-200/70 p-4 sm:p-6 shadow-inner">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-700 mb-4">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

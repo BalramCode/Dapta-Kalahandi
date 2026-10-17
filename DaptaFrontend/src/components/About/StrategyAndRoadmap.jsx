@@ -18,28 +18,28 @@ const StrategyAndRoadmap = () => {
       </div>
 
       {/* Grid Layout: Stacks on mobile, splits into 2 columns on medium/large screens */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 lg:gap-12">
 
         {/* MISSION CARD */}
-        <div className="group relative bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between overflow-hidden">
+        <div className="group relative bg-white p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between overflow-hidden">
           {/* Top highlight bar */}
           <div className="absolute top-0 left-0 w-full h-2 bg-sky-500 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100"></div>
           {/* Subtle Background Glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-sky-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Header Icon & Title */}
-            <div className="flex items-center space-x-4">
-              <div className="p-4 rounded-2xl bg-sky-50 text-sky-600 transition-all duration-500 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-110 group-hover:-rotate-3 shadow-sm">
-                <Target size={32} strokeWidth={2} />
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-sky-50 text-sky-600 transition-all duration-500 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-110 group-hover:-rotate-3 shadow-sm">
+                <Target size={28} className="sm:w-8 sm:h-8" strokeWidth={2} />
               </div>
-              <h3 className="text-2xl font-extrabold text-slate-800 tracking-wide uppercase transition-colors duration-300 group-hover:text-sky-600">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-800 tracking-wide uppercase transition-colors duration-300 group-hover:text-sky-600">
                 Mission
               </h3>
             </div>
 
             {/* Statement Content */}
-            <p className="text-slate-600 text-base sm:text-lg leading-[1.8] text-justify font-medium">
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8] text-justify font-medium">
               Dapta believes to work for the community through people’s co-operation and participation in the entire development process.
             </p>
           </div>
@@ -51,13 +51,13 @@ const StrategyAndRoadmap = () => {
         </div>
 
         {/* VISION CARD */}
-        <div className="group relative bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between overflow-hidden">
+        <div className="group relative bg-white p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 flex flex-col justify-between overflow-hidden">
           {/* Top highlight bar */}
           <div className="absolute top-0 left-0 w-full h-2 bg-emerald-500 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100"></div>
           {/* Subtle Background Glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Header Icon & Title */}
             <div className="flex items-center space-x-4">
               <div className="p-4 rounded-2xl bg-emerald-50 text-emerald-600 transition-all duration-500 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 shadow-sm">

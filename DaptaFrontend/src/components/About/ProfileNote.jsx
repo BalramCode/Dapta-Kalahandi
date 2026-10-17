@@ -8,16 +8,16 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
   const isSquare = imageShape === "square";
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <div className="w-full max-w-6xl mx-auto px-1 sm:px-4 md:px-6 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-start">
         
         {/* LEFT COLUMN: Sticky Profile Sidebar */}
-        <div className="lg:col-span-4 flex flex-col items-center text-center lg:sticky lg:top-32 space-y-6 bg-white p-8 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="lg:col-span-4 flex flex-col items-center text-center lg:sticky lg:top-32 space-y-4 sm:space-y-6 bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           {/* Decorative Background Glow */}
-          <div className="absolute inset-0 bg-gradient-to-b from-sky-50/50 to-transparent rounded-3xl -z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-sky-50/50 to-transparent rounded-2xl sm:rounded-3xl -z-10 pointer-events-none" />
           
           {/* Square Image Container (1:1 format) */}
-          <div className={`relative w-44 h-44 sm:w-48 sm:h-48 md:w-52 md:h-52 aspect-square p-1.5 bg-gradient-to-tr from-sky-400 to-emerald-400 shadow-xl group overflow-hidden ${isSquare ? '' : 'rounded-full'}`}>
+          <div className={`relative w-52 h-52 min-[380px]:w-60 min-[380px]:h-60 sm:w-48 sm:h-48 md:w-52 md:h-52 aspect-square p-1.5 bg-gradient-to-tr from-sky-400 to-emerald-400 shadow-xl group overflow-hidden ${isSquare ? '' : 'rounded-full'}`}>
             <div className={`absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none ${isSquare ? '' : 'rounded-full'}`} />
             <img
               src={image || `https://via.placeholder.com/300/e0f2fe/0369a1?text=${encodeURIComponent(designation)}`}
@@ -30,12 +30,12 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
           </div>
 
           {/* Profile Name & Designation */}
-          <div className="space-y-2">
-            <h3 className="text-2xl font-extrabold text-slate-800 tracking-tight">
+          <div className="space-y-1.5 sm:space-y-2">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-800 tracking-tight">
               {name}
             </h3>
-            <div className="inline-flex items-center justify-center px-4 py-1.5 bg-slate-100 rounded-full">
-              <span className="text-sm font-bold tracking-widest uppercase text-sky-600">
+            <div className="inline-flex items-center justify-center px-3.5 py-1 sm:px-4 sm:py-1.5 bg-slate-100 rounded-full">
+              <span className="text-xs sm:text-sm font-bold tracking-widest uppercase text-sky-600">
                 {designation}
               </span>
             </div>
@@ -43,18 +43,18 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
         </div>
 
         {/* RIGHT COLUMN: The Note / Letter */}
-        <div className="lg:col-span-8 bg-white p-8 sm:p-10 md:p-12 rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
+        <div className="lg:col-span-8 bg-white p-4 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
           
           {/* Elegant Quote Icon Overlay */}
-          <Quote className="absolute top-8 left-8 w-16 h-16 text-slate-100 -rotate-6 pointer-events-none select-none" />
+          <Quote className="absolute top-4 left-4 sm:top-8 sm:left-8 w-10 h-10 sm:w-16 sm:h-16 text-slate-100 -rotate-6 pointer-events-none select-none" />
           
-          <div className="relative z-10 space-y-6 text-slate-700 text-base md:text-lg leading-[1.8] font-normal text-justify">
+          <div className="relative z-10 space-y-4 sm:space-y-6 text-slate-700 text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8] font-normal text-justify">
             
             {alwaysVisibleParagraphs.map((para, idx) => {
               if (idx === 0) {
                 // Drop-cap for the very first paragraph for a professional letter feel
                 return (
-                  <p key={idx} className="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-sky-500 first-letter:mr-2 first-letter:float-left">
+                  <p key={idx} className="first-letter:text-4xl sm:first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-sky-500 first-letter:mr-2 first-letter:float-left">
                     {para}
                   </p>
                 );
@@ -62,7 +62,7 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
               return <p key={idx}>{para}</p>;
             })}
             
-            <div className={`space-y-6 overflow-hidden transition-all duration-700 ease-in-out ${isExpanded ? 'max-h-[2500px] opacity-100 mt-6' : 'max-h-0 sm:max-h-[2500px] opacity-0 sm:opacity-100 sm:mt-6'}`}>
+            <div className={`space-y-4 sm:space-y-6 overflow-hidden transition-all duration-700 ease-in-out ${isExpanded ? 'max-h-[2500px] opacity-100 mt-4 sm:mt-6' : 'max-h-0 sm:max-h-[2500px] opacity-0 sm:opacity-100 sm:mt-6'}`}>
               {collapsibleParagraphs.map((para, idx) => (
                 <p key={idx}>{para}</p>
               ))}
@@ -71,10 +71,10 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
 
           {/* Mobile Read More Toggle */}
           {collapsibleParagraphs.length > 0 && (
-            <div className="sm:hidden flex justify-center mt-8 pt-8 border-t border-slate-100">
+            <div className="sm:hidden flex justify-center mt-6 pt-6 border-t border-slate-100">
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center justify-center w-full py-3 px-6 bg-slate-50 hover:bg-sky-50 text-sky-600 font-bold text-sm uppercase tracking-widest rounded-xl border border-slate-200 transition-colors duration-300 focus:outline-none"
+                className="flex items-center justify-center w-full py-2.5 px-4 bg-slate-50 hover:bg-sky-50 text-sky-600 font-bold text-xs uppercase tracking-widest rounded-xl border border-slate-200 transition-colors duration-300 focus:outline-none"
               >
                 {isExpanded ? 'Read Less' : 'Read Full Message'}
               </button>
@@ -82,12 +82,12 @@ const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs,
           )}
 
           {/* Signature Block at bottom right */}
-          <div className="mt-12 pt-8 border-t border-dashed border-slate-200 flex flex-col items-end text-right">
-            <span className="font-serif italic text-xl text-slate-400 mb-1">Sincerely,</span>
-            <h4 className="text-slate-900 font-extrabold text-xl tracking-tight">
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-dashed border-slate-200 flex flex-col items-end text-right">
+            <span className="font-serif italic text-lg sm:text-xl text-slate-400 mb-1">Sincerely,</span>
+            <h4 className="text-slate-900 font-extrabold text-lg sm:text-xl tracking-tight">
               {name}
             </h4>
-            <p className="text-sm font-bold text-sky-600 tracking-wider uppercase mt-1">
+            <p className="text-xs sm:text-sm font-bold text-sky-600 tracking-wider uppercase mt-0.5 sm:mt-1">
               {designation}
             </p>
           </div>

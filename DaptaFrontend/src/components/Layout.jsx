@@ -6,12 +6,12 @@ import Footer from './Footer';
 
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white w-full overflow-x-hidden">
       {/* Permanent Header */}
       <Navbar />
       
       {/* Dynamic Content Core Context */}
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         <Outlet />
       </main>
       

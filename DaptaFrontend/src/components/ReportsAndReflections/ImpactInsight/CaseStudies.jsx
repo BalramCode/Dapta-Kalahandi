@@ -2,11 +2,11 @@ import React from 'react';
 
 const CaseStudies = () => {
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl my-15 mx-auto px-4">
+    <div className="bg-gray-50 min-h-screen pt-16 sm:pt-24 pb-12 sm:pb-16">
+      <div className="max-w-6xl my-6 sm:my-12 mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Header Block Consistent with Reports Modules */}
-        <div className="text-center md:text-left border-b border-gray-200 pb-8 mb-10">
+        <div className="text-center md:text-left border-b border-gray-200 pb-6 sm:pb-8 mb-6 sm:mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
             Impact Stories
           </span>

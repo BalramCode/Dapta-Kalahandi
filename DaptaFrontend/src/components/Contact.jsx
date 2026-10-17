@@ -28,28 +28,28 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl my-12 mx-auto px-4">
+    <div className="bg-gray-50 min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <div className="max-w-6xl my-6 sm:my-12 mx-auto px-3.5 sm:px-6 lg:px-8">
 
         {/* Module Header */}
-        <div className="text-center md:text-left border-b border-gray-200 pb-8 mb-10">
+        <div className="text-center md:text-left border-b border-gray-200 pb-6 sm:pb-8 mb-6 sm:mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
             Get In Touch
           </span>
-          <h1 className="text-3xl md:text-4xl font-black text-gray-900 mt-3 mb-2 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mt-3 mb-2 tracking-tight">
             Contact Us
           </h1>
-          <p className="text-gray-600 text-sm md:text-base max-w-2xl leading-relaxed">
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl leading-relaxed">
             Have queries about our projects, community training programs, or partner channels?
             Reach out through our administrative coordinates or drop an inquiry file below.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-start">
 
           {/* LEFT CHANNELS: Contact Forms Block (7 Cols) */}
-          <div className="lg:col-span-7 bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-8 shadow-xs">
-            <h2 className="text-xl font-bold text-gray-900 tracking-tight mb-5">Contact Form</h2>
+          <div className="lg:col-span-7 bg-white rounded-xl sm:rounded-2xl border border-gray-200/80 p-4 sm:p-8 shadow-xs">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 tracking-tight mb-4 sm:mb-5">Contact Form</h2>
 
             {isSubmitted ? (
               <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center text-emerald-800">
@@ -135,7 +135,7 @@ const Contact = () => {
           <div className="lg:col-span-5 space-y-6">
 
             {/* Quick Connect Core Metrics Links */}
-            <div className="bg-white rounded-2xl border border-gray-200/80 p-5 space-y-4 shadow-xs">
+            <div className="bg-white rounded-xl sm:rounded-2xl border border-gray-200/80 p-4 sm:p-5 space-y-4 shadow-xs">
 
               {/* Voice Helpline Connection */}
               <div className="flex items-start gap-3.5">

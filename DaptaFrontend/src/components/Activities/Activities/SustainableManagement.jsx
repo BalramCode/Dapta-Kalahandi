@@ -57,7 +57,7 @@ const SustainableManagement = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto my-12 md:my-20 px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/30 to-white rounded-3xl border border-gray-100/80 shadow-xs">
+    <section className="max-w-7xl mx-auto my-6 sm:my-12 md:my-20 px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/30 to-white rounded-2xl sm:rounded-3xl border border-gray-100/80 shadow-xs">
       
       {/* SECTION HEADER BLOCK */}
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 select-none">

@@ -36,15 +36,15 @@ const OrganizasionalProfit = () => {
       </div>
 
       {/* Styled Key-Value Grid (Simulated Responsive Table) */}
-      <div className="border border-gray-200 rounded-md overflow-hidden shadow-sm bg-white">
+      <div className="border border-gray-200 rounded-lg sm:rounded-md overflow-hidden shadow-sm bg-white">
         {profileDetails.map((item, index) => (
           <div
             key={index}
-            className={`grid grid-cols-1 md:grid-cols-3 gap-2 p-4 border-b last:border-b-0 border-gray-100 items-baseline text-sm transition-colors hover:bg-gray-50/50 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'
+            className={`grid grid-cols-1 md:grid-cols-3 gap-1 sm:gap-2 p-3 sm:p-4 border-b last:border-b-0 border-gray-100 items-baseline text-xs sm:text-sm transition-colors hover:bg-gray-50/50 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'
               }`}
           >
-            {/* Field Label Label */}
-            <div className="font-semibold text-gray-700 md:col-span-1 tracking-wide">
+            {/* Field Label */}
+            <div className="font-semibold text-gray-800 md:col-span-1 tracking-wide">
               {item.label}
             </div>
 

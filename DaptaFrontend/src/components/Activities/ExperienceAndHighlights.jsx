@@ -83,11 +83,11 @@ const ExperienceAndHighlights = () => {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 min-h-screen pt-16 sm:pt-24 pb-12 sm:pb-16">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* EXECUTIVE SUMMARY HEADER */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-20 select-none">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-16 md:mb-20 select-none">
           <div className="inline-flex items-center space-x-2 bg-amber-50 border border-amber-200/60 px-3 py-1 rounded-full">
             <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
             <span className="text-[10px] font-bold uppercase tracking-widest text-amber-800">
@@ -104,9 +104,9 @@ const ExperienceAndHighlights = () => {
         </div>
 
         {/* COMPREHENSIVE EXPERIENTIAL TIMELINE */}
-        <div className="relative border-l border-gray-200 ml-2 sm:ml-6 md:ml-32 space-y-16">
+        <div className="relative border-l border-gray-200 ml-1 sm:ml-6 md:ml-32 space-y-10 sm:space-y-16">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative group pl-6 sm:pl-8">
+            <div key={index} className="relative group pl-3.5 sm:pl-8">
               
               {/* Floating Chronological Date Box Side-Anchored */}
               <div className="absolute -left-6 sm:-left-8 md:-left-[152px] top-1.5 md:w-28 text-left md:text-right hidden md:block">
@@ -128,7 +128,7 @@ const ExperienceAndHighlights = () => {
                 <div className={`w-full h-1 bg-gradient-to-r ${exp.accentClass}`}></div>
 
                 {/* Internal Card Body */}
-                <div className="p-6 sm:p-8 space-y-5">
+                <div className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-5">
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div className="space-y-1">
                       {/* Mobile-Only Date Tag */}
@@ -188,7 +188,7 @@ const ExperienceAndHighlights = () => {
                 </div>
 
                 {/* Institutional Ownership Footer Frame */}
-                <div className={`px-6 sm:px-8 py-3.5 bg-gray-50 border-t border-gray-100 flex items-center justify-between gap-4 text-[11px] font-semibold text-gray-500`}>
+                <div className={`px-4 sm:px-8 py-3 sm:py-3.5 bg-gray-50 border-t border-gray-100 flex items-center justify-between gap-4 text-[11px] font-semibold text-gray-500`}>
                   <div className="flex items-center space-x-1.5 truncate max-w-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-lime-500 flex-shrink-0"></span>
                     <span className="italic truncate">{exp.sponsorship}</span>

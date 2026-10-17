@@ -61,37 +61,37 @@ const DaptaMarch = () => {
 
   return (
     <section 
-      className="relative w-full py-20 md:py-28 bg-cover bg-center overflow-hidden flex flex-col items-center justify-center font-sans"
+      className="relative w-full py-12 sm:py-20 md:py-28 bg-cover bg-center overflow-hidden flex flex-col items-center justify-center font-sans"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop')`
       }}
     >
-      <div className="max-w-6xl w-full mx-auto px-6 text-center z-10 space-y-12">
+      <div className="max-w-6xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 text-center z-10 space-y-8 sm:space-y-12">
         
         {/* Section Header with crisp pixel spacing */}
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-wider text-[#00b4d8] uppercase drop-shadow-md">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-wider text-[#00b4d8] uppercase drop-shadow-md">
           Our Concern
         </h2>
 
         {/* 3-Column Responsive Grid Blocks */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
           {concerns.map((item, idx) => (
             <div 
               key={idx} 
-              className="group bg-white px-6 py-12 rounded-none flex flex-col items-center text-center justify-start min-h-[280px] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-1.5 cursor-pointer"
+              className="group bg-white px-4 py-8 sm:px-6 sm:py-12 rounded-xl sm:rounded-none flex flex-col items-center text-center justify-start min-h-[240px] sm:min-h-[280px] border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 ease-out hover:-translate-y-1.5 cursor-pointer"
             >
               {/* Top Central Icon Placement Container with Micro-Interactivity */}
-              <div className="mb-6 flex items-center justify-center h-16 w-16 bg-slate-50 rounded-full group-hover:bg-sky-50 transition-colors duration-300">
+              <div className="mb-4 sm:mb-6 flex items-center justify-center h-14 w-14 sm:h-16 sm:w-16 bg-slate-50 rounded-full group-hover:bg-sky-50 transition-colors duration-300">
                 {item.icon}
               </div>
 
               {/* Exact Green Subsection Heading */}
-              <h3 className="text-lg font-extrabold text-[#7cb524] tracking-wide mb-3 uppercase transition-colors duration-300 group-hover:text-[#6aa21e]">
+              <h3 className="text-base sm:text-lg font-extrabold text-[#7cb524] tracking-wide mb-2 sm:mb-3 uppercase transition-colors duration-300 group-hover:text-[#6aa21e]">
                 {item.title}
               </h3>
 
               {/* Lowercase Descriptive Sub-text */}
-              <p className="text-gray-600 text-[14px] md:text-[14.5px] leading-relaxed max-w-xs font-normal transition-colors duration-300 group-hover:text-gray-900">
+              <p className="text-gray-600 text-xs sm:text-[14px] md:text-[14.5px] leading-relaxed max-w-xs font-normal transition-colors duration-300 group-hover:text-gray-900">
                 {item.desc}
               </p>
             </div>

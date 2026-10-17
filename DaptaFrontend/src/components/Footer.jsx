@@ -8,13 +8,13 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative text-white bg-cover bg-center font-sans pt-16 pb-6 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="relative text-white bg-cover bg-center font-sans pt-12 sm:pt-16 pb-6 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(rgba(18, 24, 12, 0.85), rgba(18, 24, 12, 0.9)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=1200')`
       }}
     >
       {/* Upper Content Section */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
 
         {/* Column 1: About */}
         <div>

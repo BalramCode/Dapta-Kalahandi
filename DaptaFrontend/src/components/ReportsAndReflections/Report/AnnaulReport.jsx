@@ -66,10 +66,10 @@ const AnnualReport = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-16">
-      <div className="max-w-6xl my-15 mx-auto px-4">
+    <div className="bg-gray-50 min-h-screen pt-16 sm:pt-24 pb-12 sm:pb-16">
+      <div className="max-w-6xl my-6 sm:my-12 mx-auto px-3.5 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center md:text-left border-b border-gray-200 pb-8 mb-10">
+        <div className="text-center md:text-left border-b border-gray-200 pb-6 sm:pb-8 mb-6 sm:mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
             DAPTA Documentation
           </span>
@@ -86,7 +86,7 @@ const AnnualReport = () => {
         </div>
 
         {/* Reports Grid */}
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
           {reports.map((report) => {
             const isDocx = report.url.toLowerCase().endsWith(".docx");
             const targetUrl = getViewUrl(report.url);
@@ -97,7 +97,7 @@ const AnnualReport = () => {
                 href={targetUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md hover:border-sky-200 transition-all duration-200 group text-left cursor-pointer"
+                className="bg-white p-3.5 sm:p-5 rounded-xl border border-gray-100 shadow-sm flex items-center justify-between hover:shadow-md hover:border-sky-200 transition-all duration-200 group text-left cursor-pointer"
                 title={`Open and View Report for ${report.year}`}
               >
                 <div className="flex items-center gap-4">
