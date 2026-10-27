@@ -172,7 +172,7 @@ DaptaFrontend/
 |   |-- certificates/
 |   |-- documents/
 |   |-- icons.svg
-|   |-- logo.png                    # Official DAPTA public logo & favicon source
+|   |-- https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018440/daptaLogo1_pyyjio.jpg                   # Official DAPTA public logo & favicon source
 |   |-- robots.txt                  # Search engine crawler instructions
 |   `-- sitemap.xml                 # XML sitemap covering all 35 public routes
 |-- scripts/

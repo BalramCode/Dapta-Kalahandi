@@ -4,7 +4,7 @@ export const DEFAULT_SEO = {
   title: "DAPTA Kalahandi | Development Agency for Poor and Tribal Awakening",
   description: "Development Agency for Poor and Tribal Awakening (DAPTA) is a voluntary organisation empowering tribal, Dalit, and marginalized communities in Kalahandi District, Odisha through healthcare, education, women empowerment, and sustainable livelihoods.",
   ogType: "website",
-  image: "/logo.png",
+  image: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018440/daptaLogo1_pyyjio.jpg",
   imageAlt: "DAPTA - Development Agency for Poor and Tribal Awakening Logo"
 };
 

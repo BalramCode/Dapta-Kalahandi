@@ -173,7 +173,7 @@ function Navbar() {
                     <img
                         className={`border border-gray-200 rounded-full object-cover shadow-sm transition-all duration-300 ${isScrolled ? 'h-12 w-12' : 'h-16 w-16 md:h-20 md:w-20'
                             }`}
-                        src="/logo.png"
+                        src="https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018440/daptaLogo1_pyyjio.jpg"
                         alt="DAPTA - Development Agency for Poor and Tribal Awakening logo"
                     />
                     <p className={`font-extrabold tracking-wider text-gray-800 transition-all duration-300 ${isScrolled ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'
