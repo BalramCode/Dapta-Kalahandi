@@ -9,15 +9,20 @@ const Events = () => {
 
   const openLightbox = (eventIndex, imageIndex) => {
     setLightboxState({ isOpen: true, eventIndex, imageIndex });
-    document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
     setLightboxState(prev => ({ ...prev, isOpen: false }));
-    setTimeout(() => {
-      document.body.style.overflow = 'unset';
-    }, 300);
   };
+
+  useEffect(() => {
+    if (lightboxState.isOpen) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [lightboxState.isOpen]);
 
   const nextImage = (e) => {
     e.stopPropagation();

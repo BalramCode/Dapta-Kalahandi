@@ -29,17 +29,25 @@ npm install
 npm run dev
 ```
 
-### 3. Build for production
+### 3. Build for production (includes static route prerendering)
 ```bash
 npm run build
 ```
+This builds the client production bundle, compiles the server entry, prerenders all 35 public routes into `dist/<route>/index.html` with route-specific metadata and static HTML for search engines and link preview crawlers, and cleans up temporary build artifacts.
 
-### 4. Preview production build locally
+### 4. Generate or update sitemap with production domain
+```bash
+npm run sitemap
+# Or with explicit production domain:
+node scripts/generate-sitemap.js https://www.dapta.org
+```
+
+### 5. Preview production build locally
 ```bash
 npm run preview
 ```
 
-### 5. Run lint checks
+### 6. Run lint checks
 ```bash
 npm run lint
 ```
@@ -164,7 +172,12 @@ DaptaFrontend/
 |   |-- certificates/
 |   |-- documents/
 |   |-- icons.svg
-|   `-- logo.png
+|   |-- logo.png                    # Official DAPTA public logo & favicon source
+|   |-- robots.txt                  # Search engine crawler instructions
+|   `-- sitemap.xml                 # XML sitemap covering all 35 public routes
+|-- scripts/
+|   |-- generate-sitemap.js         # Configurable sitemap generator
+|   `-- prerender.js                # Build-time static HTML & metadata prerenderer
 |-- src/
 |   |-- assets/                     # General bundled assets
 |   |-- components/
@@ -178,19 +191,48 @@ DaptaFrontend/
 |   |   |-- Contact.jsx             # Contact page
 |   |   |-- Footer.jsx              # Footer component
 |   |   |-- Layout.jsx              # Shared page wrapper with Navbar, Outlet, Footer
-|   |   `-- Navbar.jsx              # Responsive navigation bar
+|   |   |-- Navbar.jsx              # Responsive navigation bar
+|   |   `-- SEO.jsx                 # Client-side dynamic metadata synchronizer
 |   |-- img/                        # Website image assets
+|   |-- seo/
+|   |   `-- routesSeo.js            # Central metadata dictionary for all public routes
 |   |-- App.css
 |   |-- App.jsx                     # Main route configuration
+|   |-- entry-server.jsx            # Server entry for build-time static prerendering
 |   |-- index.css
 |   `-- main.jsx                    # React app entry point
 |-- eslint.config.js                # ESLint configuration
-|-- index.html                      # Vite HTML entry file
+|-- index.html                      # Vite HTML entry file with default OG & Schema
 |-- package.json                    # Scripts and dependencies
 |-- package-lock.json
 |-- vite.config.js                  # Vite, React, and Tailwind plugin setup
 `-- README.md
 ```
+
+---
+
+## SEO & Prerendering Architecture
+
+1. **Pre-rendered Static HTML**:
+   During `npm run build`, Vite builds the production bundle and an SSR bundle (`src/entry-server.jsx`), then `scripts/prerender.js` renders all 35 public routes into static HTML files under `dist/<route>/index.html`.
+   - Social media and link-preview crawlers (Facebook, LinkedIn, Twitter/X, WhatsApp, Slack, Telegram) do not execute JavaScript; they receive fully rendered static HTML with page-specific titles, descriptions, and Open Graph / Twitter Card tags.
+   - Search engines (Googlebot, Bingbot) get immediate full-text HTML content for fast indexation.
+
+2. **Client-Side Metadata Synchronizer (`src/components/SEO.jsx`)**:
+   When users navigate between pages within the React SPA, `<SEO />` in `Layout.jsx` dynamically updates `document.title` and meta tags using `src/seo/routesSeo.js`.
+
+3. **Verified Organization Structured Data**:
+   `index.html` embeds Schema.org JSON-LD structured data for the NGO using verified repository details (name, founding year 1989, headquarters in Bhawanipatna, phone, email, and social profiles).
+
+4. **Sitemap & Robots**:
+   - `public/robots.txt` instructs search crawlers on allowed paths and disallows private verification paths.
+   - `scripts/generate-sitemap.js` generates `sitemap.xml` for all 35 public routes. Once the production domain is confirmed, run:
+     ```bash
+     node scripts/generate-sitemap.js https://<production-domain>
+     ```
+
+5. **Netlify Deployment Compatibility**:
+   Netlify serves existing static pre-rendered route files first, falling back to `/index.html` via `netlify.toml` and `public/_redirects` for dynamic routes like `/verify/:token`.
 
 ---
 

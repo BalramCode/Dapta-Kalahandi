@@ -55,9 +55,9 @@ function EducationAndChildDevelopment() {
             Advocacy & Outreach
           </span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+        <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
           Rights, Justice & Education
-        </h2>
+        </h1>
         <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
           DAPTA actively champions human rights, political inclusion, and protective childhood education to safeguard communities from systemic inequities.
         </p>

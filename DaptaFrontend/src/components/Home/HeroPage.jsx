@@ -13,6 +13,13 @@ function Hero() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const timerRef = useRef(null);
 
+  const handleNext = () => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setTimeout(() => setIsTransitioning(false), 1000);
+  };
+
   const resetAutoPlay = () => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
@@ -25,14 +32,8 @@ function Hero() {
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
-
-  const handleNext = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-    setTimeout(() => setIsTransitioning(false), 1000);
-  };
 
   const handlePrev = () => {
     if (isTransitioning) return;

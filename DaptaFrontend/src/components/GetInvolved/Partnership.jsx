@@ -1,9 +1,23 @@
-import React from 'react'
+import React from 'react';
 
 const Partnership = () => {
   return (
-    <div>Partnership</div>
-  )
-}
+    <div className="bg-gray-50 min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 font-sans">
+      <div className="max-w-4xl my-6 sm:my-10 mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-2xl border border-gray-200/80 p-6 sm:p-10 shadow-sm">
+          <span className="text-xs font-bold uppercase tracking-widest text-sky-600 bg-sky-50 px-3 py-1 rounded-full">
+            Collaborate With Us
+          </span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mt-3 mb-4 tracking-tight">
+            Partnership Opportunities
+          </h1>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            DAPTA actively partners with government agencies, civil society organisations, corporate CSR programs, and philanthropic foundations to build sustainable, community-led impact across Kalahandi District.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Partnership
+export default Partnership;

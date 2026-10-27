@@ -67,9 +67,9 @@ function WomenParticipation() {
             Rights & Agency
           </span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+        <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
           Women Empowerment
-        </h2>
+        </h1>
         <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
           DAPTA is strictly dedicated to fostering self-reliance, physical safety, and political leadership for women across marginalized communities.
         </p>

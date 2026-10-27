@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Quote } from 'lucide-react';
 
-const ProfileNote = ({ title, name, designation, image, alwaysVisibleParagraphs, collapsibleParagraphs, imageShape = "square" }) => {
+const ProfileNote = ({ name, designation, image, alwaysVisibleParagraphs, collapsibleParagraphs, imageShape = "square" }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const isSquare = imageShape === "square";

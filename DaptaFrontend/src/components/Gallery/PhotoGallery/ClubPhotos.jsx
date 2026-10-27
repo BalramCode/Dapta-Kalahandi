@@ -39,13 +39,20 @@ const ClubPhotos = () => {
 
   const openLightbox = (index) => {
     setLightboxIndex(index);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
     setLightboxIndex(null);
-    document.body.style.overflow = 'unset';
   };
+
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [lightboxIndex]);
 
   const nextPhoto = (e) => {
     e?.stopPropagation();

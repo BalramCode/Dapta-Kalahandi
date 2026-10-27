@@ -58,7 +58,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 const Placeholder = ({ title }) => (
   <div className="p-8 pt-24">
-    <h2>{title} Page Coming Soon</h2>
+    <h1 className="text-2xl font-bold text-gray-800">{title} Page Coming Soon</h1>
   </div>
 );
 

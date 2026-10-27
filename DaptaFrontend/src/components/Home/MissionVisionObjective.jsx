@@ -34,21 +34,21 @@ import { Link } from 'react-router-dom';const MissionVisionObjective = () => {
     {
       title: "Relief & Welfare Foundations",
       desc: "DAPTA emerged and developed during human crises with a strong relief and welfare approach.",
-      img: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018409/obj1_zgsxyd.jpg?auto=format&fit=crop&q=80&w=400",
+      img: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1793075271/8a52aea5-0a32-4f1c-b823-9adfaeda7400.png?auto=format&fit=crop&q=80&w=400",
       alt: "Community support and welfare distribution",
       link: "/activities/all/covid-relief"
     },
     {
       title: "Education & Healthcare",
       desc: "We started our deep-rooted grassroot approach focusing extensively on local healthcare initiatives and rural education systems.",
-      img: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018409/obj2_e9jif9.jpg?auto=format&fit=crop&q=80&w=400",
+      img: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1793075226/2a439090-e1e7-4f08-979c-ea5626459464.png?auto=format&fit=crop&q=80&w=400",
       alt: "Children studying in a rural community school",
       link: "/activities/all/education"
     },
     {
       title: "Empowerment & Sustainability",
       desc: "Gradually expanded into modern women empowerment frameworks, food security programs, and long-term sustainable ecosystem developments.",
-      img: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018408/obj3_kzbw0z.jpg?auto=format&fit=crop&q=80&w=400",
+      img: "https://res.cloudinary.com/ddptxvwrj/image/upload/v1793075256/d440f691-12d2-49b7-8142-12e38f364f3e.png?auto=format&fit=crop&q=80&w=400",
       alt: "Sustainable local farming and community empowerment",
       link: "/activities/all/sustainable-livelihoods"
     }

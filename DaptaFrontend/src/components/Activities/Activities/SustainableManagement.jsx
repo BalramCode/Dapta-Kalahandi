@@ -67,9 +67,9 @@ const SustainableManagement = () => {
             Ecology & Economy
           </span>
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight">
           Livelihood Promotion & Natural Resource Management
-        </h2>
+        </h1>
         <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
           DAPTA combines resource conservation with economic security, transforming degraded ecosystems into resilient hubs of micro-enterprise.
         </p>

@@ -7,7 +7,7 @@ const Organogram = () => {
       <div className="w-full overflow-x-auto flex justify-center">
         <img 
           src={organogram} 
-          alt="DAPTA Organogram" 
+          alt="DAPTA Organizational Hierarchy and Leadership Structure Organogram" 
           className="max-w-full h-auto object-contain rounded-xl"
         />
       </div>

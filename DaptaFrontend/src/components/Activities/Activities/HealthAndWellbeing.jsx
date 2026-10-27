@@ -58,9 +58,9 @@ function HealthAndWellbeing() {
           <span className="w-2.5 h-2.5 bg-lime-500 inline-block rounded-full animate-ping"></span>
           <span className="text-xs font-bold uppercase tracking-widest text-lime-600 bg-lime-50 px-3 py-1 rounded-full">Our Core Priority</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+        <h1 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
           Health & Wellbeing
-        </h2>
+        </h1>
         <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
           Health Hazards are a prime issue DAPTA is dedicated to addressing. We combine wide-reaching preventive healthcare fields with targeted field operations.
         </p>

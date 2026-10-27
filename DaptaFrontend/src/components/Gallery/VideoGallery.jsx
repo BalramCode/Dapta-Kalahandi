@@ -53,14 +53,12 @@ const VideoGallery = () => {
   const triggerPlayer = (url, title) => {
     setActiveVideoUrl(url);
     setActiveVideoTitle(title);
-    document.body.style.overflow = 'hidden';
   };
 
   // Safe reset routine closing out video instances
   const terminatePlayer = () => {
     setActiveVideoUrl(null);
     setActiveVideoTitle("");
-    document.body.style.overflow = 'unset';
   };
 
   // Handle keyboard escape key navigation
@@ -71,6 +69,7 @@ const VideoGallery = () => {
       }
     };
     if (activeVideoUrl) {
+      document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => {

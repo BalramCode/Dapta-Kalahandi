@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function DaptaCovid() {
-  // Interactive state to highlight milestones/pillars
-  const [activeTab, setActiveTab] = useState(0);
-
-  const pillars = [
-    { title: "Just Society", desc: "Establishing equality, citizen voice, and deep-rooted community advocacy." },
-    { title: "Sustainable Living", desc: "Maximizing local available resources safely to protect climate and ecology." },
-    { title: "Human Dignity", desc: "Ensuring individual self-respect, female empowerment, and lasting livelihood." }
-  ];
+  const activeTab = 0;
 
   // Placeholder Unsplash image mapping to a community training/social theme
   const heroImgFallback = "https://res.cloudinary.com/ddptxvwrj/image/upload/v1781018410/gallery9_e4r5n8.png?q=80&w=1200&auto=format&fit=crop";

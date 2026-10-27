@@ -11,9 +11,9 @@ const NetworkingAndCapacityBuilding = () => {
             Our Initiatives
           </span> */}
 
-          <h2 className="text-2xl md:text-3xl font-extrabold text-sky-500 tracking-tight leading-snug">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-sky-500 tracking-tight leading-snug">
             Facilitation of Individual and Community FRA Claims – MJJY, Homestead Land through Mo Jami Mo Diha – with a Focus on Women’s Rights
-          </h2>
+          </h1>
 
           <div className="text-gray-600 text-sm md:text-base leading-relaxed space-y-4 font-medium">
             <p>
@@ -53,7 +53,7 @@ const NetworkingAndCapacityBuilding = () => {
           <div className="relative group overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] lg:aspect-square shadow-inner border border-gray-200">
             <img
               src="/img/hwc-management.jpg" // Replace with your actual image path from src/img/
-              alt="Health and Wellness Centre Management"
+              alt="Civil society network facilitation and tribal land rights advocacy"
               className="w-full h-full object-cover transform duration-500 group-hover:scale-105"
               onError={(e) => {
                 e.target.src = "https://images.unsplash.com/photo-1584515933487-780216b26b4d?q=80&w=600"; // Optional fallback fallback image
@@ -115,7 +115,7 @@ const NetworkingAndCapacityBuilding = () => {
           <div className="relative group overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] lg:aspect-square shadow-inner border border-gray-200">
             <img
               src="/img/hwc-management.jpg" // Replace with your actual image path from src/img/
-              alt="Health and Wellness Centre Management"
+              alt="Capacity building workshop for Community Forest Resource management"
               className="w-full h-full object-cover transform duration-500 group-hover:scale-105"
               onError={(e) => {
                 e.target.src = "https://images.unsplash.com/photo-1584515933487-780216b26b4d?q=80&w=600"; // Optional fallback fallback image
@@ -177,7 +177,7 @@ const NetworkingAndCapacityBuilding = () => {
           <div className="relative group overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] lg:aspect-square shadow-inner border border-gray-200">
             <img
               src="/img/hwc-management.jpg" // Replace with your actual image path from src/img/
-              alt="Health and Wellness Centre Management"
+              alt="Grassroots capacity building for elected women representatives"
               className="w-full h-full object-cover transform duration-500 group-hover:scale-105"
               onError={(e) => {
                 e.target.src = "https://images.unsplash.com/photo-1584515933487-780216b26b4d?q=80&w=600"; // Optional fallback fallback image

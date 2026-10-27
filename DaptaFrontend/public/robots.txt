@@ -1,0 +1,9 @@
+# Robots.txt for DAPTA Kalahandi
+User-agent: *
+Allow: /
+
+# Disallow internal verification endpoints
+Disallow: /verify/
+
+# Sitemap location: uncomment and set to the confirmed production domain
+# Sitemap: https://<PRODUCTION_DOMAIN>/sitemap.xml

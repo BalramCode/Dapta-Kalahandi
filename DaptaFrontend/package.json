@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.js && node -e \"require('fs').rmSync('dist-ssr', { recursive: true, force: true })\"",
+    "build:client": "vite build",
+    "build:prerender": "vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.js && node -e \"require('fs').rmSync('dist-ssr', { recursive: true, force: true })\"",
+    "sitemap": "node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },

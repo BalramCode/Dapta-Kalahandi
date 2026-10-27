@@ -51,9 +51,10 @@ const AnnualReport = () => {
 
     // Detect if running on localhost or a local IP
     const isLocal =
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1" ||
-      window.location.hostname.startsWith("192.168.");
+      typeof window !== 'undefined' &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname.startsWith("192.168."));
 
     if (isLocal) {
       // Local fall-back: Opens cleanly in a new tab without throwing a broken 3rd-party viewer screen
@@ -61,7 +62,8 @@ const AnnualReport = () => {
     }
 
     // Production: Seamlessly pipes the live URL into the Microsoft Office Viewer
-    const absoluteUrl = window.location.origin + fileUrl;
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const absoluteUrl = origin + fileUrl;
     return `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}`;
   };
 

@@ -7,16 +7,23 @@ const AwardAndCertifications = () => {
   const openModal = (cert) => {
     setSelectedImage(cert);
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setTimeout(() => {
       setSelectedImage(null);
-      document.body.style.overflow = 'unset';
     }, 300);
   };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [isModalOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
